@@ -2,6 +2,9 @@
 import ApartmentCard from './ApartmentCard.astro';
 import { apartments, getAmenities } from '../../data/apartments';
 import { t, type Locale } from '../../i18n/utils';
+import chambre1Img from '../../assets/images/apartments/chambre1.png';
+import chambre2Img from '../../assets/images/apartments/chambre2.png';
+import chambre3Img from '../../assets/images/apartments/chambre3.png';
 
 interface Props {
   locale: Locale;
@@ -14,6 +17,11 @@ const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chNam
 const subtitleKeys = ['home.config1chSubtitle', 'home.config2chSubtitle', 'home.config3chSubtitle'];
 const noteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNote'];
 const priceUnit = t(locale, 'labels.pricePerNight');
+const imagesBySlug: Record<string, ImageMetadata> = {
+  '1-chambre': chambre1Img,
+  '2-chambres': chambre2Img,
+  '3-chambres': chambre3Img,
+};
 ---
 <section id="configurations" class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
@@ -29,6 +37,7 @@ const priceUnit = t(locale, 'labels.pricePerNight');
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
       {apartments.map((apt, i) => (
         <ApartmentCard
+          image={imagesBySlug[apt.slug]}
           imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
           name={t(locale, nameKeys[i])}
           subtitle={t(locale, subtitleKeys[i])}

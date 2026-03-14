@@ -19,8 +19,7 @@ export const apartments: ApartmentConfig[] = [
     pricePerNight: { min: 60, max: 80 },
     capacity: 2,
     keyAmenityKeys: ['amenityNames.wifi', 'amenityNames.inverter', 'amenityNames.airConditioning', 'amenityNames.office'],
-    // TODO: remplacer par le vrai lien Airbnb
-    airbnbUrl: 'https://airbnb.com/rooms/placeholder-1',
+    airbnbUrl: 'https://airbnb.fr/h/wabi-sabi-cotonou-1ch',
   },
   {
     name: 'Maison Ayaba — 2 Chambres',
@@ -29,8 +28,7 @@ export const apartments: ApartmentConfig[] = [
     pricePerNight: { min: 80, max: 100 },
     capacity: 4,
     keyAmenityKeys: ['amenityNames.wifi', 'amenityNames.inverter', 'amenityNames.airConditioning', 'amenityNames.equippedKitchen', 'amenityNames.livingRoom'],
-    // TODO: remplacer par le vrai lien Airbnb
-    airbnbUrl: 'https://airbnb.com/rooms/placeholder-2',
+    airbnbUrl: 'https://airbnb.fr/h/wabi-sabi-cotonou-2ch',
   },
   {
     name: 'Maison Ayaba — 3 Chambres',
@@ -39,8 +37,7 @@ export const apartments: ApartmentConfig[] = [
     pricePerNight: { min: 100, max: 140 },
     capacity: 6,
     keyAmenityKeys: ['amenityNames.wifi', 'amenityNames.inverter', 'amenityNames.airConditioning', 'amenityNames.babyCrib', 'amenityNames.washingMachine', 'amenityNames.terrace'],
-    // TODO: remplacer par le vrai lien Airbnb
-    airbnbUrl: 'https://airbnb.com/rooms/placeholder-3',
+    airbnbUrl: 'https://airbnb.fr/h/wabi-sabi-cotonou-3ch',
   },
 ];
 

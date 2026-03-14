@@ -1,13 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
-import TrustBar from '../../components/sections/TrustBar.astro';
 import ApartmentGrid from '../../components/sections/ApartmentGrid.astro';
-import KwaboSection from '../../components/sections/KwaboSection.astro';
-import QuartierTeaser from '../../components/sections/QuartierTeaser.astro';
-import HostSection from '../../components/sections/HostSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import { t } from '../../i18n/utils';
+import heroImage from '../../assets/images/hero/salon.png';
 
 const locale = 'en' as const;
 ---
@@ -17,6 +14,7 @@ const locale = 'en' as const;
   description={t(locale, 'home.heroSubtitle')}
 >
   <HeroSection
+    image={heroImage}
     imageAlt="Bright living room at Maison Ayaba in Fidjrosse, Cotonou"
     label={t(locale, 'home.heroLabel')}
     title={t(locale, 'home.heroTitle')}
@@ -31,46 +29,7 @@ const locale = 'en' as const;
     secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#configurations' }}
   />
 
-  <TrustBar
-    ariaLabel={t(locale, 'home.trustBarLabel')}
-    items={[
-      { icon: '🔌', title: t(locale, 'home.trustInverterTitle'), description: t(locale, 'home.trustInverterDesc') },
-      { icon: '❄️', title: t(locale, 'home.trustAcTitle'), description: t(locale, 'home.trustAcDesc') },
-      { icon: '📶', title: t(locale, 'home.trustWifiTitle'), description: t(locale, 'home.trustWifiDesc') },
-      { icon: '🏖️', title: t(locale, 'home.trustBeachTitle'), description: t(locale, 'home.trustBeachDesc') },
-    ]}
-  />
-
   <ApartmentGrid locale={locale} />
-
-  <KwaboSection
-    label={t(locale, 'home.kwaboLabel')}
-    title={t(locale, 'home.kwaboTitle')}
-    subtitle={t(locale, 'home.kwaboSubtitle')}
-    items={[
-      { icon: '💬', title: t(locale, 'home.kwaboItem1Title'), description: t(locale, 'home.kwaboItem1Desc') },
-      { icon: '🏠', title: t(locale, 'home.kwaboItem2Title'), description: t(locale, 'home.kwaboItem2Desc') },
-      { icon: '🧺', title: t(locale, 'home.kwaboItem3Title'), description: t(locale, 'home.kwaboItem3Desc') },
-    ]}
-  />
-
-  <QuartierTeaser
-    imageAlt="View of the Fidjrosse neighborhood in Cotonou"
-    label={t(locale, 'home.quartierLabel')}
-    title={t(locale, 'home.quartierTitle')}
-    description={t(locale, 'home.quartierDesc')}
-    ctaText={t(locale, 'home.quartierCta')}
-    ctaHref="/en/fidjrosse-cotonou/"
-    locale={locale}
-  />
-
-  <HostSection
-    label={t(locale, 'home.hostLabel')}
-    title={t(locale, 'home.hostTitle')}
-    description={t(locale, 'home.hostDesc')}
-    ctaText={t(locale, 'home.hostCta')}
-    ctaHref="/en/your-host/"
-  />
 
   <FinalCta
     title={t(locale, 'home.finalCtaTitle')}

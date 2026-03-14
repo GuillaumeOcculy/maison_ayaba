@@ -51,6 +51,11 @@
   "site": {
     "copyright": "© {year} Maison Ayaba. Tous droits réservés."
   },
+  "social": {
+    "instagram": "Suivez-nous sur Instagram",
+    "whatsapp": "Contactez-nous sur WhatsApp",
+    "whatsappMessage": "Bonjour, je suis intéressé(e) pour réserver une chambre Maison Ayaba"
+  },
   "home": {
     "heroLabel": "MAISON AYABA — FIDJROSSÈ, COTONOU",
     "heroTitle": "Tout le confort que vous attendez. À Cotonou.",
