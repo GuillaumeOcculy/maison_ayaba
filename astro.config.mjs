@@ -9,7 +9,12 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: import.meta.env.SITE || 'https://maison-ayaba.com',
-  integrations: [sitemap()],
+  trailingSlash: 'always',
+  integrations: [
+    sitemap({
+      filter: (page) => new URL(page).pathname !== '/',
+    }),
+  ],
   adapter: vercel(),
 
   vite: {
