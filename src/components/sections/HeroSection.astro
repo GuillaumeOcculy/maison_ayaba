@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface CtaLink {
+  text: string;
+  href: string;
+}
+
+interface Props {
+  image?: ImageMetadata;
+  imageAlt: string;
+  label: string;
+  title: string;
+  subtitle: string;
+  stats: StatItem[];
+  primaryCta: CtaLink;
+  secondaryCta: CtaLink;
+}
+
+const { image, imageAlt, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
+---
+<section class="relative h-[75vh] lg:h-[90vh] overflow-hidden">
+  {image ? (
+    <Image
+      src={image}
+      alt={imageAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      widths={[640, 1024, 1920]}
+      sizes="100vw"
+    />
+  ) : (
+    <div class="absolute inset-0 bg-ayaba-dark" role="img" aria-label={imageAlt}>
+      <!-- TODO: remplacer par Image d'Astro quand les photos seront pretes -->
+    </div>
+  )}
+
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(180deg, rgba(44,24,16,0.05) 0%, rgba(44,24,16,0.55) 50%, rgba(44,24,16,0.88) 100%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative h-full flex flex-col justify-end px-6 pb-10 lg:px-16 lg:pb-16 max-w-7xl mx-auto">
+    <p class="text-white/60 text-xs uppercase tracking-[1.5px] font-semibold mb-4">
+      {label}
+    </p>
+
+    <h1 class="text-white font-heading text-[28px] lg:text-[48px] font-bold leading-tight max-w-2xl mb-3">
+      {title}
+    </h1>
+
+    <p class="text-white/70 font-body text-base lg:text-lg max-w-xl mb-8">
+      {subtitle}
+    </p>
+
+    <dl class="grid grid-cols-2 lg:flex lg:flex-row gap-4 lg:gap-8 mb-8">
+      {stats.map((stat) => (
+        <div class="flex flex-col">
+          <dt class="text-ayaba-gold font-heading text-2xl font-bold">{stat.value}</dt>
+          <dd class="text-white/60 text-[11px] uppercase tracking-[1.5px]">{stat.label}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="flex flex-wrap gap-3">
+      <a
+        href={primaryCta.href}
+        class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-6 py-3 font-body font-semibold min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra transition-colors"
+      >
+        {primaryCta.text}
+      </a>
+      <a
+        href={secondaryCta.href}
+        class="border border-white/30 text-white hover:bg-white/10 rounded-md px-6 py-3 font-body min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra transition-colors"
+      >
+        {secondaryCta.text}
+      </a>
+    </div>
+  </div>
+</section>

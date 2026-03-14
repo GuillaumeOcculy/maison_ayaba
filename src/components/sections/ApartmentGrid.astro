@@ -1,0 +1,46 @@
+---
+import ApartmentCard from './ApartmentCard.astro';
+import { apartments, getAmenities } from '../../data/apartments';
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const configIds = ['1ch', '2ch', '3ch'] as const;
+const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
+const subtitleKeys = ['home.config1chSubtitle', 'home.config2chSubtitle', 'home.config3chSubtitle'];
+const noteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNote'];
+const priceUnit = t(locale, 'labels.pricePerNight');
+---
+<section id="configurations" class="bg-white py-20">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-ayaba-dark text-[28px] lg:text-[32px] font-bold mb-3">
+        {t(locale, 'home.configurationsTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base max-w-xl mx-auto">
+        {t(locale, 'home.configurationsSubtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
+      {apartments.map((apt, i) => (
+        <ApartmentCard
+          imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
+          name={t(locale, nameKeys[i])}
+          subtitle={t(locale, subtitleKeys[i])}
+          price={locale === 'fr' ? `${apt.pricePerNight.min}\u20AC` : `\u20AC${apt.pricePerNight.min}`}
+          priceUnit={priceUnit}
+          priceNote={t(locale, noteKeys[i])}
+          capacity={apt.capacity}
+          features={getAmenities(apt, locale)}
+          configId={configIds[i]}
+          locale={locale}
+        />
+      ))}
+    </div>
+  </div>
+</section>

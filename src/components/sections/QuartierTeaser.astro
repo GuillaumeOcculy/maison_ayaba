@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  image?: ImageMetadata;
+  imageAlt: string;
+  label: string;
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaHref: string;
+  locale: Locale;
+}
+
+const { image, imageAlt, label, title, description, ctaText, ctaHref, locale } = Astro.props;
+---
+<section class="bg-white">
+  <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
+    <div class="relative min-h-[280px] lg:min-h-0">
+      {image ? (
+        <Image
+          src={image}
+          alt={imageAlt}
+          class="w-full h-full object-cover"
+          widths={[640, 960]}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          loading="lazy"
+        />
+      ) : (
+        <div
+          class="w-full h-full bg-ayaba-cream flex items-center justify-center"
+          role="img"
+          aria-label={imageAlt}
+        >
+          <span class="text-ayaba-muted text-sm">{t(locale, 'home.photoPlaceholder')}</span>
+        </div>
+      )}
+    </div>
+
+    <div class="flex flex-col justify-center px-6 py-10 lg:px-16 lg:py-20">
+      <p class="text-ayaba-gold text-xs uppercase tracking-[1.5px] font-semibold mb-3">
+        {label}
+      </p>
+
+      <h2 class="font-heading text-ayaba-dark text-2xl lg:text-[32px] font-bold mb-4">
+        {title}
+      </h2>
+
+      <p class="text-ayaba-muted text-base mb-6 max-w-md">
+        {description}
+      </p>
+
+      <div>
+        <a
+          href={ctaHref}
+          class="border-2 border-ayaba-terra text-ayaba-terra hover:bg-ayaba-terra hover:text-white rounded-md px-4 py-2 font-body font-semibold text-sm transition-colors min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        >
+          {ctaText}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText: string;
+  ctaHref: string;
+}
+
+const { title, subtitle, ctaText, ctaHref } = Astro.props;
+---
+<section class="bg-ayaba-cream py-20">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="font-heading text-ayaba-dark text-[28px] lg:text-[32px] font-bold mb-3">
+      {title}
+    </h2>
+
+    <p class="text-ayaba-muted text-base mb-8">
+      {subtitle}
+    </p>
+
+    <a
+      href={ctaHref}
+      class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-10 py-4 font-body font-semibold text-base transition-colors min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import AirbnbCta from '../ui/AirbnbCta.astro';
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  image?: ImageMetadata;
+  imageAlt: string;
+  name: string;
+  subtitle: string;
+  price: string;
+  priceUnit: string;
+  priceNote?: string;
+  capacity: number;
+  features: string[];
+  configId: '1ch' | '2ch' | '3ch';
+  locale: Locale;
+}
+
+const { image, imageAlt, name, subtitle, price, priceUnit, priceNote, capacity, features, configId, locale } = Astro.props;
+---
+<article class="bg-white border border-[#ede6dd] rounded-2xl overflow-hidden hover:shadow-[0_8px_32px_rgba(44,24,16,0.1)] transition-shadow duration-300">
+  <div class="relative h-[240px] overflow-hidden">
+    {image ? (
+      <Image
+        src={image}
+        alt={imageAlt}
+        class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-400"
+        widths={[420, 640]}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        loading="lazy"
+      />
+    ) : (
+      <div
+        class="w-full h-full bg-ayaba-cream flex items-center justify-center"
+        role="img"
+        aria-label={imageAlt}
+      >
+        <span class="text-ayaba-muted text-sm">{t(locale, 'home.photoPlaceholder')}</span>
+      </div>
+    )}
+  </div>
+
+  <div class="p-7">
+    <h3 class="font-heading text-[22px] text-ayaba-dark mb-1">{name}</h3>
+    <p class="text-ayaba-muted text-sm">{subtitle}</p>
+    <p class="text-ayaba-muted text-xs mb-4">{t(locale, 'home.capacityLabel', { count: String(capacity) })}</p>
+
+    <div class="mb-4">
+      <span class="text-ayaba-terra text-[28px] font-bold">{price}</span>
+      <span class="text-ayaba-muted text-sm">{priceUnit}</span>
+      {priceNote && (
+        <p class="text-ayaba-muted text-xs mt-1">{priceNote}</p>
+      )}
+    </div>
+
+    <ul class="space-y-2 mb-6">
+      {features.map((feature) => (
+        <li class="flex items-center gap-2">
+          <span class="text-ayaba-success font-bold" aria-hidden="true">&#10003;</span>
+          <span class="text-ayaba-dark text-sm">{feature}</span>
+        </li>
+      ))}
+    </ul>
+
+    <AirbnbCta configId={configId} variant="outline" locale={locale} />
+  </div>
+</article>

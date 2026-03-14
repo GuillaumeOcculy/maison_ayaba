@@ -1,9 +1,81 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ApartmentGrid from '../../components/sections/ApartmentGrid.astro';
+import KwaboSection from '../../components/sections/KwaboSection.astro';
+import QuartierTeaser from '../../components/sections/QuartierTeaser.astro';
+import HostSection from '../../components/sections/HostSection.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { t } from '../../i18n/utils';
+
+const locale = 'fr' as const;
 ---
-<BaseLayout locale="fr" title="Maison Ayaba" description="Votre appartement d'exception à Fidjrossè, Cotonou">
-  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-    <h1 class="font-heading text-ayaba-terra text-3xl font-bold mb-4">Maison Ayaba</h1>
-    <p class="font-body text-ayaba-dark">Site en construction — Story 1.2 en cours</p>
-  </div>
+<BaseLayout
+  locale={locale}
+  title="Maison Ayaba — Appartement meublé à Fidjrossè, Cotonou"
+  description={t(locale, 'home.heroSubtitle')}
+>
+  <HeroSection
+    imageAlt="Salon lumineux de Maison Ayaba a Fidjrosse, Cotonou"
+    label={t(locale, 'home.heroLabel')}
+    title={t(locale, 'home.heroTitle')}
+    subtitle={t(locale, 'home.heroSubtitle')}
+    stats={[
+      { value: t(locale, 'home.statPriceValue'), label: t(locale, 'home.statPriceLabel') },
+      { value: t(locale, 'home.statConfigsValue'), label: t(locale, 'home.statConfigsLabel') },
+      { value: t(locale, 'home.statGuestsValue'), label: t(locale, 'home.statGuestsLabel') },
+      { value: t(locale, 'home.statBeachValue'), label: t(locale, 'home.statBeachLabel') },
+    ]}
+    primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '/fr/reserver/' }}
+    secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#configurations' }}
+  />
+
+  <TrustBar
+    ariaLabel={t(locale, 'home.trustBarLabel')}
+    items={[
+      { icon: '🔌', title: t(locale, 'home.trustInverterTitle'), description: t(locale, 'home.trustInverterDesc') },
+      { icon: '❄️', title: t(locale, 'home.trustAcTitle'), description: t(locale, 'home.trustAcDesc') },
+      { icon: '📶', title: t(locale, 'home.trustWifiTitle'), description: t(locale, 'home.trustWifiDesc') },
+      { icon: '🏖️', title: t(locale, 'home.trustBeachTitle'), description: t(locale, 'home.trustBeachDesc') },
+    ]}
+  />
+
+  <ApartmentGrid locale={locale} />
+
+  <KwaboSection
+    label={t(locale, 'home.kwaboLabel')}
+    title={t(locale, 'home.kwaboTitle')}
+    subtitle={t(locale, 'home.kwaboSubtitle')}
+    items={[
+      { icon: '💬', title: t(locale, 'home.kwaboItem1Title'), description: t(locale, 'home.kwaboItem1Desc') },
+      { icon: '🏠', title: t(locale, 'home.kwaboItem2Title'), description: t(locale, 'home.kwaboItem2Desc') },
+      { icon: '🧺', title: t(locale, 'home.kwaboItem3Title'), description: t(locale, 'home.kwaboItem3Desc') },
+    ]}
+  />
+
+  <QuartierTeaser
+    imageAlt="Vue du quartier Fidjrosse a Cotonou"
+    label={t(locale, 'home.quartierLabel')}
+    title={t(locale, 'home.quartierTitle')}
+    description={t(locale, 'home.quartierDesc')}
+    ctaText={t(locale, 'home.quartierCta')}
+    ctaHref="/fr/fidjrosse-cotonou/"
+    locale={locale}
+  />
+
+  <HostSection
+    label={t(locale, 'home.hostLabel')}
+    title={t(locale, 'home.hostTitle')}
+    description={t(locale, 'home.hostDesc')}
+    ctaText={t(locale, 'home.hostCta')}
+    ctaHref="/fr/votre-hote/"
+  />
+
+  <FinalCta
+    title={t(locale, 'home.finalCtaTitle')}
+    subtitle={t(locale, 'home.finalCtaSubtitle')}
+    ctaText={t(locale, 'home.finalCtaCta')}
+    ctaHref="/fr/reserver/"
+  />
 </BaseLayout>

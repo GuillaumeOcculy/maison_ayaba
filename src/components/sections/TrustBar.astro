@@ -1,0 +1,27 @@
+---
+interface TrustItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: TrustItem[];
+  ariaLabel: string;
+}
+
+const { items, ariaLabel } = Astro.props;
+---
+<section class="bg-ayaba-cream py-10" aria-label={ariaLabel}>
+  <div class="max-w-7xl mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map((item) => (
+        <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <span class="text-[28px] mb-2" aria-hidden="true">{item.icon}</span>
+          <p class="font-body text-sm font-semibold text-ayaba-dark">{item.title}</p>
+          <p class="font-body text-[13px] text-ayaba-muted">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

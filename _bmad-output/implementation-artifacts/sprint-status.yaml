@@ -45,7 +45,7 @@ development_status:
   1-1-initialisation-astro-tailwind-structure-i18n: done
   1-2-baselayout-header-footer-navigation: done
   1-3-composant-airbnbcta: done
-  1-4-page-accueil-fr-en: backlog
+  1-4-page-accueil-fr-en: done
   1-5-deploiement-vercel-configuration-production: backlog
   epic-1-retrospective: optional
 
