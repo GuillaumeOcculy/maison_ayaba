@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets';
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  images: { src: ImageMetadata; alt: string }[];
+  configName: string;
+  locale: Locale;
+}
+
+const { images, configName, locale } = Astro.props;
+const hasMultiple = images.length > 1;
+const galleryLabel = t(locale, 'apartment.galleryLabel', { name: configName });
+---
+<div class="w-full" data-gallery aria-label={galleryLabel}>
+  {/* Main image area */}
+  <div class="relative rounded-xl overflow-hidden aspect-[4/3]">
+    {images.map((img, i) => (
+      <div
+        class:list={[
+          'absolute inset-0 transition-opacity duration-300',
+          i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
+        ]}
+        data-gallery-slide={i}
+      >
+        <Image
+          src={img.src}
+          alt={img.alt}
+          class="w-full h-full object-cover"
+          widths={[480, 768, 1024]}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+
+  {/* Thumbnails — only if multiple images */}
+  {hasMultiple && (
+    <div class="flex gap-2 mt-3 overflow-x-auto" role="tablist" aria-label={t(locale, 'apartment.thumbnailsLabel', { name: configName })}>
+      {images.map((img, i) => (
+        <button
+          type="button"
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-label={img.alt}
+          class:list={[
+            'shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all cursor-pointer min-h-[44px] min-w-[44px] focus-visible:ring-2 focus-visible:ring-ayaba-terra focus-visible:ring-offset-2',
+            i === 0 ? 'border-ayaba-terra' : 'border-transparent opacity-70 hover:opacity-100',
+          ]}
+          data-thumb={i}
+        >
+          <Image
+            src={img.src}
+            alt=""
+            class="w-full h-full object-cover"
+            widths={[80, 160]}
+            sizes="80px"
+            loading="lazy"
+          />
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+{hasMultiple && (
+  <script>
+    document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+      const slides = gallery.querySelectorAll('[data-gallery-slide]');
+      const thumbs = gallery.querySelectorAll('[data-thumb]');
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const index = (thumb as HTMLElement).dataset.thumb;
+
+          slides.forEach((slide) => {
+            const slideEl = slide as HTMLElement;
+            const isActive = slideEl.dataset.gallerySlide === index;
+            slideEl.classList.toggle('opacity-100', isActive);
+            slideEl.classList.toggle('opacity-0', !isActive);
+            slideEl.classList.toggle('pointer-events-none', !isActive);
+          });
+
+          thumbs.forEach((t) => {
+            const tEl = t as HTMLElement;
+            const isActive = tEl.dataset.thumb === index;
+            tEl.classList.toggle('border-ayaba-terra', isActive);
+            tEl.classList.toggle('border-transparent', !isActive);
+            tEl.classList.toggle('opacity-70', !isActive);
+            tEl.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+        });
+      });
+    });
+  </script>
+)}

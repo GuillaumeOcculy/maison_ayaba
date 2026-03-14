@@ -41,17 +41,17 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1 : Site Fondation & Page d'Accueil
-  epic-1: in-progress
+  epic-1: done
   1-1-initialisation-astro-tailwind-structure-i18n: done
   1-2-baselayout-header-footer-navigation: done
   1-3-composant-airbnbcta: done
   1-4-page-accueil-fr-en: done
-  1-5-deploiement-vercel-configuration-production: backlog
-  epic-1-retrospective: optional
+  1-5-deploiement-vercel-configuration-production: done
+  epic-1-retrospective: done
 
   # Epic 2 : Pages Appartement, Quartier & Hôte
-  epic-2: backlog
-  2-1-page-appartement-3-configurations-detaillees: backlog
+  epic-2: in-progress
+  2-1-page-appartement-3-configurations-detaillees: done
   2-2-page-fidjrosse-cotonou: backlog
   2-3-page-votre-hote-protocole-kwabo: backlog
   2-4-page-reserver-recapitulatif-ctas: backlog

@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ApartmentDetailSection from '../../components/sections/ApartmentDetailSection.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { apartments, getSharedAmenities } from '../../data/apartments';
+import { t } from '../../i18n/utils';
+import chambre1Img from '../../assets/images/apartments/chambre1.png';
+import chambre2Img from '../../assets/images/apartments/chambre2.png';
+import chambre3Img from '../../assets/images/apartments/chambre3.png';
+
+const locale = 'en' as const;
+
+const imagesBySlug: Record<string, ImageMetadata> = {
+  chambre1: chambre1Img,
+  chambre2: chambre2Img,
+  chambre3: chambre3Img,
+};
+
+const bgClasses = ['bg-white', 'bg-ayaba-cream', 'bg-white'];
+const amenities = getSharedAmenities(locale);
+---
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'apartment.pageTitle')}
+  description={t(locale, 'apartment.pageDescription')}
+>
+  {/* Compact hero */}
+  <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
+        {t(locale, 'apartment.sectionTitle')}
+      </h1>
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'apartment.sectionSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {/* Apartment detail sections */}
+  {apartments.map((apt, i) => {
+    const images = apt.galleryImageSlugs
+      .filter((slug) => imagesBySlug[slug])
+      .map((slug) => ({
+        src: imagesBySlug[slug],
+        alt: `${apt.name} — Maison Ayaba`,
+      }));
+
+    const description = t(locale, apt.descriptionKey);
+
+    const pricePerPerson = apt.pricePerPerson
+      ? t(locale, 'apartment.pricePerPersonLabel', {
+          amount: String(apt.pricePerPerson.amount),
+          guests: String(apt.pricePerPerson.guests),
+        })
+      : undefined;
+
+    return (
+      <ApartmentDetailSection
+        apartment={apt}
+        images={images}
+        locale={locale}
+        description={description}
+        pricePerPerson={pricePerPerson}
+        bgClass={bgClasses[i]}
+      />
+    );
+  })}
+
+  {/* Shared amenities across all configurations */}
+  <section class="bg-ayaba-cream py-16 lg:py-20">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16">
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3 text-center">
+        {t(locale, 'apartment.amenitiesTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base text-center mb-8">
+        {t(locale, 'apartment.amenitiesSubtitle')}
+      </p>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {amenities.map((amenity) => (
+          <li class="flex items-center gap-2">
+            <span class="text-ayaba-success font-bold shrink-0" aria-hidden="true">&#10003;</span>
+            <span class="text-ayaba-dark text-sm">{amenity}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <FinalCta
+    title={t(locale, 'apartment.finalCtaTitle')}
+    subtitle={t(locale, 'apartment.finalCtaSubtitle')}
+    ctaText={t(locale, 'apartment.finalCtaCta')}
+    ctaHref="/en/book/"
+  />
+</BaseLayout>
