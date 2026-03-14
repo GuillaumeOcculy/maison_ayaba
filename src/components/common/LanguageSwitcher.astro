@@ -1,0 +1,42 @@
+---
+import { t, getLocalizedUrl, type Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  currentUrl: URL;
+}
+
+const { locale, currentUrl } = Astro.props;
+const targetLocale: Locale = locale === 'fr' ? 'en' : 'fr';
+const targetHref = getLocalizedUrl(currentUrl, targetLocale);
+const switchLabel = locale === 'fr'
+  ? t(locale, 'accessibility.switchToEnglish')
+  : t(locale, 'accessibility.switchToFrench');
+---
+<div class="flex items-center gap-1 font-body text-sm">
+  {locale === 'fr' ? (
+    <>
+      <span class="text-ayaba-terra font-semibold">FR</span>
+      <span class="text-ayaba-muted" aria-hidden="true">|</span>
+      <a
+        href={targetHref}
+        class="text-ayaba-muted hover:text-ayaba-terra transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        aria-label={switchLabel}
+      >
+        EN
+      </a>
+    </>
+  ) : (
+    <>
+      <a
+        href={targetHref}
+        class="text-ayaba-muted hover:text-ayaba-terra transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        aria-label={switchLabel}
+      >
+        FR
+      </a>
+      <span class="text-ayaba-muted" aria-hidden="true">|</span>
+      <span class="text-ayaba-terra font-semibold">EN</span>
+    </>
+  )}
+</div>

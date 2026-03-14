@@ -1,0 +1,42 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+import { getNavigation } from '../../data/navigation';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const navItems = getNavigation(locale).slice(0, 5);
+const year = new Date().getFullYear();
+const copyright = t(locale, 'site.copyright').replace('{year}', String(year));
+---
+<footer class="bg-ayaba-dark text-ayaba-cream py-8 lg:py-12 pb-[88px] md:pb-8">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <span class="font-heading text-xl font-bold text-ayaba-cream">Maison Ayaba</span>
+        <nav aria-label={t(locale, 'accessibility.mainNavigation')}>
+          <ul class="flex flex-col md:flex-row gap-3 md:gap-6">
+            {navItems.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-ayaba-cream hover:text-ayaba-gold transition-colors underline-offset-4 font-body text-sm min-h-[44px] flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div class="border-t border-ayaba-muted/30 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p class="text-sm text-ayaba-muted">{copyright}</p>
+        <address class="text-sm text-ayaba-muted not-italic">
+          {t(locale, 'footer.location')}
+        </address>
+      </div>
+    </div>
+  </div>
+</footer>

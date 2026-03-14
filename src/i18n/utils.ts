@@ -19,7 +19,7 @@ export function getLocale(url: URL): Locale {
   return DEFAULT_LOCALE;
 }
 
-export function t(locale: Locale, key: string): string {
+export function t(locale: Locale, key: string, params?: Record<string, string | number>): string {
   const keys = key.split('.');
   let value: unknown = translations[locale];
   for (const k of keys) {
@@ -29,7 +29,13 @@ export function t(locale: Locale, key: string): string {
       return key;
     }
   }
-  return typeof value === 'string' ? value : key;
+  let result = typeof value === 'string' ? value : key;
+  if (params) {
+    for (const [k, v] of Object.entries(params)) {
+      result = result.replace(`{${k}}`, String(v));
+    }
+  }
+  return result;
 }
 
 export function getLocalizedUrl(url: URL, targetLocale: Locale): string {
@@ -39,5 +45,5 @@ export function getLocalizedUrl(url: URL, targetLocale: Locale): string {
   } else {
     segments.unshift(targetLocale);
   }
-  return '/' + segments.join('/');
+  return '/' + segments.join('/') + '/';
 }

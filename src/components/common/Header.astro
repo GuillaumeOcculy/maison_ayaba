@@ -1,0 +1,125 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+import { getNavigation } from '../../data/navigation';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+const navItems = getNavigation(locale).slice(0, 4);
+const navLabel = t(locale, 'accessibility.mainNavigation');
+const openMenuLabel = t(locale, 'accessibility.openMenu');
+const closeMenuLabel = t(locale, 'accessibility.closeMenu');
+const bookLabel = t(locale, 'nav.book');
+const bookHref = locale === 'fr' ? '/fr/reserver/' : '/en/book/';
+---
+<header class="sticky top-0 z-40 bg-white shadow-sm header-wrapper">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a href={locale === 'fr' ? '/fr/' : '/en/'} class="font-heading text-ayaba-terra text-xl font-bold focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra">
+      Maison Ayaba
+    </a>
+
+    <nav aria-label={navLabel} class="hidden md:flex items-center gap-6">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || currentPath === item.href.replace(/\/$/, '');
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'font-body text-sm transition-colors min-h-[44px] flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra',
+              isActive
+                ? 'text-ayaba-terra font-semibold border-b-2 border-ayaba-terra'
+                : 'text-ayaba-dark hover:text-ayaba-terra',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-4">
+      <LanguageSwitcher locale={locale} currentUrl={Astro.url} />
+      <a
+        href={bookHref}
+        class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 px-4 py-2 rounded font-body font-semibold text-sm transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra min-h-[44px] flex items-center"
+      >
+        {bookLabel}
+      </a>
+    </div>
+
+    <div class="flex md:hidden items-center gap-3">
+      <a
+        href={bookHref}
+        class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 px-3 py-1.5 rounded font-body font-semibold text-xs transition-colors focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra min-h-[44px] flex items-center"
+      >
+        {bookLabel}
+      </a>
+      <button
+        class="menu-toggle min-w-[44px] min-h-[44px] flex items-center justify-center text-ayaba-dark focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label={openMenuLabel}
+        data-label-open={openMenuLabel}
+        data-label-close={closeMenuLabel}
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="nav-menu" class="nav-links md:hidden bg-white border-t border-gray-100 shadow-lg">
+    <nav aria-label={navLabel} class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-2">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || currentPath === item.href.replace(/\/$/, '');
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'font-body text-base py-2 px-2 rounded transition-colors min-h-[44px] flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra',
+              isActive
+                ? 'text-ayaba-terra font-semibold bg-ayaba-cream'
+                : 'text-ayaba-dark hover:text-ayaba-terra hover:bg-ayaba-cream/50',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
+      <div class="pt-2 border-t border-gray-100">
+        <LanguageSwitcher locale={locale} currentUrl={Astro.url} />
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-links {
+    display: none;
+  }
+
+  .header-wrapper:has(.menu-toggle[aria-expanded="true"]) .nav-links {
+    display: block;
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      const label = expanded
+        ? toggle.getAttribute('data-label-open')
+        : toggle.getAttribute('data-label-close');
+      if (label) toggle.setAttribute('aria-label', label);
+    });
+  }
+</script>

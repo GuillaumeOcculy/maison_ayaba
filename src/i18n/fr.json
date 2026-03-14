@@ -12,8 +12,13 @@
     "viewApartment": "Voir l'appartement",
     "switchLanguage": "Changer de langue"
   },
+  "cta": {
+    "fromPrice": "À partir de {price}€",
+    "bookNow": "Réserver"
+  },
   "labels": {
     "perNight": "par nuit",
+    "pricePerNight": "/nuit",
     "perPerson": "par personne",
     "bedrooms": "chambres",
     "amenities": "équipements"
@@ -31,6 +36,19 @@
   },
   "footer": {
     "allRightsReserved": "Tous droits réservés",
-    "legalNotice": "Mentions légales"
+    "legalNotice": "Mentions légales",
+    "contact": "Contact",
+    "location": "Fidjrossè, Cotonou, Bénin"
+  },
+  "accessibility": {
+    "skipToContent": "Aller au contenu principal",
+    "mainNavigation": "Menu principal",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "switchToFrench": "Basculer vers le français",
+    "switchToEnglish": "Basculer vers l'anglais"
+  },
+  "site": {
+    "copyright": "© {year} Maison Ayaba. Tous droits réservés."
   }
 }

@@ -1,15 +1,9 @@
 ---
-import '../../styles/global.css'
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Maison Ayaba</title>
-  </head>
-  <body class="bg-white text-ayaba-dark font-body">
-    <h1 class="font-heading text-ayaba-terra">Maison Ayaba</h1>
-    <p>Site under construction — Story 1.1 complete</p>
-  </body>
-</html>
+<BaseLayout locale="en" title="Maison Ayaba" description="Your exceptional apartment in Fidjrossè, Cotonou">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
+    <h1 class="font-heading text-ayaba-terra text-3xl font-bold mb-4">Maison Ayaba</h1>
+    <p class="font-body text-ayaba-dark">Site under construction — Story 1.2 in progress</p>
+  </div>
+</BaseLayout>
