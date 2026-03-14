@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
 import { getNavigation } from '../../data/navigation';
+import { whatsappNumber } from '../../data/siteConfig';
 
 interface Props {
   locale: Locale;
@@ -37,7 +38,7 @@ const copyright = t(locale, 'site.copyright').replace('{year}', String(year));
            class="text-ayaba-cream hover:text-ayaba-gold transition-colors min-h-[44px] flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <a href={`https://wa.me/33618666612?text=${encodeURIComponent(t(locale, 'social.whatsappMessage'))}`}
+        <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t(locale, 'social.whatsappMessage'))}`}
            target="_blank" rel="noopener noreferrer"
            aria-label={t(locale, 'social.whatsapp')}
            class="text-ayaba-cream hover:text-ayaba-gold transition-colors min-h-[44px] flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra">

@@ -11,3 +11,5 @@ export const defaultLocale = DEFAULT_LOCALE;
 export const locales = LOCALES;
 
 export const baseUrl = import.meta.env.SITE || 'https://maison-ayaba.com';
+
+export const whatsappNumber = '33618666612';

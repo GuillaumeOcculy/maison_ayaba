@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import AirbnbCta from '../../components/ui/AirbnbCta.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { apartments } from '../../data/apartments';
+import { t } from '../../i18n/utils';
+import { whatsappNumber } from '../../data/siteConfig';
+import chambre1Img from '../../assets/images/apartments/chambre1.png';
+import chambre2Img from '../../assets/images/apartments/chambre2.png';
+import chambre3Img from '../../assets/images/apartments/chambre3.png';
+
+const locale = 'en' as const;
+
+const configImages = [chambre1Img, chambre2Img, chambre3Img];
+const configIds: ('1ch' | '2ch' | '3ch')[] = ['1ch', '2ch', '3ch'];
+const configNameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
+const configNoteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNote'];
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t(locale, 'social.whatsappMessage'))}`;
+---
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'booking.pageTitle')}
+  description={t(locale, 'booking.pageDescription')}
+>
+  {/* Compact hero */}
+  <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
+        {t(locale, 'booking.heroTitle')}
+      </h1>
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'booking.heroSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {/* 3 recap cards */}
+  <section class="bg-white pb-16 lg:pb-20">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {apartments.map((apt, i) => (
+          <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div class="aspect-[4/3] overflow-hidden">
+              <Image
+                src={configImages[i]}
+                alt={t(locale, configNameKeys[i])}
+                class="w-full h-full object-cover"
+                widths={[400, 640]}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-ayaba-gold text-xs uppercase tracking-[1.5px] font-semibold mb-1">
+                {t(locale, configNoteKeys[i])}
+              </p>
+              <h2 class="font-heading text-ayaba-dark text-xl font-bold mb-2">
+                {t(locale, configNameKeys[i])}
+              </h2>
+              <div class="flex items-baseline gap-2 mb-1">
+                <span class="text-ayaba-terra font-bold text-2xl">€{apt.pricePerNight.min} – €{apt.pricePerNight.max}</span>
+                <span class="text-ayaba-muted text-sm">{t(locale, 'labels.pricePerNight')}</span>
+              </div>
+              <p class="text-ayaba-muted text-sm mb-5">
+                {t(locale, 'home.capacityLabel', { count: apt.capacity })}
+              </p>
+              <AirbnbCta configId={configIds[i]} variant="primary" size="large" locale={locale} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Final CTA — WhatsApp for questions */}
+  <FinalCta
+    title={t(locale, 'booking.finalCtaTitle')}
+    subtitle={t(locale, 'booking.finalCtaSubtitle')}
+    ctaText={t(locale, 'booking.finalCtaCta')}
+    ctaHref={whatsappUrl}
+    isExternal
+  />
+</BaseLayout>

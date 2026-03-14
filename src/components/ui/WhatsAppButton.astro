@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { whatsappNumber } from '../../data/siteConfig';
 
 interface Props {
   locale: Locale;
@@ -7,7 +8,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const message = encodeURIComponent(t(locale, 'social.whatsappMessage'));
-const href = `https://wa.me/33618666612?text=${message}`;
+const href = `https://wa.me/${whatsappNumber}?text=${message}`;
 ---
 <a
   href={href}
