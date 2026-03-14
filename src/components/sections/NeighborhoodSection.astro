@@ -1,0 +1,43 @@
+---
+interface NeighborhoodItem {
+  name: string;
+  detail: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  items: NeighborhoodItem[];
+  icon?: string;
+  bgClass?: string;
+}
+
+const { title, description, items, icon, bgClass = 'bg-white' } = Astro.props;
+---
+<section class={`${bgClass} py-16 lg:py-20`}>
+  <div class="max-w-[800px] mx-auto px-6 lg:px-16">
+    <div class="text-center mb-10">
+      {icon && <span class="text-3xl mb-3 block" aria-hidden="true">{icon}</span>}
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3">
+        {title}
+      </h2>
+      {description && (
+        <p class="text-ayaba-muted text-base max-w-2xl mx-auto">
+          {description}
+        </p>
+      )}
+    </div>
+
+    <ul class="space-y-4">
+      {items.map((item) => (
+        <li class="flex items-start gap-3">
+          <span class="text-ayaba-success font-bold shrink-0 mt-0.5" aria-hidden="true">&#10003;</span>
+          <div>
+            <h3 class="text-ayaba-dark font-semibold text-base">{item.name}</h3>
+            <span class="text-ayaba-muted text-sm block">{item.detail}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

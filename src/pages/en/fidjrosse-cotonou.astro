@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NeighborhoodSection from '../../components/sections/NeighborhoodSection.astro';
+import TransportSection from '../../components/sections/TransportSection.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { neighborhoodSections, transportModes } from '../../data/neighborhood';
+import { t } from '../../i18n/utils';
+
+const locale = 'en' as const;
+
+const bgClasses: Record<string, string> = {
+  restaurants: 'bg-ayaba-cream',
+  commerces: 'bg-white',
+  plage: 'bg-white',
+  pointsInteret: 'bg-ayaba-cream',
+};
+
+const sectionsBeforeTransport = neighborhoodSections.filter(s => ['restaurants', 'commerces'].includes(s.id));
+const sectionsAfterTransport = neighborhoodSections.filter(s => ['plage', 'pointsInteret'].includes(s.id));
+
+const resolvedTransportModes = transportModes.map((mode) => ({
+  name: t(locale, mode.nameKey),
+  description: t(locale, mode.descriptionKey),
+  price: t(locale, mode.priceKey),
+  tip: mode.tipKey ? t(locale, mode.tipKey) : undefined,
+}));
+---
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'neighborhood.pageTitle')}
+  description={t(locale, 'neighborhood.pageDescription')}
+>
+  {/* Hero compact */}
+  <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
+        {t(locale, 'neighborhood.heroTitle')}
+      </h1>
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'neighborhood.heroSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {/* Neighborhood intro */}
+  <section class="bg-white pb-12 lg:pb-16">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16">
+      <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[28px] font-bold mb-4">
+        {t(locale, 'neighborhood.introTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base leading-relaxed">
+        {t(locale, 'neighborhood.introDesc')}
+      </p>
+    </div>
+  </section>
+
+  {/* Restaurants & Shops sections */}
+  {sectionsBeforeTransport.map((section) => (
+    <NeighborhoodSection
+      title={t(locale, section.titleKey)}
+      description={section.descriptionKey ? t(locale, section.descriptionKey) : undefined}
+      items={section.items.map((item) => ({
+        name: t(locale, item.nameKey),
+        detail: t(locale, item.detailKey),
+      }))}
+      icon={section.icon}
+      bgClass={bgClasses[section.id]}
+    />
+  ))}
+
+  {/* Transport section */}
+  <TransportSection
+    title={t(locale, 'neighborhood.sectionTransportsTitle')}
+    description={t(locale, 'neighborhood.sectionTransportsDesc')}
+    modes={resolvedTransportModes}
+    bgClass="bg-ayaba-cream"
+  />
+
+  {/* Beach & Points of interest sections */}
+  {sectionsAfterTransport.map((section) => (
+    <NeighborhoodSection
+      title={t(locale, section.titleKey)}
+      description={section.descriptionKey ? t(locale, section.descriptionKey) : undefined}
+      items={section.items.map((item) => ({
+        name: t(locale, item.nameKey),
+        detail: t(locale, item.detailKey),
+      }))}
+      icon={section.icon}
+      bgClass={bgClasses[section.id]}
+    />
+  ))}
+
+  {/* Link to Apartment page */}
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <a
+        href="/en/apartment/"
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-base underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+      >
+        {t(locale, 'neighborhood.viewApartment')} →
+      </a>
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <FinalCta
+    title={t(locale, 'neighborhood.finalCtaTitle')}
+    subtitle={t(locale, 'neighborhood.finalCtaSubtitle')}
+    ctaText={t(locale, 'neighborhood.finalCtaCta')}
+    ctaHref="/en/book/"
+  />
+</BaseLayout>
