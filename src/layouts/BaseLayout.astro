@@ -4,16 +4,18 @@ import Header from '../components/common/Header.astro';
 import Footer from '../components/common/Footer.astro';
 import StickyMobileCta from '../components/ui/StickyMobileCta.astro';
 import WhatsAppButton from '../components/ui/WhatsAppButton.astro';
+import MetaTags from '../components/seo/MetaTags.astro';
 import type { Locale } from '../i18n/utils';
 import { t } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
   title: string;
-  description?: string;
+  description: string;
+  ogImage?: string;
 }
 
-const { locale, title, description } = Astro.props;
+const { locale, title, description, ogImage } = Astro.props;
 const skipText = t(locale, 'accessibility.skipToContent');
 ---
 <!DOCTYPE html>
@@ -25,8 +27,7 @@ const skipText = t(locale, 'accessibility.skipToContent');
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <MetaTags title={title} description={description} locale={locale} currentPath={Astro.url.pathname} ogImage={ogImage} />
     <slot name="head" />
   </head>
   <body class="bg-white text-ayaba-dark font-body min-h-screen flex flex-col">

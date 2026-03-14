@@ -12,7 +12,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => new URL(page).pathname !== '/',
+      filter: (page) => new URL(page).pathname !== '/fr/',
     }),
   ],
   adapter: vercel(),
