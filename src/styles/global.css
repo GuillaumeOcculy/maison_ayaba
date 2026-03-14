@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ayaba-terra: #A0522D;
+  --color-ayaba-gold: #C8A45C;
+  --color-ayaba-cream: #FAF7F2;
+  --color-ayaba-dark: #2C1810;
+  --color-ayaba-muted: #6B5E57;
+  --color-ayaba-success: #5A7247;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}

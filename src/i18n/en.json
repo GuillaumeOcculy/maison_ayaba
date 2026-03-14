@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "apartment": "Apartment",
+    "neighborhood": "Fidjrossè & Cotonou",
+    "host": "Your Host",
+    "book": "Book",
+    "blog": "Blog"
+  },
+  "buttons": {
+    "bookOnAirbnb": "Book on Airbnb",
+    "viewApartment": "View apartment",
+    "switchLanguage": "Switch language"
+  },
+  "labels": {
+    "perNight": "per night",
+    "perPerson": "per person",
+    "bedrooms": "bedrooms",
+    "amenities": "amenities"
+  },
+  "amenityNames": {
+    "wifi": "WiFi",
+    "inverter": "Inverter",
+    "airConditioning": "Air conditioning",
+    "office": "Office",
+    "equippedKitchen": "Equipped kitchen",
+    "livingRoom": "Living room",
+    "babyCrib": "Baby crib",
+    "washingMachine": "Washing machine",
+    "terrace": "Terrace"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "legalNotice": "Legal notice"
+  }
+}
