@@ -50,12 +50,12 @@ development_status:
   epic-1-retrospective: done
 
   # Epic 2 : Pages Appartement, Quartier & Hôte
-  epic-2: in-progress
+  epic-2: done
   2-1-page-appartement-3-configurations-detaillees: done
   2-2-page-fidjrosse-cotonou: done
   2-3-page-votre-hote-protocole-kwabo: done
   2-4-page-reserver-recapitulatif-ctas: done
-  epic-2-retrospective: optional
+  epic-2-retrospective: done
 
   # Epic 3 : SEO, Découvrabilité & Analytics
   epic-3: backlog

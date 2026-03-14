@@ -104,7 +104,7 @@ npm create astro@latest maison-ayaba -- --template minimal --typescript strict -
 - Astro 6.0 avec compilateur Rust
 
 **Styling :**
-- À ajouter : Tailwind CSS via `@astrojs/tailwind` (intégration officielle)
+- Tailwind CSS v4 via `@tailwindcss/vite` (plugin Vite natif, PAS `@astrojs/tailwind`)
 
 **Build Tooling :**
 - Vite (intégré) — output statique SSG par défaut
@@ -125,7 +125,7 @@ npm create astro@latest maison-ayaba -- --template minimal --typescript strict -
 
 **Intégrations à ajouter :**
 - `@astrojs/sitemap` — sitemap XML auto-généré à chaque build
-- `@astrojs/tailwind` — styling utility-first
+- `@tailwindcss/vite` — Tailwind CSS v4 via plugin Vite natif (remplace `@astrojs/tailwind`)
 - `@astrojs/vercel` — adapter de déploiement Vercel
 - Schema.org via composants Astro custom
 - GA4 via script inline (seule intégration externe)
@@ -185,7 +185,7 @@ npm create astro@latest maison-ayaba -- --template minimal --typescript strict -
 | Décision | Choix | Rationale |
 |----------|-------|-----------|
 | Composants | `.astro` uniquement | Zero JS client, performance maximale, simplicité |
-| Styling | Tailwind CSS (`@astrojs/tailwind`) | Utility-first, productif pour solo dev, responsive natif |
+| Styling | Tailwind CSS v4 (`@tailwindcss/vite`) | Utility-first, productif pour solo dev, responsive natif. Tokens design dans `src/styles/global.css` via `@theme { }` |
 | Images | `astro:assets` (`<Image>`) | WebP/AVIF auto, responsive srcset, lazy loading natif |
 | Routing | File-based (Astro natif) | `/fr/` et `/en/` via dossiers dans `src/pages/` |
 | State management | Aucun | Site statique, pas d'état client |
@@ -284,7 +284,7 @@ src/
 │   ├── en.json
 │   └── utils.ts             # Helpers i18n
 ├── styles/
-│   └── global.css           # Tailwind directives + styles globaux
+│   └── global.css           # Tailwind v4 @theme tokens (couleurs, fonts) + @import "tailwindcss"
 └── assets/
     └── images/              # Photos optimisées via astro:assets
 ```
@@ -337,7 +337,7 @@ src/
 ```
 maison-ayaba/
 ├── astro.config.mjs           # Config Astro + intégrations (sitemap, tailwind, vercel)
-├── tailwind.config.mjs        # Config Tailwind (couleurs, fonts, breakpoints)
+├── # PAS de tailwind.config.mjs — Tailwind v4 utilise @theme dans src/styles/global.css
 ├── tsconfig.json              # TypeScript strict
 ├── package.json
 ├── .env                       # GA4_MEASUREMENT_ID (local)
@@ -409,7 +409,7 @@ maison-ayaba/
     │   ├── en.json
     │   └── utils.ts                     # getLocale(), t(), getLocalizedUrl()
     ├── styles/
-    │   └── global.css                   # @tailwind base/components/utilities + custom
+    │   └── global.css                   # Tailwind v4 @theme tokens (couleurs, fonts) + @import "tailwindcss"
     └── assets/
         └── images/
             ├── hero/                    # Photos hero sections
