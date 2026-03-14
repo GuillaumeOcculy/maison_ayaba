@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  imageSrc?: ImageMetadata;
+  imageAlt: string;
+  name: string;
+  role: string;
+  story: string;
+}
+
+const { imageSrc, imageAlt, name, role, story } = Astro.props;
+
+const paragraphs = story.split('\n').filter(p => p.trim());
+---
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+      {/* Photo ou fallback */}
+      <div class="flex justify-center lg:justify-start">
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            width={320}
+            height={320}
+            class="w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover border-4 border-ayaba-gold/30"
+          />
+        ) : (
+          <div
+            class="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-ayaba-cream border-4 border-ayaba-gold/30 flex items-center justify-center"
+            role="img"
+            aria-label={imageAlt}
+          >
+            <span class="text-6xl lg:text-7xl font-heading font-bold text-ayaba-terra select-none" aria-hidden="true">
+              {name.split(' ').map(n => n[0]).join('')}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Texte */}
+      <div>
+        <p class="text-ayaba-gold text-xs uppercase tracking-[1.5px] font-semibold mb-2">
+          {role}
+        </p>
+        <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[28px] font-bold mb-6">
+          {name}
+        </h2>
+        <div class="space-y-4">
+          {paragraphs.map((paragraph) => (
+            <p class="text-ayaba-muted text-base leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

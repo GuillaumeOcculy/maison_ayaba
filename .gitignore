@@ -32,4 +32,4 @@ pnpm-debug.log*
 
 # Source assets (non-code)
 guide_bienvenue_french.pdf
-images/
+/images/

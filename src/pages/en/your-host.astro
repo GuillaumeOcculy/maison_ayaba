@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HostIntroSection from '../../components/sections/HostIntroSection.astro';
+import HostPhilosophySection from '../../components/sections/HostPhilosophySection.astro';
+import KwaboSection from '../../components/sections/KwaboSection.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { hostProfile, kwaboAttentions } from '../../data/host';
+import { t } from '../../i18n/utils';
+import hostImage from '../../assets/images/host/guillaume.jpeg';
+
+const locale = 'en' as const;
+
+const resolvedValues = hostProfile.philosophyValues.map((v) => ({
+  icon: v.icon,
+  title: t(locale, v.titleKey),
+  description: t(locale, v.descriptionKey),
+}));
+
+const resolvedKwabo = kwaboAttentions.map((a) => ({
+  icon: a.icon,
+  title: t(locale, a.titleKey),
+  description: t(locale, a.descriptionKey),
+}));
+---
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'host.pageTitle')}
+  description={t(locale, 'host.pageDescription')}
+>
+  {/* Compact hero */}
+  <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
+        {t(locale, 'host.heroTitle')}
+      </h1>
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'host.heroSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {/* Host Intro Section */}
+  <HostIntroSection
+    imageSrc={hostImage}
+    imageAlt={t(locale, 'host.name') + ' — ' + t(locale, 'host.role')}
+    name={t(locale, 'host.name')}
+    role={t(locale, 'host.role')}
+    story={t(locale, 'host.introStory')}
+  />
+
+  {/* Philosophy Section */}
+  <HostPhilosophySection
+    title={t(locale, 'host.philosophyTitle')}
+    description={t(locale, 'host.philosophyDesc')}
+    values={resolvedValues}
+  />
+
+  {/* Kwabo Protocol Section */}
+  <KwaboSection
+    label={t(locale, 'host.kwaboLabel')}
+    title={t(locale, 'host.kwaboTitle')}
+    subtitle={t(locale, 'host.kwaboSubtitle')}
+    items={resolvedKwabo}
+  />
+
+  {/* Link to Apartment page */}
+  <section class="bg-white py-12 lg:py-16">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <a
+        href="/en/apartment/"
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-base underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+      >
+        {t(locale, 'host.viewApartment')} →
+      </a>
+    </div>
+  </section>
+
+  {/* Final CTA */}
+  <FinalCta
+    title={t(locale, 'host.finalCtaTitle')}
+    subtitle={t(locale, 'host.finalCtaSubtitle')}
+    ctaText={t(locale, 'host.finalCtaCta')}
+    ctaHref="/en/book/"
+  />
+</BaseLayout>
