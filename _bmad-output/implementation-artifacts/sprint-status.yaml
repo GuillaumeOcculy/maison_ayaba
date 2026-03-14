@@ -43,8 +43,8 @@ development_status:
   # Epic 1 : Site Fondation & Page d'Accueil
   epic-1: in-progress
   1-1-initialisation-astro-tailwind-structure-i18n: done
-  1-2-baselayout-header-footer-navigation: backlog
-  1-3-composant-airbnbcta: backlog
+  1-2-baselayout-header-footer-navigation: done
+  1-3-composant-airbnbcta: done
   1-4-page-accueil-fr-en: backlog
   1-5-deploiement-vercel-configuration-production: backlog
   epic-1-retrospective: optional

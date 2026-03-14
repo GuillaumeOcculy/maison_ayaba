@@ -1,0 +1,31 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+import { apartments } from '../../data/apartments';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const minPrice = Math.min(...apartments.map(a => a.pricePerNight.min));
+const fromPriceText = t(locale, 'cta.fromPrice', { price: minPrice });
+const perNightText = t(locale, 'labels.pricePerNight');
+const bookLabel = t(locale, 'nav.book');
+
+const bookUrl = locale === 'fr' ? '/fr/reserver/' : '/en/book/';
+---
+<aside aria-label={locale === 'fr' ? 'Réservation rapide' : 'Quick booking'} class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] px-4 py-3 md:hidden">
+  <div class="flex items-center justify-between">
+    <div class="flex items-baseline gap-1">
+      <span class="text-ayaba-terra font-bold text-xl">{fromPriceText}</span>
+      <span class="text-ayaba-muted text-sm">{perNightText}</span>
+    </div>
+    <a
+      href={bookUrl}
+      class="bg-ayaba-terra text-white rounded-lg px-7 py-3.5 font-body font-semibold text-sm min-h-[44px] inline-flex items-center justify-center transition-colors hover:bg-ayaba-terra/90 focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+    >
+      {bookLabel}
+    </a>
+  </div>
+</aside>
