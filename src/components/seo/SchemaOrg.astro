@@ -1,0 +1,139 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { t } from '../../i18n/utils';
+import { siteName, baseUrl, siteDescription } from '../../data/siteConfig';
+import { apartments } from '../../data/apartments';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  type: 'LodgingBusiness' | 'FAQPage' | 'BreadcrumbList' | 'WebSite';
+  locale: Locale;
+  currentPath?: string;
+  breadcrumbItems?: BreadcrumbItem[];
+  faqItems?: FAQItem[];
+  includeOffers?: boolean;
+}
+
+const { type, locale, breadcrumbItems, faqItems, includeOffers = false } = Astro.props;
+
+function buildLodgingBusiness(withOffers: boolean) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'LodgingBusiness',
+    name: siteName,
+    description: siteDescription[locale],
+    url: `${baseUrl}${locale === 'fr' ? '/' : '/en/'}`,
+    image: `${baseUrl}/og-image.jpg`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Fidjrossè Jacquot',
+      addressLocality: 'Cotonou',
+      addressCountry: 'BJ',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 6.3456,
+      longitude: 2.3789,
+    },
+    priceRange: '60€ - 140€',
+    currenciesAccepted: 'EUR',
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+      { '@type': 'LocationFeatureSpecification', name: locale === 'fr' ? 'Climatisation' : 'Air conditioning', value: true },
+      { '@type': 'LocationFeatureSpecification', name: locale === 'fr' ? 'Onduleur automatique' : 'Automatic inverter', value: true },
+      { '@type': 'LocationFeatureSpecification', name: locale === 'fr' ? 'Cuisine équipée' : 'Equipped kitchen', value: true },
+      { '@type': 'LocationFeatureSpecification', name: locale === 'fr' ? 'Stationnement gratuit' : 'Free parking', value: true },
+      { '@type': 'LocationFeatureSpecification', name: locale === 'fr' ? 'Accès plage' : 'Beach access', value: true },
+    ],
+  };
+
+  if (withOffers) {
+    schema.makesOffer = apartments.map((apt) => ({
+      '@type': 'Offer',
+      name: apt.name,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: apt.pricePerNight.min,
+        priceCurrency: 'EUR',
+        unitCode: 'DAY',
+      },
+      url: apt.airbnbUrl,
+      availability: 'https://schema.org/InStock',
+    }));
+  }
+
+  return schema;
+}
+
+function buildFAQPage(items: FAQItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+function buildBreadcrumbList(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: `${baseUrl}${item.url}`,
+    })),
+  };
+}
+
+function buildWebSite() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteName,
+    url: baseUrl,
+    inLanguage: locale === 'fr' ? 'fr-FR' : 'en-US',
+  };
+}
+
+let schema: Record<string, unknown> | null = null;
+
+switch (type) {
+  case 'LodgingBusiness':
+    schema = buildLodgingBusiness(includeOffers);
+    break;
+  case 'FAQPage':
+    if (faqItems && faqItems.length > 0) {
+      schema = buildFAQPage(faqItems);
+    }
+    break;
+  case 'BreadcrumbList':
+    if (breadcrumbItems && breadcrumbItems.length > 0) {
+      schema = buildBreadcrumbList(breadcrumbItems);
+    }
+    break;
+  case 'WebSite':
+    schema = buildWebSite();
+    break;
+}
+---
+
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+)}

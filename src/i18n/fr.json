@@ -225,7 +225,14 @@
     "viewApartment": "Découvrir nos configurations",
     "finalCtaTitle": "Prêt à réserver ?",
     "finalCtaSubtitle": "Réservez votre appartement à Fidjrossè et commencez à préparer votre séjour à Cotonou",
-    "finalCtaCta": "Réserver"
+    "finalCtaCta": "Réserver",
+
+    "faqRestaurantsQ": "Quels restaurants se trouvent près de Maison Ayaba à Fidjrossè ?",
+    "faqRestaurantsA": "Plusieurs restaurants sont à proximité : Chez Maman Béni (cuisine béninoise, 5 min à pied, ~3-6€), Le Living (grillades et cocktails, 10 min, ~8-15€), La Cabane du Pêcheur (poisson grillé en bord de plage, 15 min, ~5-11€) et Chez Clarice (grillades, 8 min, ~3-8€).",
+    "faqTransportQ": "Comment se déplacer à Cotonou depuis Fidjrossè ?",
+    "faqTransportA": "Plusieurs options : le Zem (moto-taxi, 200-500 FCFA/course), Gozem (app VTC type Uber, 500-2000 FCFA), chauffeur privé via votre hôte (15000-25000 FCFA/jour). L'aéroport Cadjehoun est à 20 minutes.",
+    "faqPlageQ": "La plage est-elle proche de Maison Ayaba ?",
+    "faqPlageA": "Oui, la plage de Fidjrossè est à environ 10 minutes à pied de l'appartement. C'est une plage fréquentée par les locaux avec des bars de plage et une ambiance détendue. Baignade prudente recommandée en raison des courants."
   },
   "host": {
     "pageTitle": "Votre Hôte — Maison Ayaba",

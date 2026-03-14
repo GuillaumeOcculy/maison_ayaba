@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import ApartmentGrid from '../components/sections/ApartmentGrid.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
 import { t } from '../i18n/utils';
 import heroImage from '../assets/images/hero/salon.png';
 
@@ -13,6 +14,10 @@ const locale = 'fr' as const;
   title="Maison Ayaba — Appartement meublé à Fidjrossè, Cotonou"
   description={t(locale, 'home.heroSubtitle')}
 >
+  <Fragment slot="head">
+    <SchemaOrg type="LodgingBusiness" locale={locale} />
+    <SchemaOrg type="WebSite" locale={locale} />
+  </Fragment>
   <HeroSection
     image={heroImage}
     imageAlt="Salon lumineux de Maison Ayaba a Fidjrosse, Cotonou"

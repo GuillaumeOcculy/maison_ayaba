@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ApartmentDetailSection from '../../components/sections/ApartmentDetailSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { apartments, getSharedAmenities } from '../../data/apartments';
 import { t } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
@@ -24,6 +25,10 @@ const amenities = getSharedAmenities(locale);
   title={t(locale, 'apartment.pageTitle')}
   description={t(locale, 'apartment.pageDescription')}
 >
+  <Fragment slot="head">
+    <SchemaOrg type="LodgingBusiness" locale={locale} includeOffers />
+    <SchemaOrg type="BreadcrumbList" locale={locale} breadcrumbItems={[{ name: t(locale, 'nav.home'), url: '/en/' }, { name: t(locale, 'nav.apartment'), url: '/en/apartment/' }]} />
+  </Fragment>
   {/* Compact hero */}
   <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
