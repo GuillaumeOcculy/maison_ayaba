@@ -3,6 +3,7 @@ import type { Locale } from '../../i18n/utils';
 import { t } from '../../i18n/utils';
 import { siteName, baseUrl, siteDescription } from '../../data/siteConfig';
 import { apartments } from '../../data/apartments';
+import { getNavigation } from '../../data/navigation';
 
 interface BreadcrumbItem {
   name: string;
@@ -15,7 +16,7 @@ interface FAQItem {
 }
 
 interface Props {
-  type: 'LodgingBusiness' | 'FAQPage' | 'BreadcrumbList' | 'WebSite';
+  type: 'LodgingBusiness' | 'FAQPage' | 'BreadcrumbList' | 'WebSite' | 'SiteNavigationElement';
   locale: Locale;
   currentPath?: string;
   breadcrumbItems?: BreadcrumbItem[];
@@ -112,6 +113,20 @@ function buildWebSite() {
   };
 }
 
+function buildSiteNavigationElement() {
+  const navItems = getNavigation(locale);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: navItems.map((item, index) => ({
+      '@type': 'SiteNavigationElement',
+      position: index + 1,
+      name: item.label,
+      url: `${baseUrl}${item.href}`,
+    })),
+  };
+}
+
 let schema: Record<string, unknown> | null = null;
 
 switch (type) {
@@ -130,6 +145,9 @@ switch (type) {
     break;
   case 'WebSite':
     schema = buildWebSite();
+    break;
+  case 'SiteNavigationElement':
+    schema = buildSiteNavigationElement();
     break;
 }
 ---
