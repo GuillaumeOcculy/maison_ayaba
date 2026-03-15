@@ -48,21 +48,6 @@ const capacityLabel = t(locale, 'apartment.capacityLabel', { count: String(apart
           )}
         </div>
 
-        {/* Key amenities */}
-        <div class="mt-6">
-          <h3 class="font-heading text-ayaba-dark text-lg font-semibold mb-3">
-            {t(locale, 'apartment.keyAmenitiesTitle')}
-          </h3>
-          <ul class="grid grid-cols-2 gap-2">
-            {apartment.keyAmenityKeys.map((key) => (
-              <li class="flex items-center gap-2">
-                <span class="text-ayaba-success font-bold shrink-0" aria-hidden="true">&#10003;</span>
-                <span class="text-ayaba-dark text-sm">{t(locale, key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* CTA */}
         <div class="mt-6">
           <AirbnbCta configId={configId} variant="primary" size="large" locale={locale} />

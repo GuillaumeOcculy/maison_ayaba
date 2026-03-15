@@ -2,6 +2,7 @@
 interface NeighborhoodItem {
   name: string;
   detail: string;
+  url?: string;
 }
 
 interface Props {
@@ -10,9 +11,10 @@ interface Props {
   items: NeighborhoodItem[];
   icon?: string;
   bgClass?: string;
+  columns?: 1 | 2;
 }
 
-const { title, description, items, icon, bgClass = 'bg-white' } = Astro.props;
+const { title, description, items, icon, bgClass = 'bg-white', columns = 1 } = Astro.props;
 ---
 <section class={`${bgClass} py-16 lg:py-20`}>
   <div class="max-w-[800px] mx-auto px-6 lg:px-16">
@@ -28,12 +30,16 @@ const { title, description, items, icon, bgClass = 'bg-white' } = Astro.props;
       )}
     </div>
 
-    <ul class="space-y-4">
+    <ul class:list={[columns === 2 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : 'space-y-4']}>
       {items.map((item) => (
         <li class="flex items-start gap-3">
           <span class="text-ayaba-success font-bold shrink-0 mt-0.5" aria-hidden="true">&#10003;</span>
           <div>
-            <h3 class="text-ayaba-dark font-semibold text-base">{item.name}</h3>
+            {item.url ? (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-ayaba-dark font-semibold text-base hover:text-ayaba-terra transition-colors underline underline-offset-2">{item.name}</a>
+            ) : (
+              <h3 class="text-ayaba-dark font-semibold text-base">{item.name}</h3>
+            )}
             <span class="text-ayaba-muted text-sm block">{item.detail}</span>
           </div>
         </li>

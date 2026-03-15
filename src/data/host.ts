@@ -51,7 +51,7 @@ export const kwaboAttentions: KwaboAttention[] = [
     descriptionKey: 'host.kwaboMessageDesc',
   },
   {
-    icon: '❄️',
+    icon: '🏠',
     titleKey: 'host.kwaboClimTitle',
     descriptionKey: 'host.kwaboClimDesc',
   },
@@ -61,7 +61,7 @@ export const kwaboAttentions: KwaboAttention[] = [
     descriptionKey: 'host.kwaboPanierDesc',
   },
   {
-    icon: '✍️',
+    icon: '🤝',
     titleKey: 'host.kwaboMotTitle',
     descriptionKey: 'host.kwaboMotDesc',
   },

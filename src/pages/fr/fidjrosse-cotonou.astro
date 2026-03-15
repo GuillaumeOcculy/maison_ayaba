@@ -71,9 +71,11 @@ const resolvedTransportModes = transportModes.map((mode) => ({
       items={section.items.map((item) => ({
         name: t(locale, item.nameKey),
         detail: t(locale, item.detailKey),
+        url: item.url,
       }))}
       icon={section.icon}
       bgClass={bgClasses[section.id]}
+      columns={section.columns}
     />
   ))}
 
@@ -93,9 +95,11 @@ const resolvedTransportModes = transportModes.map((mode) => ({
       items={section.items.map((item) => ({
         name: t(locale, item.nameKey),
         detail: t(locale, item.detailKey),
+        url: item.url,
       }))}
       icon={section.icon}
       bgClass={bgClasses[section.id]}
+      columns={section.columns}
     />
   ))}
 

@@ -1,6 +1,7 @@
 export interface NeighborhoodItem {
   nameKey: string;
   detailKey: string;
+  url?: string;
 }
 
 export interface NeighborhoodSection {
@@ -9,6 +10,7 @@ export interface NeighborhoodSection {
   descriptionKey?: string;
   items: NeighborhoodItem[];
   icon?: string;
+  columns?: 1 | 2;
 }
 
 export interface TransportMode {
@@ -24,11 +26,14 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     titleKey: 'neighborhood.sectionRestaurantsTitle',
     descriptionKey: 'neighborhood.sectionRestaurantsDesc',
     icon: '🍽️',
+    columns: 2,
     items: [
       { nameKey: 'neighborhood.restaurant1Name', detailKey: 'neighborhood.restaurant1Detail' },
-      { nameKey: 'neighborhood.restaurant2Name', detailKey: 'neighborhood.restaurant2Detail' },
-      { nameKey: 'neighborhood.restaurant3Name', detailKey: 'neighborhood.restaurant3Detail' },
-      { nameKey: 'neighborhood.restaurant4Name', detailKey: 'neighborhood.restaurant4Detail' },
+      { nameKey: 'neighborhood.restaurant2Name', detailKey: 'neighborhood.restaurant2Detail', url: 'https://maps.app.goo.gl/NEekDYqzNskutXQV7' },
+      { nameKey: 'neighborhood.restaurant3Name', detailKey: 'neighborhood.restaurant3Detail', url: 'https://maps.app.goo.gl/WQFVMFeM5YU2121XA' },
+      { nameKey: 'neighborhood.restaurant4Name', detailKey: 'neighborhood.restaurant4Detail', url: 'https://maps.app.goo.gl/E2wFYsHoYPLLnsQn8' },
+      { nameKey: 'neighborhood.restaurant5Name', detailKey: 'neighborhood.restaurant5Detail', url: 'https://maps.app.goo.gl/5YY1NKkFN7auM4ff7' },
+      { nameKey: 'neighborhood.restaurant6Name', detailKey: 'neighborhood.restaurant6Detail', url: 'https://maps.app.goo.gl/gGse9c5cxQ3KRRNk7' },
     ],
   },
   {
@@ -36,10 +41,11 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     titleKey: 'neighborhood.sectionCommercesTitle',
     descriptionKey: 'neighborhood.sectionCommercesDesc',
     icon: '🛒',
+    columns: 2,
     items: [
-      { nameKey: 'neighborhood.commerce1Name', detailKey: 'neighborhood.commerce1Detail' },
+      { nameKey: 'neighborhood.commerce1Name', detailKey: 'neighborhood.commerce1Detail', url: 'https://maps.app.goo.gl/W1vhD2Vfg1hvRr6a8' },
       { nameKey: 'neighborhood.commerce2Name', detailKey: 'neighborhood.commerce2Detail' },
-      { nameKey: 'neighborhood.commerce3Name', detailKey: 'neighborhood.commerce3Detail' },
+      { nameKey: 'neighborhood.commerce3Name', detailKey: 'neighborhood.commerce3Detail', url: 'https://maps.app.goo.gl/rGTMEwdcMqBwvMLWA' },
       { nameKey: 'neighborhood.commerce4Name', detailKey: 'neighborhood.commerce4Detail' },
     ],
   },
@@ -59,12 +65,12 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     titleKey: 'neighborhood.sectionPointsInteretTitle',
     descriptionKey: 'neighborhood.sectionPointsInteretDesc',
     icon: '📍',
+    columns: 2,
     items: [
-      { nameKey: 'neighborhood.poi1Name', detailKey: 'neighborhood.poi1Detail' },
-      { nameKey: 'neighborhood.poi2Name', detailKey: 'neighborhood.poi2Detail' },
-      { nameKey: 'neighborhood.poi3Name', detailKey: 'neighborhood.poi3Detail' },
-      { nameKey: 'neighborhood.poi4Name', detailKey: 'neighborhood.poi4Detail' },
-      { nameKey: 'neighborhood.poi5Name', detailKey: 'neighborhood.poi5Detail' },
+      { nameKey: 'neighborhood.poi1Name', detailKey: 'neighborhood.poi1Detail', url: 'https://maps.app.goo.gl/ELP1xqUQpeteBvjz9' },
+      { nameKey: 'neighborhood.poi2Name', detailKey: 'neighborhood.poi2Detail', url: 'https://maps.app.goo.gl/QtbE9UPhMRrQZWgW6' },
+      { nameKey: 'neighborhood.poi3Name', detailKey: 'neighborhood.poi3Detail', url: 'https://maps.app.goo.gl/JEYwh4mYJFq9h16H9' },
+      { nameKey: 'neighborhood.poi4Name', detailKey: 'neighborhood.poi4Detail', url: 'https://www.fondation-zinsou.org/' },
     ],
   },
 ];
