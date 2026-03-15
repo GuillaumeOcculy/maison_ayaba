@@ -266,6 +266,17 @@
     "finalCtaSubtitle": "Choose your configuration and book with confidence",
     "finalCtaCta": "Book"
   },
+  "blog": {
+    "pageTitle": "Blog — Maison Ayaba",
+    "pageDescription": "Practical tips for your stay in Cotonou: safety, transport, accommodation. Everything you need to know before you go.",
+    "heroTitle": "The Maison Ayaba Blog",
+    "heroSubtitle": "Practical tips and guides to prepare your stay in Cotonou",
+    "readMore": "Read article",
+    "publishedOn": "Published on {date}",
+    "backToList": "← Back to blog",
+    "readNext": "Read next",
+    "articleCta": "Discover our apartments"
+  },
   "booking": {
     "pageTitle": "Book — Maison Ayaba",
     "pageDescription": "Book your furnished apartment in Cotonou. 3 configurations: 1, 2 or 3 bedrooms with WiFi, inverter, AC. From €60/night on Airbnb.",

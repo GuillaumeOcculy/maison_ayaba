@@ -6,10 +6,11 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   locale: Locale;
+  alternateUrls?: Partial<Record<Locale, string>>;
 }
 
-const { locale } = Astro.props;
-const navItems = getNavigation(locale).slice(0, 5);
+const { locale, alternateUrls } = Astro.props;
+const navItems = getNavigation(locale).slice(0, 6);
 const year = new Date().getFullYear();
 const copyright = t(locale, 'site.copyright').replace('{year}', String(year));
 ---
@@ -47,7 +48,7 @@ const copyright = t(locale, 'site.copyright').replace('{year}', String(year));
         </a>
       </div>
       <div class="flex justify-center md:justify-start [&_span]:!text-ayaba-cream [&_a]:!text-ayaba-cream/70 [&_a:hover]:!text-ayaba-gold">
-        <LanguageSwitcher locale={locale} currentUrl={Astro.url} />
+        <LanguageSwitcher locale={locale} currentUrl={Astro.url} alternateUrls={alternateUrls} />
       </div>
       <div class="border-t border-ayaba-muted/30 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <p class="text-sm text-ayaba-muted">{copyright}</p>

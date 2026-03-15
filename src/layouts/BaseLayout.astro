@@ -14,9 +14,10 @@ interface Props {
   description: string;
   ogImage?: string;
   hideHeader?: boolean;
+  alternateUrls?: Partial<Record<Locale, string>>;
 }
 
-const { locale, title, description, ogImage, hideHeader } = Astro.props;
+const { locale, title, description, ogImage, hideHeader, alternateUrls } = Astro.props;
 const skipText = t(locale, 'accessibility.skipToContent');
 const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
 ---
@@ -29,7 +30,7 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-    <MetaTags title={title} description={description} locale={locale} currentPath={Astro.url.pathname} ogImage={ogImage} />
+    <MetaTags title={title} description={description} locale={locale} currentPath={Astro.url.pathname} ogImage={ogImage} alternateUrls={alternateUrls} />
     {ga4Id && (
       <Fragment>
         <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
@@ -52,11 +53,11 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
     >
       {skipText}
     </a>
-    {!hideHeader && <Header locale={locale} currentPath={Astro.url.pathname} />}
+    {!hideHeader && <Header locale={locale} currentPath={Astro.url.pathname} alternateUrls={alternateUrls} />}
     <main id="main-content" class="flex-1">
       <slot />
     </main>
-    <Footer locale={locale} />
+    <Footer locale={locale} alternateUrls={alternateUrls} />
     <StickyMobileCta locale={locale} />
     <WhatsAppButton locale={locale} />
   </body>

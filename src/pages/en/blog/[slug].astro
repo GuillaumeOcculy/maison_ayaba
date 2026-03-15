@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import safetyImg from '../../../assets/images/blog/cotonou-street.jpg';
+import transportImg from '../../../assets/images/blog/cotonou-transport.jpg';
+import apartmentImg from '../../../assets/images/blog/apartment-interior.jpg';
+
+const heroImages: Record<string, { src: ImageMetadata; alt: string }> = {
+  'cotonou-safety': { src: safetyImg, alt: 'Busy street in Cotonou, Benin' },
+  'cotonou-transport': { src: transportImg, alt: 'Transport in Cotonou — zem and traffic' },
+  'furnished-apartment-cotonou': { src: apartmentImg, alt: 'Modern furnished apartment interior' },
+};
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const enPosts = allPosts.filter((post) => post.id.startsWith('en/'));
+
+  return enPosts.map((entry) => ({
+    params: { slug: entry.id.replace(/^en\//, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, pubDate, tags, ogImage, alternateSlug, faqItems } = entry.data;
+const slug = entry.id.replace(/^en\//, '');
+const hero = heroImages[slug];
+---
+<BlogLayout
+  locale="en"
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  tags={tags}
+  ogImage={ogImage}
+  alternateSlug={alternateSlug}
+  faqItems={faqItems}
+  currentPath={Astro.url.pathname}
+  heroImage={hero?.src}
+  heroImageAlt={hero?.alt}
+  articleImages={heroImages}
+>
+  <Content />
+</BlogLayout>

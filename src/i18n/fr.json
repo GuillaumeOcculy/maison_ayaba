@@ -266,6 +266,17 @@
     "finalCtaSubtitle": "Choisissez votre configuration et réservez en toute confiance",
     "finalCtaCta": "Réserver"
   },
+  "blog": {
+    "pageTitle": "Blog — Maison Ayaba",
+    "pageDescription": "Conseils pratiques pour votre séjour à Cotonou : sécurité, transport, hébergement. Tout ce qu'il faut savoir avant de partir.",
+    "heroTitle": "Le Blog Maison Ayaba",
+    "heroSubtitle": "Conseils pratiques et guides pour préparer votre séjour à Cotonou",
+    "readMore": "Lire l'article",
+    "publishedOn": "Publié le {date}",
+    "backToList": "← Retour au blog",
+    "readNext": "À lire aussi",
+    "articleCta": "Découvrir nos appartements"
+  },
   "booking": {
     "pageTitle": "Réserver — Maison Ayaba",
     "pageDescription": "Réservez votre appartement meublé à Cotonou. 3 configurations : 1, 2 ou 3 chambres avec WiFi, onduleur, clim. Dès 60€/nuit sur Airbnb.",

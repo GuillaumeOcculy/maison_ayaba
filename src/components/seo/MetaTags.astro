@@ -10,6 +10,7 @@ interface Props {
   locale: Locale;
   currentPath: string;
   type?: string;
+  alternateUrls?: Partial<Record<Locale, string>>;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   locale,
   currentPath,
   type = 'website',
+  alternateUrls,
 } = Astro.props;
 
 const canonicalUrl = `${baseUrl}${currentPath}`;
@@ -27,7 +29,9 @@ const ogLocale = locale === 'fr' ? 'fr_FR' : 'en_US';
 
 const alternates = LOCALES.map((loc) => ({
   hreflang: loc,
-  href: `${baseUrl}${getAlternateUrl(currentPath, loc)}`,
+  href: alternateUrls?.[loc]
+    ? `${baseUrl}${alternateUrls[loc]}`
+    : `${baseUrl}${getAlternateUrl(currentPath, loc)}`,
 }));
 const xDefaultHref = alternates.find((a) => a.hreflang === 'fr')?.href ?? `${baseUrl}/`;
 ---

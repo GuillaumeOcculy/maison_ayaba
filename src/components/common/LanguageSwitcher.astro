@@ -5,11 +5,12 @@ import { getAlternateUrl } from '../../data/navigation';
 interface Props {
   locale: Locale;
   currentUrl: URL;
+  alternateUrls?: Partial<Record<Locale, string>>;
 }
 
-const { locale, currentUrl } = Astro.props;
+const { locale, currentUrl, alternateUrls } = Astro.props;
 const targetLocale: Locale = locale === 'fr' ? 'en' : 'fr';
-const targetHref = getAlternateUrl(currentUrl.pathname, targetLocale);
+const targetHref = alternateUrls?.[targetLocale] ?? getAlternateUrl(currentUrl.pathname, targetLocale);
 const switchLabel = locale === 'fr'
   ? t(locale, 'accessibility.switchToEnglish')
   : t(locale, 'accessibility.switchToFrench');
