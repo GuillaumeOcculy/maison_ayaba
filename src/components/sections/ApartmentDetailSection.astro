@@ -21,8 +21,9 @@ const { apartment, images, locale, description, pricePerPerson, bgClass = 'bg-wh
 const configId = `${apartment.slug.replace('-chambres', 'ch').replace('-chambre', 'ch')}` as '1ch' | '2ch' | '3ch';
 const configIndex = configSlugs.indexOf(apartment.slug);
 const displayName = configIndex >= 0 ? t(locale, nameKeys[configIndex]) : apartment.name;
+const subtitleKeys = ['home.config1chSubtitle', 'home.config2chSubtitle', 'home.config3chSubtitle'];
+const subtitle = configIndex >= 0 ? t(locale, subtitleKeys[configIndex]) : '';
 const priceRange = t(locale, 'apartment.priceRange', { min: String(apartment.pricePerNight.min), max: String(apartment.pricePerNight.max) });
-const capacityLabel = t(locale, 'apartment.capacityLabel', { count: String(apartment.capacity) });
 const bonuses = [
   t(locale, 'home.bonusWelcomeBasket'),
   t(locale, 'home.bonusCleaning'),
@@ -44,7 +45,7 @@ const bonuses = [
           {displayName}
         </h2>
 
-        <p class="text-ayaba-muted text-sm mb-4">{capacityLabel}</p>
+        <p class="text-ayaba-muted text-sm mb-4">{subtitle}</p>
 
         <p class="text-ayaba-dark text-base leading-relaxed mb-6">
           {description}
