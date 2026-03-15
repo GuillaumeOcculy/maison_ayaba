@@ -61,7 +61,7 @@ development_status:
   epic-3: in-progress
   3-1-meta-tags-sitemap-robots-txt: done
   3-2-donnees-structurees-schema-org-aeo: done
-  3-3-google-analytics-4-tracking-conversions: backlog
+  3-3-google-analytics-4-tracking-conversions: done
   epic-3-retrospective: optional
 
   # Epic 4 : Blog & Contenu Anti-Peurs

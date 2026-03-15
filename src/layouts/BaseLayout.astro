@@ -17,6 +17,7 @@ interface Props {
 
 const { locale, title, description, ogImage } = Astro.props;
 const skipText = t(locale, 'accessibility.skipToContent');
+const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
 ---
 <!DOCTYPE html>
 <html lang={locale}>
@@ -28,6 +29,19 @@ const skipText = t(locale, 'accessibility.skipToContent');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <MetaTags title={title} description={description} locale={locale} currentPath={Astro.url.pathname} ogImage={ogImage} />
+    {ga4Id && (
+      <Fragment>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+        <script is:inline define:vars={{ ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ga4Id);
+        </script>
+        <!-- GA4 Conversions: Admin → Events → Mark "airbnb_click" as conversion.
+             Event params: config (1ch/2ch/3ch), page (pathname). -->
+      </Fragment>
+    )}
     <slot name="head" />
   </head>
   <body class="bg-white text-ayaba-dark font-body min-h-screen flex flex-col">
