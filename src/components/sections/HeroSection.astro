@@ -4,6 +4,8 @@ import { Image } from 'astro:assets';
 interface StatItem {
   value: string;
   label: string;
+  oldPrice?: string;
+  promoBadge?: string;
 }
 
 interface CtaLink {
@@ -42,7 +44,7 @@ const { image, imageAlt, label, title, subtitle, stats, primaryCta, secondaryCta
 
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(180deg, rgba(44,24,16,0.05) 0%, rgba(44,24,16,0.55) 50%, rgba(44,24,16,0.88) 100%)"
+    style="background: linear-gradient(180deg, rgba(44,24,16,0.15) 0%, rgba(44,24,16,0.65) 50%, rgba(44,24,16,0.92) 100%)"
     aria-hidden="true"
   ></div>
 
@@ -59,11 +61,21 @@ const { image, imageAlt, label, title, subtitle, stats, primaryCta, secondaryCta
       {subtitle}
     </p>
 
-    <dl class="grid grid-cols-2 lg:flex lg:flex-row gap-4 lg:gap-8 mb-8">
+    <dl class="grid grid-cols-2 lg:flex lg:flex-row items-baseline gap-4 lg:gap-8 mb-8">
       {stats.map((stat) => (
-        <div class="flex flex-col">
-          <dt class="text-ayaba-gold font-heading text-2xl font-bold">{stat.value}</dt>
-          <dd class="text-white/60 text-[11px] uppercase tracking-[1.5px]">{stat.label}</dd>
+        <div class:list={["relative flex flex-col", stat.promoBadge && "mr-16"]}>
+          <dt class="text-ayaba-gold font-heading text-2xl font-bold flex items-baseline gap-2">
+            {stat.value}
+            {stat.oldPrice && (
+              <span class="text-white/40 text-3xl line-through">{stat.oldPrice}</span>
+            )}
+          </dt>
+          {stat.promoBadge && (
+            <span class="absolute left-[calc(100%+8px)] top-1/2 -translate-y-1/2 bg-ayaba-terra text-white text-[7px] uppercase leading-none tracking-wide w-14 h-14 rounded-full font-semibold flex items-center justify-center text-center p-1">{stat.promoBadge}</span>
+          )}
+          <dd class="text-white/60 text-[11px] uppercase tracking-[1.5px]">
+            {stat.label}
+          </dd>
         </div>
       ))}
     </dl>

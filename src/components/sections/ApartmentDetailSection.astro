@@ -4,6 +4,9 @@ import AirbnbCta from '../ui/AirbnbCta.astro';
 import { t, type Locale } from '../../i18n/utils';
 import type { ApartmentConfig } from '../../data/apartments';
 
+const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
+const configSlugs = ['1-chambre', '2-chambres', '3-chambres'];
+
 interface Props {
   apartment: ApartmentConfig;
   images: { src: ImageMetadata; alt: string }[];
@@ -16,8 +19,16 @@ interface Props {
 const { apartment, images, locale, description, pricePerPerson, bgClass = 'bg-white' } = Astro.props;
 
 const configId = `${apartment.slug.replace('-chambres', 'ch').replace('-chambre', 'ch')}` as '1ch' | '2ch' | '3ch';
+const configIndex = configSlugs.indexOf(apartment.slug);
+const displayName = configIndex >= 0 ? t(locale, nameKeys[configIndex]) : apartment.name;
 const priceRange = t(locale, 'apartment.priceRange', { min: String(apartment.pricePerNight.min), max: String(apartment.pricePerNight.max) });
 const capacityLabel = t(locale, 'apartment.capacityLabel', { count: String(apartment.capacity) });
+const bonuses = [
+  t(locale, 'home.bonusWelcomeBasket'),
+  t(locale, 'home.bonusCleaning'),
+  t(locale, 'home.bonusConcierge'),
+  t(locale, 'home.bonusTransfer'),
+];
 ---
 <section class:list={[bgClass, 'py-16 lg:py-20']}>
   <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
@@ -30,7 +41,7 @@ const capacityLabel = t(locale, 'apartment.capacityLabel', { count: String(apart
       {/* Details */}
       <div>
         <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-2">
-          {apartment.name}
+          {displayName}
         </h2>
 
         <p class="text-ayaba-muted text-sm mb-4">{capacityLabel}</p>
@@ -46,6 +57,19 @@ const capacityLabel = t(locale, 'apartment.capacityLabel', { count: String(apart
           {pricePerPerson && (
             <p class="text-ayaba-muted text-sm mt-1">{pricePerPerson}</p>
           )}
+        </div>
+
+        {/* Bonus offert */}
+        <div class="mb-6">
+          <p class="text-[11px] uppercase tracking-[1.5px] text-ayaba-terra font-semibold mb-2">{t(locale, 'home.bonusLabel')}</p>
+          <ul class="space-y-1.5">
+            {bonuses.map((bonus) => (
+              <li class="flex items-center gap-2">
+                <span class="text-ayaba-terra font-bold text-sm" aria-hidden="true">&#9733;</span>
+                <span class="text-ayaba-dark text-sm">{bonus}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* CTA */}

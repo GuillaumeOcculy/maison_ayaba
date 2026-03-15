@@ -6,16 +6,27 @@ import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { apartments, getSharedAmenities } from '../../data/apartments';
 import { t } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
+import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
+import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
 import chambre2Img from '../../assets/images/apartments/chambre2.png';
+import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
+import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
+import chambre2Img4 from '../../assets/images/apartments/chambre2-4.png';
 import chambre3Img from '../../assets/images/apartments/chambre3.png';
+import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
+import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
+import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
+import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
 
 const locale = 'fr' as const;
 
-const imagesBySlug: Record<string, ImageMetadata> = {
-  chambre1: chambre1Img,
-  chambre2: chambre2Img,
-  chambre3: chambre3Img,
-};
+const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
+
+const imagesByConfig: { src: ImageMetadata; alt: string }[][] = [
+  [chambre1Img, chambre1Img2, chambre1Img3].map((src, i) => ({ src, alt: `${t(locale, nameKeys[0])} — Maison Ayaba — ${i + 1}` })),
+  [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4].map((src, i) => ({ src, alt: `${t(locale, nameKeys[1])} — Maison Ayaba — ${i + 1}` })),
+  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Img4, chambre3Img5].map((src, i) => ({ src, alt: `${t(locale, nameKeys[2])} — Maison Ayaba — ${i + 1}` })),
+];
 
 const bgClasses = ['bg-white', 'bg-ayaba-cream', 'bg-white'];
 const amenities = getSharedAmenities(locale);
@@ -43,13 +54,6 @@ const amenities = getSharedAmenities(locale);
 
   {/* Apartment detail sections */}
   {apartments.map((apt, i) => {
-    const images = apt.galleryImageSlugs
-      .filter((slug) => imagesBySlug[slug])
-      .map((slug) => ({
-        src: imagesBySlug[slug],
-        alt: `${apt.name} — Maison Ayaba`,
-      }));
-
     const description = t(locale, apt.descriptionKey);
 
     const pricePerPerson = apt.pricePerPerson
@@ -62,7 +66,7 @@ const amenities = getSharedAmenities(locale);
     return (
       <ApartmentDetailSection
         apartment={apt}
-        images={images}
+        images={imagesByConfig[i]}
         locale={locale}
         description={description}
         pricePerPerson={pricePerPerson}

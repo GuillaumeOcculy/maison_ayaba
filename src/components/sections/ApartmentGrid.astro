@@ -3,8 +3,17 @@ import ApartmentCard from './ApartmentCard.astro';
 import { apartments, getAmenities } from '../../data/apartments';
 import { t, type Locale } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
+import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
+import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
 import chambre2Img from '../../assets/images/apartments/chambre2.png';
+import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
+import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
+import chambre2Img4 from '../../assets/images/apartments/chambre2-4.png';
 import chambre3Img from '../../assets/images/apartments/chambre3.png';
+import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
+import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
+import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
+import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
 
 interface Props {
   locale: Locale;
@@ -17,11 +26,20 @@ const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chNam
 const subtitleKeys = ['home.config1chSubtitle', 'home.config2chSubtitle', 'home.config3chSubtitle'];
 const noteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNote'];
 const priceUnit = t(locale, 'labels.pricePerNight');
-const imagesBySlug: Record<string, ImageMetadata> = {
-  '1-chambre': chambre1Img,
-  '2-chambres': chambre2Img,
-  '3-chambres': chambre3Img,
-};
+
+const imagesByConfig: ImageMetadata[][] = [
+  [chambre1Img, chambre1Img2, chambre1Img3],
+  [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4],
+  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Img4, chambre3Img5],
+];
+
+const bonusKeys = [
+  'home.bonusWelcomeBasket',
+  'home.bonusCleaning',
+  'home.bonusConcierge',
+  'home.bonusTransfer',
+];
+const bonuses = bonusKeys.map((key) => t(locale, key));
 ---
 <section id="configurations" class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
@@ -37,7 +55,7 @@ const imagesBySlug: Record<string, ImageMetadata> = {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
       {apartments.map((apt, i) => (
         <ApartmentCard
-          image={imagesBySlug[apt.slug]}
+          images={imagesByConfig[i]}
           imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
           name={t(locale, nameKeys[i])}
           subtitle={t(locale, subtitleKeys[i])}
@@ -46,6 +64,7 @@ const imagesBySlug: Record<string, ImageMetadata> = {
           priceNote={t(locale, noteKeys[i])}
           capacity={apt.capacity}
           features={getAmenities(apt, locale)}
+          bonuses={bonuses}
           configId={configIds[i]}
           locale={locale}
         />
