@@ -20,6 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Playwright MCP screenshots
+.playwright-mcp/
+
 # IDE / editor settings
 .idea/
 .cursor/
