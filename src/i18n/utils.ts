@@ -37,13 +37,3 @@ export function t(locale: Locale, key: string, params?: Record<string, string | 
   }
   return result;
 }
-
-export function getLocalizedUrl(url: URL, targetLocale: Locale): string {
-  const segments = url.pathname.split('/').filter(Boolean);
-  if (LOCALES.includes(segments[0] as Locale)) {
-    segments[0] = targetLocale;
-  } else {
-    segments.unshift(targetLocale);
-  }
-  return '/' + segments.join('/') + '/';
-}
