@@ -2,7 +2,7 @@
 title: "Is Cotonou Safe? A Practical Guide for Travelers"
 description: "Safety in Cotonou: practical tips, safe neighborhoods, precautions and first-hand experience. Everything you need to travel confidently to Benin."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["safety", "cotonou", "benin", "guide"]
 alternateSlug: "securite-cotonou"
 faqItems:

@@ -2,7 +2,7 @@
 title: "Furnished Apartment in Cotonou: What to Check Before Booking"
 description: "Furnished apartment Cotonou checklist: inverter, WiFi, AC, security, neighborhood. The essential criteria for a stay without unpleasant surprises."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["accommodation", "cotonou", "apartment", "checklist"]
 alternateSlug: "appartement-meuble-cotonou"
 faqItems:

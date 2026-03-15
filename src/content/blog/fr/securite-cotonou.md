@@ -2,7 +2,7 @@
 title: "Est-ce que Cotonou est sûr ? Guide pratique pour les voyageurs"
 description: "Sécurité à Cotonou : conseils pratiques, quartiers sûrs, précautions et retour d'expérience. Tout pour voyager sereinement au Bénin."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["sécurité", "cotonou", "bénin", "guide"]
 alternateSlug: "cotonou-safety"
 faqItems:

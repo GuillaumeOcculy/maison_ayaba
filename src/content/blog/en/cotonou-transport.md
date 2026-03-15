@@ -2,7 +2,7 @@
 title: "Getting Around Cotonou: Zem, Gozem & Private Driver"
 description: "Cotonou transport guide: zem (moto-taxi), Gozem (ride-hailing), private driver. Fares, tips and tricks for stress-free travel."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["transport", "cotonou", "zem", "gozem", "guide"]
 alternateSlug: "transport-cotonou"
 faqItems:

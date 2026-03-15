@@ -2,7 +2,7 @@
 title: "Comment se déplacer à Cotonou : Zem, Gozem, chauffeur privé"
 description: "Guide transport Cotonou : zem (moto-taxi), Gozem (VTC), chauffeur privé. Tarifs, conseils et astuces pour se déplacer sereinement."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["transport", "cotonou", "zem", "gozem", "guide"]
 alternateSlug: "cotonou-transport"
 faqItems:

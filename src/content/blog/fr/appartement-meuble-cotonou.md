@@ -2,7 +2,7 @@
 title: "Appartement meublé à Cotonou : que vérifier avant de réserver"
 description: "Checklist appartement meublé Cotonou : onduleur, WiFi, clim, sécurité, quartier. Les critères essentiels pour un séjour sans mauvaise surprise."
 pubDate: 2026-03-15
-author: "Onizuka"
+author: "Guillaume"
 tags: ["hébergement", "cotonou", "appartement", "checklist"]
 alternateSlug: "furnished-apartment-cotonou"
 faqItems:

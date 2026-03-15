@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { locale, currentPath, alternateUrls } = Astro.props;
-const navItems = getNavigation(locale).slice(0, 5);
+const navItems = getNavigation(locale);
 const navLabel = t(locale, 'accessibility.mainNavigation');
 const openMenuLabel = t(locale, 'accessibility.openMenu');
 const closeMenuLabel = t(locale, 'accessibility.closeMenu');
