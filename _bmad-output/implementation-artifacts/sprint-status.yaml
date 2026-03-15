@@ -65,8 +65,8 @@ development_status:
   epic-3-retrospective: done
 
   # Epic 4 : Blog & Contenu Anti-Peurs
-  epic-4: backlog
-  4-1-infrastructure-blog-content-collections-bloglayout: backlog
-  4-2-liste-articles-navigation-blog: backlog
-  4-3-3-premiers-articles-seo-anti-peurs: backlog
+  epic-4: done
+  4-1-infrastructure-blog-content-collections-bloglayout: done
+  4-2-liste-articles-navigation-blog: done
+  4-3-3-premiers-articles-seo-anti-peurs: done
   epic-4-retrospective: optional
