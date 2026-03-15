@@ -13,9 +13,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  hideHeader?: boolean;
 }
 
-const { locale, title, description, ogImage } = Astro.props;
+const { locale, title, description, ogImage, hideHeader } = Astro.props;
 const skipText = t(locale, 'accessibility.skipToContent');
 const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
 ---
@@ -51,7 +52,7 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
     >
       {skipText}
     </a>
-    <Header locale={locale} currentPath={Astro.url.pathname} />
+    {!hideHeader && <Header locale={locale} currentPath={Astro.url.pathname} />}
     <main id="main-content" class="flex-1">
       <slot />
     </main>
