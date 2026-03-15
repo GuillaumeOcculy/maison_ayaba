@@ -58,11 +58,11 @@ development_status:
   epic-2-retrospective: done
 
   # Epic 3 : SEO, Découvrabilité & Analytics
-  epic-3: in-progress
+  epic-3: done
   3-1-meta-tags-sitemap-robots-txt: done
   3-2-donnees-structurees-schema-org-aeo: done
   3-3-google-analytics-4-tracking-conversions: done
-  epic-3-retrospective: optional
+  epic-3-retrospective: done
 
   # Epic 4 : Blog & Contenu Anti-Peurs
   epic-4: backlog
