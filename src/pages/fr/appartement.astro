@@ -22,13 +22,11 @@ import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
 import chambre3Sdb from '../../assets/images/apartments/chambre3-sdb.png';
 import chambre3Sdb2 from '../../assets/images/apartments/chambre3-sdb2.png';
 import salon1 from '../../assets/images/apartments/salon1.png';
-import salon2 from '../../assets/images/apartments/salon2.png';
 import salon3 from '../../assets/images/apartments/salon3.png';
 import salon4 from '../../assets/images/apartments/salon4.png';
 import salon5 from '../../assets/images/apartments/salon5.png';
 import cuisine1 from '../../assets/images/apartments/cuisine1.png';
 import cuisine2 from '../../assets/images/apartments/cuisine2.png';
-import cuisine3 from '../../assets/images/apartments/cuisine3.png';
 import terrasse1 from '../../assets/images/apartments/terrasse1.png';
 import terrasse2 from '../../assets/images/apartments/terrasse2.png';
 
@@ -45,14 +43,12 @@ const imagesByConfig: { src: ImageMetadata; alt: string }[][] = [
 const tourImages = [
   { src: salon1, alt: 'Salon lumineux — Maison Ayaba' },
   { src: salon3, alt: 'Salon avec TV — Maison Ayaba' },
-  { src: salon4, alt: 'Salon et salle à manger — Maison Ayaba' },
-  { src: salon5, alt: 'Salle à manger — Maison Ayaba' },
-  { src: salon2, alt: 'Salon vue angle — Maison Ayaba' },
-  { src: cuisine1, alt: 'Cuisine équipée — Maison Ayaba' },
-  { src: cuisine2, alt: 'Cuisine avec réfrigérateur — Maison Ayaba' },
-  { src: cuisine3, alt: 'Plan de travail cuisine — Maison Ayaba' },
   { src: terrasse1, alt: 'Terrasse avec salon — Maison Ayaba' },
+  { src: cuisine1, alt: 'Cuisine équipée — Maison Ayaba' },
+  { src: salon4, alt: 'Salon et salle à manger — Maison Ayaba' },
   { src: terrasse2, alt: 'Terrasse fauteuil — Maison Ayaba' },
+  { src: cuisine2, alt: 'Cuisine avec réfrigérateur — Maison Ayaba' },
+  { src: salon5, alt: 'Salle à manger — Maison Ayaba' },
 ];
 
 const bgClasses = ['bg-white', 'bg-ayaba-cream', 'bg-white'];
@@ -111,7 +107,7 @@ const displayOrder = [2, 1, 0];
 
       {/* Photo grid — masonry-style */}
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 rounded-2xl overflow-hidden">
-        {tourImages.slice(0, 8).map((img, idx) => (
+        {tourImages.map((img, idx) => (
           <div class:list={[idx === 0 && 'col-span-2 row-span-2']}>
             <Image
               src={img.src}
