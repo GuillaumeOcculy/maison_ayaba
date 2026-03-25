@@ -73,7 +73,7 @@
   "social": {
     "instagram": "Follow us on Instagram",
     "whatsapp": "Contact us on WhatsApp",
-    "whatsappMessage": "Hello, I'm interested in booking a room of Maison Ayaba"
+    "whatsappMessage": "Hello, I'm interested in booking the Maison Ayaba apartment"
   },
   "home": {
     "heroLabel": "MAISON AYABA — FIDJROSSÈ, COTONOU",
@@ -100,14 +100,15 @@
     "trustWifiDesc": "Work and streaming",
     "trustBeachTitle": "10 min from beach",
     "trustBeachDesc": "Fidjrossè, residential area",
-    "configurationsTitle": "Choose your configuration",
-    "configurationsSubtitle": "3 options tailored to your stay — from solo to a group of 6",
-    "config1chName": "Suite Ayaba",
-    "config2chName": "Suite Kwabo",
-    "config3chName": "Suite Dako",
-    "config1chSubtitle": "1 bedroom · 1 bathroom · Solo or couple",
-    "config2chSubtitle": "2 bedrooms · 2 bathrooms · Couple or family",
-    "config3chSubtitle": "3 bedrooms · 3 bathrooms · Up to 6 guests",
+    "configurationsTitle": "The entire apartment, just for you",
+    "configurationsSubtitle": "You rent the whole apartment — living room, kitchen, terrace — and simply choose the number of bedrooms.",
+    "configExplainer": "No matter how many bedrooms you choose, you get full access to the entire apartment: living room, equipped kitchen, terrace, and all amenities.",
+    "config1chName": "Apartment · 1 bedroom",
+    "config2chName": "Apartment · 2 bedrooms",
+    "config3chName": "Apartment · 3 bedrooms",
+    "config1chSubtitle": "Entire apartment · 1 bedroom · 1 bathroom · Solo or couple",
+    "config2chSubtitle": "Entire apartment · 2 bedrooms · 2 bathrooms · Couple or family",
+    "config3chSubtitle": "Entire apartment · 3 bedrooms · 3 bathrooms · Up to 6 guests",
     "config1chNote": "Ideal for business travelers",
     "config2chNote": "Most popular",
     "config3chNote": "Best value for money",
@@ -129,7 +130,7 @@
     "hostDesc": "Behind Maison Ayaba, a passionate host who knows Cotonou and anticipates your every need. Discover their hosting philosophy.",
     "hostCta": "Meet your host",
     "finalCtaTitle": "Ready for Cotonou?",
-    "finalCtaSubtitle": "Book your apartment and start planning your stay",
+    "finalCtaSubtitle": "Book the entire apartment and start planning your stay",
     "finalCtaCta": "Book",
     "capacityLabel": "{count} guests max.",
     "photoPlaceholder": "Photo coming soon",
@@ -141,23 +142,25 @@
     "bonusTransfer": "Airport transfer available"
   },
   "apartment": {
-    "pageTitle": "Our configurations — Maison Ayaba",
-    "pageDescription": "Discover our 3 furnished apartment configurations in Fidjrossè, Cotonou: 1, 2 or 3 bedrooms with WiFi, inverter, AC. From €60/night.",
-    "sectionTitle": "Our configurations",
-    "sectionSubtitle": "3 options tailored to your stay — from solo to a group of 6 guests",
+    "pageTitle": "The apartment — Maison Ayaba",
+    "pageDescription": "Rent the entire Maison Ayaba apartment in Fidjrossè, Cotonou: choose 1, 2 or 3 bedrooms. Living room, kitchen, terrace always included. From €60/night.",
+    "sectionTitle": "The apartment",
+    "sectionSubtitle": "One apartment, all yours — simply choose the number of bedrooms you need.",
+    "howItWorksTitle": "How does it work?",
+    "howItWorks": "Maison Ayaba is a complete apartment that you rent entirely. Choose 1, 2, or 3 bedrooms based on your needs — but you always enjoy the living room, equipped kitchen, terrace, and all amenities.",
     "priceRange": "€{min} – €{max}",
     "pricePerPersonLabel": "~€{amount}/night per person (for {guests})",
     "capacityLabel": "{count} guests max.",
     "keyAmenitiesTitle": "Highlights",
     "thumbnailsLabel": "Thumbnails — {name}",
     "amenitiesTitle": "Included amenities",
-    "amenitiesSubtitle": "Every configuration comes with the same quality amenities",
+    "amenitiesSubtitle": "All these amenities are included, no matter how many bedrooms you choose",
     "galleryLabel": "Photo gallery — {name}",
-    "config1chDescription": "Ideal configuration for business travelers or couples. Dedicated office, high-speed WiFi and air conditioning for a productive and comfortable stay in Cotonou.",
-    "config2chDescription": "Perfect for a couple or small family. Separate living room, equipped kitchen and all the comforts for an independent stay in Fidjrossè.",
-    "config3chDescription": "Our best value for groups and families. Up to 6 guests, baby crib available, washing machine and private terrace.",
+    "config1chDescription": "The entire apartment for you alone or as a couple. Dedicated office, high-speed WiFi and air conditioning — with full access to the living room, equipped kitchen, and terrace.",
+    "config2chDescription": "The entire apartment with 2 bedrooms. Perfect for a couple or small family — living room, equipped kitchen and all the comforts for an independent stay in Fidjrossè.",
+    "config3chDescription": "The entire apartment with all 3 bedrooms. Our best value for groups and families — up to 6 guests, baby crib available, washing machine and private terrace.",
     "finalCtaTitle": "Ready to book?",
-    "finalCtaSubtitle": "Choose your configuration and book directly on Airbnb",
+    "finalCtaSubtitle": "Choose the number of bedrooms and book the entire apartment on Airbnb",
     "finalCtaCta": "Book"
   },
   "neighborhood": {
@@ -232,9 +235,9 @@
     "poi4Name": "Fondation Zinsou",
     "poi4Detail": "Contemporary African art — free entry",
 
-    "viewApartment": "Discover our configurations",
+    "viewApartment": "Discover the apartment",
     "finalCtaTitle": "Ready to book?",
-    "finalCtaSubtitle": "Book your apartment in Fidjrossè and start planning your stay in Cotonou",
+    "finalCtaSubtitle": "Book the entire apartment in Fidjrossè and start planning your stay in Cotonou",
     "finalCtaCta": "Book",
 
     "faqRestaurantsQ": "What restaurants are near Maison Ayaba in Fidjrossè?",
@@ -271,9 +274,9 @@
     "kwaboPanierDesc": "Fresh seasonal fruits, cold drinks, coffee and next morning's breakfast. Everything to start your stay without rushing to the supermarket.",
     "kwaboMotTitle": "Warm welcome",
     "kwaboMotDesc": "A personalized welcome to start your stay on the right foot — because feeling welcome changes everything.",
-    "viewApartment": "Discover our configurations",
+    "viewApartment": "Discover the apartment",
     "finalCtaTitle": "Ready to book?",
-    "finalCtaSubtitle": "Choose your configuration and book with confidence",
+    "finalCtaSubtitle": "Choose the number of bedrooms and book with confidence",
     "finalCtaCta": "Book"
   },
   "blog": {
@@ -285,13 +288,13 @@
     "publishedOn": "Published on {date}",
     "backToList": "← Back to blog",
     "readNext": "Read next",
-    "articleCta": "Discover our apartments"
+    "articleCta": "Discover the apartment"
   },
   "booking": {
     "pageTitle": "Book — Maison Ayaba",
-    "pageDescription": "Book your furnished apartment in Cotonou. 3 configurations: 1, 2 or 3 bedrooms with WiFi, inverter, AC. From €60/night on Airbnb.",
+    "pageDescription": "Book the entire Maison Ayaba apartment in Cotonou. 1, 2 or 3 bedrooms with WiFi, inverter, AC. From €60/night on Airbnb.",
     "heroTitle": "Book your stay",
-    "heroSubtitle": "Choose your configuration and book directly on Airbnb.",
+    "heroSubtitle": "Choose the number of bedrooms and book the entire apartment on Airbnb.",
     "finalCtaTitle": "Have a question before booking?",
     "finalCtaSubtitle": "Contact your host to prepare your stay together",
     "finalCtaCta": "Contact on WhatsApp"

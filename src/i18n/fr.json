@@ -73,7 +73,7 @@
   "social": {
     "instagram": "Suivez-nous sur Instagram",
     "whatsapp": "Contactez-nous sur WhatsApp",
-    "whatsappMessage": "Bonjour, je suis intéressé(e) pour réserver une chambre de Maison Ayaba"
+    "whatsappMessage": "Bonjour, je suis intéressé(e) pour réserver l'appartement Maison Ayaba"
   },
   "home": {
     "heroLabel": "MAISON AYABA — FIDJROSSÈ, COTONOU",
@@ -100,14 +100,15 @@
     "trustWifiDesc": "Travail et streaming",
     "trustBeachTitle": "10 min de la plage",
     "trustBeachDesc": "Fidjrossè, quartier résidentiel",
-    "configurationsTitle": "Choisissez votre configuration",
-    "configurationsSubtitle": "3 formules adaptées à votre séjour — du solo au groupe de 6",
-    "config1chName": "Suite Ayaba",
-    "config2chName": "Suite Kwabo",
-    "config3chName": "Suite Dako",
-    "config1chSubtitle": "1 chambre · 1 salle de bain · Solo ou couple",
-    "config2chSubtitle": "2 chambres · 2 salles de bain · Couple ou famille",
-    "config3chSubtitle": "3 chambres · 3 salles de bain · Jusqu'à 6 voyageurs",
+    "configurationsTitle": "Un appartement entier, rien que pour vous",
+    "configurationsSubtitle": "Vous louez tout l'appartement — salon, cuisine, terrasse — et choisissez simplement le nombre de chambres.",
+    "configExplainer": "Quel que soit le nombre de chambres choisi, vous avez accès à l'intégralité de l'appartement : salon, cuisine équipée, terrasse et tous les équipements.",
+    "config1chName": "Appartement · 1 chambre",
+    "config2chName": "Appartement · 2 chambres",
+    "config3chName": "Appartement · 3 chambres",
+    "config1chSubtitle": "Appartement entier · 1 chambre · 1 salle de bain · Solo ou couple",
+    "config2chSubtitle": "Appartement entier · 2 chambres · 2 salles de bain · Couple ou famille",
+    "config3chSubtitle": "Appartement entier · 3 chambres · 3 salles de bain · Jusqu'à 6 voyageurs",
     "config1chNote": "Idéal voyageur d'affaires",
     "config2chNote": "Le plus populaire",
     "config3chNote": "Meilleur rapport qualité/prix",
@@ -129,7 +130,7 @@
     "hostDesc": "Derrière Maison Ayaba, un hôte passionné qui connaît Cotonou et anticipe chacun de vos besoins. Découvrez sa philosophie d'accueil.",
     "hostCta": "Faire connaissance",
     "finalCtaTitle": "Prêt pour Cotonou ?",
-    "finalCtaSubtitle": "Réservez votre appartement et commencez à préparer votre séjour",
+    "finalCtaSubtitle": "Réservez l'appartement entier et commencez à préparer votre séjour",
     "finalCtaCta": "Réserver",
     "capacityLabel": "{count} voyageurs max.",
     "photoPlaceholder": "Photo à venir",
@@ -141,23 +142,25 @@
     "bonusTransfer": "Transfert aéroport organisable"
   },
   "apartment": {
-    "pageTitle": "Nos configurations — Maison Ayaba",
-    "pageDescription": "Découvrez nos 3 configurations d'appartement meublé à Fidjrossè, Cotonou : 1, 2 ou 3 chambres avec WiFi, onduleur, clim. Dès 60€/nuit.",
-    "sectionTitle": "Nos configurations",
-    "sectionSubtitle": "3 formules adaptées à votre séjour — du solo au groupe de 6 voyageurs",
+    "pageTitle": "L'appartement — Maison Ayaba",
+    "pageDescription": "Louez l'appartement entier Maison Ayaba à Fidjrossè, Cotonou : choisissez 1, 2 ou 3 chambres. Salon, cuisine, terrasse toujours inclus. Dès 60€/nuit.",
+    "sectionTitle": "L'appartement",
+    "sectionSubtitle": "Un seul appartement, tout pour vous — choisissez simplement le nombre de chambres selon vos besoins.",
+    "howItWorksTitle": "Comment ça marche ?",
+    "howItWorks": "Maison Ayaba est un appartement complet que vous louez en entier. Vous choisissez 1, 2 ou 3 chambres selon vos besoins — mais vous profitez toujours du salon, de la cuisine équipée, de la terrasse et de tous les équipements.",
     "priceRange": "{min}€ – {max}€",
     "pricePerPersonLabel": "soit ~{amount}€/nuit par personne (pour {guests})",
     "capacityLabel": "{count} voyageurs max.",
     "keyAmenitiesTitle": "Points forts",
     "thumbnailsLabel": "Miniatures — {name}",
     "amenitiesTitle": "Équipements inclus",
-    "amenitiesSubtitle": "Chaque configuration dispose des mêmes équipements de qualité",
+    "amenitiesSubtitle": "Tous ces équipements sont inclus, quel que soit le nombre de chambres choisi",
     "galleryLabel": "Galerie photos — {name}",
-    "config1chDescription": "Configuration idéale pour le voyageur d'affaires ou le couple. Bureau dédié, WiFi haut débit et climatisation pour un séjour productif et confortable à Cotonou.",
-    "config2chDescription": "Parfait pour un couple ou une petite famille. Espace salon séparé, cuisine équipée et tout le confort pour un séjour en autonomie à Fidjrossè.",
-    "config3chDescription": "Notre meilleur rapport qualité/prix pour les groupes et familles. Jusqu'à 6 voyageurs, lit bébé disponible, machine à laver et terrasse privée.",
+    "config1chDescription": "L'appartement entier pour vous seul ou en couple. Bureau dédié, WiFi haut débit et climatisation — avec accès au salon, à la cuisine équipée et à la terrasse.",
+    "config2chDescription": "L'appartement entier avec 2 chambres. Parfait pour un couple ou une petite famille — salon, cuisine équipée et tout le confort pour un séjour en autonomie à Fidjrossè.",
+    "config3chDescription": "L'appartement entier avec ses 3 chambres. Notre meilleur rapport qualité/prix pour les groupes et familles — jusqu'à 6 voyageurs, lit bébé disponible, machine à laver et terrasse privée.",
     "finalCtaTitle": "Prêt à réserver ?",
-    "finalCtaSubtitle": "Choisissez votre configuration et réservez directement sur Airbnb",
+    "finalCtaSubtitle": "Choisissez le nombre de chambres et réservez l'appartement entier sur Airbnb",
     "finalCtaCta": "Réserver"
   },
   "neighborhood": {
@@ -232,9 +235,9 @@
     "poi4Name": "Fondation Zinsou",
     "poi4Detail": "Art contemporain africain — entrée gratuite",
 
-    "viewApartment": "Découvrir nos configurations",
+    "viewApartment": "Découvrir l'appartement",
     "finalCtaTitle": "Prêt à réserver ?",
-    "finalCtaSubtitle": "Réservez votre appartement à Fidjrossè et commencez à préparer votre séjour à Cotonou",
+    "finalCtaSubtitle": "Réservez l'appartement entier à Fidjrossè et commencez à préparer votre séjour à Cotonou",
     "finalCtaCta": "Réserver",
 
     "faqRestaurantsQ": "Quels restaurants se trouvent près de Maison Ayaba à Fidjrossè ?",
@@ -271,9 +274,9 @@
     "kwaboPanierDesc": "Fruits frais de saison, boissons fraîches, café et petit déjeuner du lendemain matin. De quoi commencer votre séjour sans courir au supermarché.",
     "kwaboMotTitle": "Accueil chaleureux",
     "kwaboMotDesc": "Un accueil personnalisé pour démarrer votre séjour du bon pied — parce que se sentir bienvenu, ça change tout.",
-    "viewApartment": "Découvrir nos configurations",
+    "viewApartment": "Découvrir l'appartement",
     "finalCtaTitle": "Prêt à réserver ?",
-    "finalCtaSubtitle": "Choisissez votre configuration et réservez en toute confiance",
+    "finalCtaSubtitle": "Choisissez le nombre de chambres et réservez en toute confiance",
     "finalCtaCta": "Réserver"
   },
   "blog": {
@@ -285,13 +288,13 @@
     "publishedOn": "Publié le {date}",
     "backToList": "← Retour au blog",
     "readNext": "À lire aussi",
-    "articleCta": "Découvrir nos appartements"
+    "articleCta": "Découvrir l'appartement"
   },
   "booking": {
     "pageTitle": "Réserver — Maison Ayaba",
-    "pageDescription": "Réservez votre appartement meublé à Cotonou. 3 configurations : 1, 2 ou 3 chambres avec WiFi, onduleur, clim. Dès 60€/nuit sur Airbnb.",
+    "pageDescription": "Réservez l'appartement entier Maison Ayaba à Cotonou. 1, 2 ou 3 chambres avec WiFi, onduleur, clim. Dès 60€/nuit sur Airbnb.",
     "heroTitle": "Réservez votre séjour",
-    "heroSubtitle": "Choisissez votre configuration et réservez directement sur Airbnb.",
+    "heroSubtitle": "Choisissez le nombre de chambres et réservez l'appartement entier sur Airbnb.",
     "finalCtaTitle": "Une question avant de réserver ?",
     "finalCtaSubtitle": "Contactez votre hôte pour préparer votre séjour ensemble",
     "finalCtaCta": "Contacter sur WhatsApp"
