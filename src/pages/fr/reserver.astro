@@ -139,22 +139,52 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    function updateSlider(track: HTMLElement, newIndex: number) {
+      const count = track.children.length;
+      const current = ((newIndex % count) + count) % count;
+      track.dataset.current = String(current);
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll<HTMLSpanElement>(`[data-dot="${track.id}"]`).forEach((dot) => {
+        const idx = parseInt(dot.dataset.index || '0', 10);
+        dot.className = `w-2 h-2 rounded-full transition-colors ${idx === current ? 'bg-white' : 'bg-white/50'}`;
+      });
+    }
+
+    // Button navigation
     document.querySelectorAll<HTMLButtonElement>('[data-slider][data-dir]').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const sliderId = btn.dataset.slider!;
-        const dir = btn.dataset.dir as 'prev' | 'next';
-        const track = document.getElementById(sliderId);
+        const track = document.getElementById(btn.dataset.slider!);
         if (!track) return;
-        const count = track.children.length;
-        let current = parseInt(track.dataset.current || '0', 10);
-        current = dir === 'next' ? (current + 1) % count : (current - 1 + count) % count;
-        track.dataset.current = String(current);
-        track.style.transform = `translateX(-${current * 100}%)`;
-        document.querySelectorAll<HTMLSpanElement>(`[data-dot="${sliderId}"]`).forEach((dot) => {
-          const idx = parseInt(dot.dataset.index || '0', 10);
-          dot.className = `w-2 h-2 rounded-full transition-colors ${idx === current ? 'bg-white' : 'bg-white/50'}`;
-        });
+        const current = parseInt(track.dataset.current || '0', 10);
+        updateSlider(track, btn.dataset.dir === 'next' ? current + 1 : current - 1);
       });
+    });
+
+    // Touch swipe
+    document.querySelectorAll<HTMLElement>('[id^="book-slider-"]').forEach((track) => {
+      const container = track.parentElement;
+      if (!container) return;
+      let startX = 0, startY = 0, isDragging = false;
+
+      container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX; startY = e.touches[0].clientY; isDragging = true;
+      }, { passive: true });
+
+      container.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const dx = e.touches[0].clientX - startX, dy = e.touches[0].clientY - startY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) e.preventDefault();
+      }, { passive: false });
+
+      container.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) {
+          const current = parseInt(track.dataset.current || '0', 10);
+          updateSlider(track, dx < 0 ? current + 1 : current - 1);
+        }
+      }, { passive: true });
     });
   });
 </script>
