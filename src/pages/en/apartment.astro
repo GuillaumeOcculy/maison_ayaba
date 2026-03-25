@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import ApartmentDetailSection from '../../components/sections/ApartmentDetailSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
@@ -8,6 +9,7 @@ import { t } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
 import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
+import chambre1Sdb from '../../assets/images/apartments/chambre1-sdb.png';
 import chambre2Img from '../../assets/images/apartments/chambre2.png';
 import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
 import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
@@ -17,19 +19,46 @@ import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
 import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
 import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
 import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
+import chambre3Sdb from '../../assets/images/apartments/chambre3-sdb.png';
+import chambre3Sdb2 from '../../assets/images/apartments/chambre3-sdb2.png';
+import salon1 from '../../assets/images/apartments/salon1.png';
+import salon2 from '../../assets/images/apartments/salon2.png';
+import salon3 from '../../assets/images/apartments/salon3.png';
+import salon4 from '../../assets/images/apartments/salon4.png';
+import salon5 from '../../assets/images/apartments/salon5.png';
+import cuisine1 from '../../assets/images/apartments/cuisine1.png';
+import cuisine2 from '../../assets/images/apartments/cuisine2.png';
+import cuisine3 from '../../assets/images/apartments/cuisine3.png';
+import terrasse1 from '../../assets/images/apartments/terrasse1.png';
+import terrasse2 from '../../assets/images/apartments/terrasse2.png';
 
 const locale = 'en' as const;
 
 const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
 
 const imagesByConfig: { src: ImageMetadata; alt: string }[][] = [
-  [chambre1Img, chambre1Img2, chambre1Img3].map((src, i) => ({ src, alt: `${t(locale, nameKeys[0])} — Maison Ayaba — ${i + 1}` })),
+  [chambre1Img, chambre1Img2, chambre1Img3, chambre1Sdb].map((src, i) => ({ src, alt: `${t(locale, nameKeys[0])} — Maison Ayaba — ${i + 1}` })),
   [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4].map((src, i) => ({ src, alt: `${t(locale, nameKeys[1])} — Maison Ayaba — ${i + 1}` })),
-  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Img4, chambre3Img5].map((src, i) => ({ src, alt: `${t(locale, nameKeys[2])} — Maison Ayaba — ${i + 1}` })),
+  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Sdb, chambre3Sdb2, chambre3Img4, chambre3Img5].map((src, i) => ({ src, alt: `${t(locale, nameKeys[2])} — Maison Ayaba — ${i + 1}` })),
+];
+
+const tourImages = [
+  { src: salon1, alt: 'Bright living room — Maison Ayaba' },
+  { src: salon3, alt: 'Living room with TV — Maison Ayaba' },
+  { src: salon4, alt: 'Living room and dining area — Maison Ayaba' },
+  { src: salon5, alt: 'Dining area — Maison Ayaba' },
+  { src: salon2, alt: 'Living room angle view — Maison Ayaba' },
+  { src: cuisine1, alt: 'Equipped kitchen — Maison Ayaba' },
+  { src: cuisine2, alt: 'Kitchen with refrigerator — Maison Ayaba' },
+  { src: cuisine3, alt: 'Kitchen countertop — Maison Ayaba' },
+  { src: terrasse1, alt: 'Terrace with lounge — Maison Ayaba' },
+  { src: terrasse2, alt: 'Terrace armchair — Maison Ayaba' },
 ];
 
 const bgClasses = ['bg-white', 'bg-ayaba-cream', 'bg-white'];
 const amenities = getSharedAmenities(locale);
+
+const displayOrder = [2, 1, 0];
 ---
 <BaseLayout
   locale={locale}
@@ -40,7 +69,8 @@ const amenities = getSharedAmenities(locale);
     <SchemaOrg type="LodgingBusiness" locale={locale} includeOffers />
     <SchemaOrg type="BreadcrumbList" locale={locale} breadcrumbItems={[{ name: t(locale, 'nav.home'), url: '/en/' }, { name: t(locale, 'nav.apartment'), url: '/en/apartment/' }]} />
   </Fragment>
-  {/* Compact hero */}
+
+  {/* Hero */}
   <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
       <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
@@ -66,10 +96,50 @@ const amenities = getSharedAmenities(locale);
     </div>
   </section>
 
-  {/* Apartment detail sections */}
-  {apartments.map((apt, i) => {
-    const description = t(locale, apt.descriptionKey);
+  {/* Apartment tour — common spaces */}
+  <section class="bg-white py-16 lg:py-20">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3">
+          {t(locale, 'apartment.tourTitle')}
+        </h2>
+        <p class="text-ayaba-muted text-base max-w-2xl mx-auto">
+          {t(locale, 'apartment.tourSubtitle')}
+        </p>
+      </div>
 
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 rounded-2xl overflow-hidden">
+        {tourImages.slice(0, 8).map((img, idx) => (
+          <div class:list={[idx === 0 && 'col-span-2 row-span-2']}>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover rounded-lg"
+              widths={idx === 0 ? [640, 960] : [320, 480]}
+              sizes={idx === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Bedrooms — 3ch first */}
+  <section class="bg-ayaba-cream py-10 lg:py-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3">
+        {t(locale, 'apartment.bedroomsTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base max-w-2xl mx-auto">
+        {t(locale, 'apartment.bedroomsSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {displayOrder.map((i) => {
+    const apt = apartments[i];
+    const description = t(locale, apt.descriptionKey);
     const pricePerPerson = apt.pricePerPerson
       ? t(locale, 'apartment.pricePerPersonLabel', {
           amount: String(apt.pricePerPerson.amount),
@@ -84,12 +154,12 @@ const amenities = getSharedAmenities(locale);
         locale={locale}
         description={description}
         pricePerPerson={pricePerPerson}
-        bgClass={bgClasses[i]}
+        bgClass={i === 2 ? 'bg-white' : 'bg-ayaba-cream'}
       />
     );
   })}
 
-  {/* Shared amenities across all configurations */}
+  {/* Shared amenities */}
   <section class="bg-ayaba-cream py-16 lg:py-20">
     <div class="max-w-[800px] mx-auto px-6 lg:px-16">
       <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3 text-center">

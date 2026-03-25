@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import ApartmentCard from './ApartmentCard.astro';
 import { apartments, getAmenities } from '../../data/apartments';
 import { t, type Locale } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
 import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
+import chambre1Sdb from '../../assets/images/apartments/chambre1-sdb.png';
 import chambre2Img from '../../assets/images/apartments/chambre2.png';
 import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
 import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
@@ -14,6 +16,13 @@ import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
 import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
 import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
 import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
+import chambre3Sdb from '../../assets/images/apartments/chambre3-sdb.png';
+import chambre3Sdb2 from '../../assets/images/apartments/chambre3-sdb2.png';
+import salon1 from '../../assets/images/apartments/salon1.png';
+import salon3 from '../../assets/images/apartments/salon3.png';
+import salon4 from '../../assets/images/apartments/salon4.png';
+import cuisine1 from '../../assets/images/apartments/cuisine1.png';
+import terrasse1 from '../../assets/images/apartments/terrasse1.png';
 
 interface Props {
   locale: Locale;
@@ -28,9 +37,24 @@ const noteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNot
 const priceUnit = t(locale, 'labels.pricePerNight');
 
 const imagesByConfig: ImageMetadata[][] = [
-  [chambre1Img, chambre1Img2, chambre1Img3],
+  [chambre1Img, chambre1Img2, chambre1Img3, chambre1Sdb],
   [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4],
-  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Img4, chambre3Img5],
+  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Sdb, chambre3Sdb2, chambre3Img4, chambre3Img5],
+];
+
+const showcaseImages = [
+  { src: salon1, alt: 'Salon — Maison Ayaba' },
+  { src: salon3, alt: 'Salon avec TV — Maison Ayaba' },
+  { src: cuisine1, alt: 'Cuisine équipée — Maison Ayaba' },
+  { src: terrasse1, alt: 'Terrasse — Maison Ayaba' },
+  { src: salon4, alt: 'Salon et salle à manger — Maison Ayaba' },
+];
+
+const showcaseFeatures = [
+  t(locale, 'home.apartmentShowcaseFeature1'),
+  t(locale, 'home.apartmentShowcaseFeature2'),
+  t(locale, 'home.apartmentShowcaseFeature3'),
+  t(locale, 'home.apartmentShowcaseFeature4'),
 ];
 
 const bonusKeys = [
@@ -40,40 +64,97 @@ const bonusKeys = [
   'home.bonusTransfer',
 ];
 const bonuses = bonusKeys.map((key) => t(locale, key));
+
+// Reorder: 3ch first (main product), then 2ch, then 1ch
+const displayOrder = [2, 1, 0];
 ---
+
+{/* Section 1: Apartment showcase — espaces communs */}
 <section id="configurations" class="bg-white py-20">
   <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
     <div class="text-center mb-12">
-      <h2 class="font-heading text-ayaba-dark text-[28px] lg:text-[32px] font-bold mb-3">
-        {t(locale, 'home.configurationsTitle')}
+      <h2 class="font-heading text-ayaba-dark text-[28px] lg:text-[36px] font-bold mb-3">
+        {t(locale, 'home.apartmentShowcaseTitle')}
       </h2>
-      <p class="text-ayaba-muted text-base max-w-xl mx-auto">
-        {t(locale, 'home.configurationsSubtitle')}
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'home.apartmentShowcaseSubtitle')}
       </p>
     </div>
 
-    <div class="bg-ayaba-cream/60 border border-ayaba-gold/20 rounded-xl px-6 py-4 max-w-2xl mx-auto mb-10 text-center">
+    {/* Gallery grid — 1 grande image + 4 petites */}
+    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 mb-10 rounded-2xl overflow-hidden max-h-[500px]">
+      <div class="md:col-span-2 md:row-span-2">
+        <Image
+          src={showcaseImages[0].src}
+          alt={showcaseImages[0].alt}
+          class="w-full h-full object-cover"
+          widths={[640, 960]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="lazy"
+        />
+      </div>
+      {showcaseImages.slice(1).map((img) => (
+        <div class="hidden md:block">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-full object-cover"
+            widths={[400, 640]}
+            sizes="25vw"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+
+    {/* Features list */}
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-6">
+      {showcaseFeatures.map((feature) => (
+        <div class="flex items-center gap-2">
+          <span class="text-ayaba-success font-bold" aria-hidden="true">&#10003;</span>
+          <span class="text-ayaba-dark text-sm lg:text-base">{feature}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-ayaba-cream/60 border border-ayaba-gold/20 rounded-xl px-6 py-4 max-w-2xl mx-auto text-center">
       <p class="text-ayaba-dark text-sm lg:text-base">
         {t(locale, 'home.configExplainer')}
       </p>
     </div>
+  </div>
+</section>
+
+{/* Section 2: Choix du nombre de chambres — 3ch en premier */}
+<section class="bg-ayaba-cream py-16 lg:py-20">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+    <div class="text-center mb-10">
+      <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[28px] font-bold mb-3">
+        {t(locale, 'home.bedroomChoiceTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base max-w-xl mx-auto">
+        {t(locale, 'home.bedroomChoiceSubtitle')}
+      </p>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
-      {apartments.map((apt, i) => (
-        <ApartmentCard
-          images={imagesByConfig[i]}
-          imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
-          name={t(locale, nameKeys[i])}
-          subtitle={t(locale, subtitleKeys[i])}
-          price={locale === 'fr' ? `${apt.pricePerNight.min}\u20AC` : `\u20AC${apt.pricePerNight.min}`}
-          priceUnit={priceUnit}
-          priceNote={t(locale, noteKeys[i])}
-          capacity={apt.capacity}
-          features={getAmenities(apt, locale)}
-          bonuses={bonuses}
-          configId={configIds[i]}
-          locale={locale}
-        />
+      {displayOrder.map((i) => (
+        <div class:list={[i === 2 && 'md:col-span-2 lg:col-span-1 ring-2 ring-ayaba-terra/30 rounded-2xl']}>
+          <ApartmentCard
+            images={imagesByConfig[i]}
+            imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
+            name={t(locale, nameKeys[i])}
+            subtitle={t(locale, subtitleKeys[i])}
+            price={locale === 'fr' ? `${apartments[i].pricePerNight.min}\u20AC` : `\u20AC${apartments[i].pricePerNight.min}`}
+            priceUnit={priceUnit}
+            priceNote={t(locale, noteKeys[i])}
+            capacity={apartments[i].capacity}
+            features={getAmenities(apartments[i], locale)}
+            bonuses={bonuses}
+            configId={configIds[i]}
+            locale={locale}
+          />
+        </div>
       ))}
     </div>
   </div>

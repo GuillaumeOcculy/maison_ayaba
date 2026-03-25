@@ -10,6 +10,7 @@ import { whatsappNumber } from '../../data/siteConfig';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
 import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
+import chambre1Sdb from '../../assets/images/apartments/chambre1-sdb.png';
 import chambre2Img from '../../assets/images/apartments/chambre2.png';
 import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
 import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
@@ -19,13 +20,15 @@ import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
 import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
 import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
 import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
+import chambre3Sdb from '../../assets/images/apartments/chambre3-sdb.png';
+import chambre3Sdb2 from '../../assets/images/apartments/chambre3-sdb2.png';
 
 const locale = 'fr' as const;
 
 const configImages: ImageMetadata[][] = [
-  [chambre1Img, chambre1Img2, chambre1Img3],
+  [chambre1Img, chambre1Img2, chambre1Img3, chambre1Sdb],
   [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4],
-  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Img4, chambre3Img5],
+  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Sdb, chambre3Sdb2, chambre3Img4, chambre3Img5],
 ];
 const configIds: ('1ch' | '2ch' | '3ch')[] = ['1ch', '2ch', '3ch'];
 const configNameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
@@ -59,8 +62,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
   <section class="bg-white pb-16 lg:pb-20">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {apartments.map((apt, i) => (
-          <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        {[2, 1, 0].map((i) => {
+          const apt = apartments[i];
+          return (
+          <div class:list={["bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow", i === 2 ? "border-ayaba-terra/30 ring-2 ring-ayaba-terra/20" : "border-gray-100"]}>
             <div class="relative aspect-[4/3] overflow-hidden group">
               <div id={`book-slider-${configIds[i]}`} class="flex h-full transition-transform duration-300 ease-out" style="will-change: transform">
                 {configImages[i].map((img, idx) => (
@@ -116,7 +121,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
               <AirbnbCta configId={configIds[i]} variant="primary" size="large" locale={locale} />
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
