@@ -161,13 +161,18 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
       });
     });
 
-    // Touch swipe
+    // Touch swipe + auto-play
     document.querySelectorAll<HTMLElement>('[id^="book-slider-"]').forEach((track) => {
       const container = track.parentElement;
       if (!container) return;
       let startX = 0, startY = 0, isDragging = false;
+      let autoPlay = setInterval(() => {
+        const current = parseInt(track.dataset.current || '0', 10);
+        updateSlider(track, current + 1);
+      }, 3000);
 
       container.addEventListener('touchstart', (e) => {
+        clearInterval(autoPlay);
         startX = e.touches[0].clientX; startY = e.touches[0].clientY; isDragging = true;
       }, { passive: true });
 
@@ -185,6 +190,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
           const current = parseInt(track.dataset.current || '0', 10);
           updateSlider(track, dx < 0 ? current + 1 : current - 1);
         }
+        autoPlay = setInterval(() => {
+          const current = parseInt(track.dataset.current || '0', 10);
+          updateSlider(track, current + 1);
+        }, 3000);
       }, { passive: true });
     });
   });
