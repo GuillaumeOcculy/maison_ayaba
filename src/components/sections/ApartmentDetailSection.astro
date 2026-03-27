@@ -2,7 +2,7 @@
 import ImageGallery from '../ui/ImageGallery.astro';
 import AirbnbCta from '../ui/AirbnbCta.astro';
 import { t, type Locale } from '../../i18n/utils';
-import type { ApartmentConfig } from '../../data/apartments';
+import { eurToFcfa, type ApartmentConfig } from '../../data/apartments';
 
 const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
 const configSlugs = ['1-chambre', '2-chambres', '3-chambres'];
@@ -53,8 +53,9 @@ const bonuses = [
 
         {/* Price */}
         <div class="mb-6">
-          <span class="text-ayaba-terra text-[28px] lg:text-[32px] font-bold">{priceRange}</span>
+          <span class="text-ayaba-terra text-[28px] lg:text-[32px] font-bold">{apartment.pricePerNight.min}€</span>
           <span class="text-ayaba-muted text-sm ml-1">{t(locale, 'labels.perNight')}</span>
+          <p class="text-ayaba-muted text-[11px] mt-0.5">~{eurToFcfa(apartment.pricePerNight.min)} FCFA</p>
           {pricePerPerson && (
             <p class="text-ayaba-muted text-sm mt-1">{pricePerPerson}</p>
           )}

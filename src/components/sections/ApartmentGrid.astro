@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import ApartmentCard from './ApartmentCard.astro';
-import { apartments, getAmenities } from '../../data/apartments';
+import { apartments, getAmenities, eurToFcfa } from '../../data/apartments';
 import { t, type Locale } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
@@ -146,6 +146,7 @@ const displayOrder = [0, 1, 2];
             name={t(locale, nameKeys[i])}
             subtitle={t(locale, subtitleKeys[i])}
             price={locale === 'fr' ? `${apartments[i].pricePerNight.min}\u20AC` : `\u20AC${apartments[i].pricePerNight.min}`}
+            priceFcfa={eurToFcfa(apartments[i].pricePerNight.min)}
             priceUnit={priceUnit}
             priceNote={t(locale, noteKeys[i])}
             capacity={apartments[i].capacity}

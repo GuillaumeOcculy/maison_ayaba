@@ -9,6 +9,7 @@ interface Props {
   name: string;
   subtitle: string;
   price: string;
+  priceFcfa?: string;
   priceUnit: string;
   priceNote?: string;
   capacity: number;
@@ -18,7 +19,7 @@ interface Props {
   locale: Locale;
 }
 
-const { images, imageAlt, name, subtitle, price, priceUnit, priceNote, capacity, features, bonuses, configId, locale } = Astro.props;
+const { images, imageAlt, name, subtitle, price, priceFcfa, priceUnit, priceNote, capacity, features, bonuses, configId, locale } = Astro.props;
 const hasMultiple = images.length > 1;
 const sliderId = `slider-${configId}`;
 ---
@@ -90,6 +91,9 @@ const sliderId = `slider-${configId}`;
     <div class="mb-4">
       <span class="text-ayaba-terra text-[28px] font-bold">{price}</span>
       <span class="text-ayaba-muted text-sm">{priceUnit}</span>
+      {priceFcfa && (
+        <p class="text-ayaba-muted text-[11px] mt-0.5">~{priceFcfa} FCFA</p>
+      )}
       {priceNote && (
         <p class="text-ayaba-muted text-xs mt-1">{priceNote}</p>
       )}

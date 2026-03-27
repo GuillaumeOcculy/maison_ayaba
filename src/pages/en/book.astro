@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import AirbnbCta from '../../components/ui/AirbnbCta.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
-import { apartments } from '../../data/apartments';
+import { apartments, eurToFcfa } from '../../data/apartments';
 import { t } from '../../i18n/utils';
 import { whatsappNumber } from '../../data/siteConfig';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
@@ -104,10 +104,11 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
               <h2 class="font-heading text-ayaba-dark text-xl font-bold mb-2">
                 {t(locale, configNameKeys[i])}
               </h2>
-              <div class="flex items-baseline gap-2 mb-1">
-                <span class="text-ayaba-terra font-bold text-2xl">€{apt.pricePerNight.min} – €{apt.pricePerNight.max}</span>
+              <div class="flex items-baseline gap-2 mb-0.5">
+                <span class="text-ayaba-terra font-bold text-2xl">€{apt.pricePerNight.min}</span>
                 <span class="text-ayaba-muted text-sm">{t(locale, 'labels.pricePerNight')}</span>
               </div>
+              <p class="text-ayaba-muted text-[11px] mb-1">~{eurToFcfa(apt.pricePerNight.min)} FCFA</p>
               <p class="text-ayaba-muted text-sm mb-4">
                 {t(locale, configSubtitleKeys[i])}
               </p>

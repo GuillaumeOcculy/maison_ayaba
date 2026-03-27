@@ -87,3 +87,10 @@ export function getAmenities(apartment: ApartmentConfig, locale: Locale): string
 export function getSharedAmenities(locale: Locale): string[] {
   return sharedAmenityKeys.map((key) => t(locale, key));
 }
+
+const EUR_TO_FCFA = 655.957;
+
+export function eurToFcfa(eur: number): string {
+  const fcfa = Math.round(eur * EUR_TO_FCFA / 1000) * 1000;
+  return fcfa.toLocaleString('fr-FR');
+}
