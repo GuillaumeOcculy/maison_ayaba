@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+import { t } from '../../i18n/utils';
+
+const locale = 'fr' as const;
+
+const categories = [
+  {
+    title: t(locale, 'apartment.faqCatLogement'),
+    questions: [1, 2, 3],
+  },
+  {
+    title: t(locale, 'apartment.faqCatReservation'),
+    questions: [4, 13],
+  },
+  {
+    title: t(locale, 'apartment.faqCatEquipements'),
+    questions: [5, 9, 10, 11, 12],
+  },
+  {
+    title: t(locale, 'apartment.faqCatQuartier'),
+    questions: [6, 8, 15],
+  },
+  {
+    title: t(locale, 'apartment.faqCatSejour'),
+    questions: [7, 14],
+  },
+];
+---
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'apartment.faqPageTitle')}
+  description={t(locale, 'apartment.faqPageDescription')}
+>
+  <Fragment slot="head">
+    <SchemaOrg type="BreadcrumbList" locale={locale} breadcrumbItems={[{ name: t(locale, 'nav.home'), url: '/' }, { name: 'FAQ', url: '/fr/faq/' }]} />
+    {/* FAQ Schema.org */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((n) => ({
+        "@type": "Question",
+        "name": t(locale, `apartment.faq${n}Q`),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": t(locale, `apartment.faq${n}A`),
+        },
+      })),
+    })} />
+  </Fragment>
+
+  {/* Hero */}
+  <section class="bg-white pt-16 pb-10 lg:pt-20 lg:pb-12">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+      <h1 class="font-heading text-ayaba-dark text-[32px] lg:text-[40px] font-bold mb-3">
+        {t(locale, 'apartment.faqHeroTitle')}
+      </h1>
+      <p class="text-ayaba-muted text-base lg:text-lg max-w-2xl mx-auto">
+        {t(locale, 'apartment.faqHeroSubtitle')}
+      </p>
+    </div>
+  </section>
+
+  {/* FAQ by category */}
+  {categories.map((cat, catIdx) => (
+    <section class:list={[catIdx % 2 === 0 ? 'bg-ayaba-cream' : 'bg-white', 'py-12 lg:py-16']}>
+      <div class="max-w-[800px] mx-auto px-6 lg:px-16">
+        <h2 class="font-heading text-ayaba-dark text-[22px] lg:text-[26px] font-bold mb-6">
+          {cat.title}
+        </h2>
+        <div class="space-y-3">
+          {cat.questions.map((n) => (
+            <details class="bg-white rounded-xl border border-gray-100 overflow-hidden group">
+              <summary class="px-6 py-4 cursor-pointer font-semibold text-ayaba-dark text-sm lg:text-base flex items-center justify-between gap-4 min-h-[44px]">
+                {t(locale, `apartment.faq${n}Q`)}
+                <span class="text-ayaba-terra shrink-0 transition-transform group-open:rotate-45 text-lg">+</span>
+              </summary>
+              <div class="px-6 pb-4 text-ayaba-muted text-sm lg:text-base leading-relaxed">
+                {t(locale, `apartment.faq${n}A`)}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <FinalCta
+    title={t(locale, 'apartment.finalCtaTitle')}
+    subtitle={t(locale, 'apartment.finalCtaSubtitle')}
+    ctaText={t(locale, 'apartment.finalCtaCta')}
+    ctaHref="/fr/reserver/"
+  />
+</BaseLayout>
