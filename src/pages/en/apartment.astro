@@ -5,6 +5,8 @@ import ApartmentDetailSection from '../../components/sections/ApartmentDetailSec
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { apartments, getSharedAmenities } from '../../data/apartments';
+import CompareTable from '../../components/sections/CompareTable.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
 import { t } from '../../i18n/utils';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
@@ -155,8 +157,11 @@ const displayOrder = [0, 1, 2];
     );
   })}
 
+  <CompareTable locale={locale} />
+  <FaqSection locale={locale} />
+
   {/* Shared amenities */}
-  <section class="bg-ayaba-cream py-16 lg:py-20">
+  <section class="bg-white py-16 lg:py-20">
     <div class="max-w-[800px] mx-auto px-6 lg:px-16">
       <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3 text-center">
         {t(locale, 'apartment.amenitiesTitle')}

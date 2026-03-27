@@ -1,0 +1,29 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="bg-ayaba-cream py-16 lg:py-20">
+  <div class="max-w-[800px] mx-auto px-6 lg:px-16">
+    <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-8 text-center">
+      {t(locale, 'apartment.faqTitle')}
+    </h2>
+    <div class="space-y-4">
+      {[1, 2, 3, 4, 5].map((n) => (
+        <details class="bg-white rounded-xl border border-gray-100 overflow-hidden group">
+          <summary class="px-6 py-4 cursor-pointer font-semibold text-ayaba-dark text-sm lg:text-base flex items-center justify-between gap-4 min-h-[44px]">
+            {t(locale, `apartment.faq${n}Q`)}
+            <span class="text-ayaba-terra shrink-0 transition-transform group-open:rotate-45 text-lg">+</span>
+          </summary>
+          <div class="px-6 pb-4 text-ayaba-muted text-sm lg:text-base leading-relaxed">
+            {t(locale, `apartment.faq${n}A`)}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

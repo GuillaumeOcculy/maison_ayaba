@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import ApartmentGrid from '../components/sections/ApartmentGrid.astro';
+import CompareTable from '../components/sections/CompareTable.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import SchemaOrg from '../components/seo/SchemaOrg.astro';
 import { t } from '../i18n/utils';
@@ -37,6 +39,9 @@ const locale = 'fr' as const;
   />
 
   <ApartmentGrid locale={locale} />
+
+  <CompareTable locale={locale} />
+  <FaqSection locale={locale} />
 
   <FinalCta
     title={t(locale, 'home.finalCtaTitle')}
