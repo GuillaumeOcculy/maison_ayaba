@@ -65,8 +65,8 @@ const bonusKeys = [
 ];
 const bonuses = bonusKeys.map((key) => t(locale, key));
 
-// Reorder: 3ch first (main product), then 2ch, then 1ch
-const displayOrder = [2, 1, 0];
+// Order: smallest price first (anchoring), then up
+const displayOrder = [0, 1, 2];
 ---
 
 {/* Section 1: Apartment showcase — espaces communs */}
@@ -139,7 +139,7 @@ const displayOrder = [2, 1, 0];
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
       {displayOrder.map((i) => (
-        <div class:list={[i === 2 && 'md:col-span-2 lg:col-span-1 ring-2 ring-ayaba-terra/30 rounded-2xl']}>
+        <div>
           <ApartmentCard
             images={imagesByConfig[i]}
             imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}

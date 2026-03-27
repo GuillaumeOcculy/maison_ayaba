@@ -62,10 +62,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
   <section class="bg-white pb-16 lg:pb-20">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[2, 1, 0].map((i) => {
+        {[0, 1, 2].map((i) => {
           const apt = apartments[i];
           return (
-          <div class:list={["bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow", i === 2 ? "border-ayaba-terra/30 ring-2 ring-ayaba-terra/20" : "border-gray-100"]}>
+          <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             <div class="relative aspect-[4/3] overflow-hidden group">
               <div id={`book-slider-${configIds[i]}`} class="flex h-full transition-transform duration-300 ease-out" style="will-change: transform">
                 {configImages[i].map((img, idx) => (
