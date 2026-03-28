@@ -4,11 +4,25 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
 import safetyImg from '../../../assets/images/blog/cotonou.jpg';
 import transportImg from '../../../assets/images/blog/taxi.jpg';
 import apartmentImg from '../../../assets/images/blog/apartment-interior.jpg';
+import electriciteImg from '../../../assets/images/blog/electricite.jpg';
+import fidjrosseImg from '../../../assets/images/blog/fidjrosse.jpg';
+import apartmentHotelImg from '../../../assets/images/blog/apartment-hotel.jpg';
+import cotonouCityImg from '../../../assets/images/blog/cotonou-city.jpg';
+import beninTravelImg from '../../../assets/images/blog/benin-travel.jpg';
+import digitalNomadImg from '../../../assets/images/blog/digital-nomad.jpg';
+import cuisineImg from '../../../assets/images/blog/cuisine-beninoise.jpg';
 
 const heroImages: Record<string, { src: ImageMetadata; alt: string }> = {
   'cotonou-safety': { src: safetyImg, alt: 'Busy street in Cotonou, Benin' },
   'cotonou-transport': { src: transportImg, alt: 'Transport in Cotonou — zem and traffic' },
   'furnished-apartment-cotonou': { src: apartmentImg, alt: 'Modern furnished apartment interior' },
+  'power-outages-cotonou': { src: electriciteImg, alt: 'Power lines — electricity in Cotonou' },
+  'fidjrosse-neighborhood-cotonou': { src: fidjrosseImg, alt: 'Fidjrossè beach, Cotonou' },
+  'apartment-vs-hotel-cotonou': { src: apartmentHotelImg, alt: 'Modern living room — apartment vs hotel' },
+  'things-to-do-cotonou': { src: cotonouCityImg, alt: 'City scene in Cotonou, Benin' },
+  'travel-benin-guide': { src: beninTravelImg, alt: 'Traveling to Benin — preparing your trip' },
+  'digital-nomad-cotonou': { src: digitalNomadImg, alt: 'Working remotely from Cotonou' },
+  'beninese-food-guide': { src: cuisineImg, alt: 'Beninese cuisine — local dishes' },
 };
 
 export async function getStaticPaths() {

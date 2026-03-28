@@ -4,11 +4,25 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
 import safetyImg from '../../../assets/images/blog/cotonou.jpg';
 import transportImg from '../../../assets/images/blog/taxi.jpg';
 import apartmentImg from '../../../assets/images/blog/apartment-interior.jpg';
+import electriciteImg from '../../../assets/images/blog/electricite.jpg';
+import fidjrosseImg from '../../../assets/images/blog/fidjrosse.jpg';
+import apartmentHotelImg from '../../../assets/images/blog/apartment-hotel.jpg';
+import cotonouCityImg from '../../../assets/images/blog/cotonou-city.jpg';
+import beninTravelImg from '../../../assets/images/blog/benin-travel.jpg';
+import digitalNomadImg from '../../../assets/images/blog/digital-nomad.jpg';
+import cuisineImg from '../../../assets/images/blog/cuisine-beninoise.jpg';
 
 const heroImages: Record<string, { src: ImageMetadata; alt: string }> = {
   'securite-cotonou': { src: safetyImg, alt: 'Rue animée à Cotonou, Bénin' },
   'transport-cotonou': { src: transportImg, alt: 'Transport à Cotonou — zem et circulation' },
   'appartement-meuble-cotonou': { src: apartmentImg, alt: 'Intérieur d\'un appartement meublé moderne' },
+  'coupures-electricite-cotonou': { src: electriciteImg, alt: 'Lignes électriques — coupures de courant à Cotonou' },
+  'quartier-fidjrosse-cotonou': { src: fidjrosseImg, alt: 'Plage de Fidjrossè, Cotonou' },
+  'appartement-vs-hotel-cotonou': { src: apartmentHotelImg, alt: 'Salon moderne — appartement meublé vs hôtel' },
+  'que-faire-cotonou': { src: cotonouCityImg, alt: 'Scène de ville à Cotonou, Bénin' },
+  'voyager-benin-guide': { src: beninTravelImg, alt: 'Voyage au Bénin — préparer son séjour' },
+  'digital-nomad-cotonou': { src: digitalNomadImg, alt: 'Travail à distance depuis Cotonou' },
+  'cuisine-beninoise-guide': { src: cuisineImg, alt: 'Cuisine béninoise — plats locaux' },
 };
 
 export async function getStaticPaths() {
