@@ -8,6 +8,13 @@ import { t } from '../../../i18n/utils';
 import safetyImg from '../../../assets/images/blog/cotonou.jpg';
 import transportImg from '../../../assets/images/blog/taxi.jpg';
 import apartmentImg from '../../../assets/images/blog/apartment-interior.jpg';
+import electriciteImg from '../../../assets/images/blog/electricite.jpg';
+import fidjrosseImg from '../../../assets/images/blog/fidjrosse.jpg';
+import apartmentHotelImg from '../../../assets/images/blog/apartment-hotel.jpg';
+import cotonouCityImg from '../../../assets/images/blog/cotonou-city.jpg';
+import beninTravelImg from '../../../assets/images/blog/benin-travel.jpg';
+import digitalNomadImg from '../../../assets/images/blog/digital-nomad.jpg';
+import cuisineImg from '../../../assets/images/blog/cuisine-beninoise.jpg';
 
 const locale = 'en';
 const allPosts = await getCollection('blog');
@@ -27,6 +34,13 @@ const heroImages: Record<string, { src: ImageMetadata; alt: string }> = {
   'cotonou-safety': { src: safetyImg, alt: 'Busy street in Cotonou' },
   'cotonou-transport': { src: transportImg, alt: 'Transport in Cotonou' },
   'furnished-apartment-cotonou': { src: apartmentImg, alt: 'Furnished apartment' },
+  'power-outages-cotonou': { src: electriciteImg, alt: 'Power outages in Cotonou' },
+  'fidjrosse-neighborhood-cotonou': { src: fidjrosseImg, alt: 'Fidjrossè neighborhood, Cotonou' },
+  'apartment-vs-hotel-cotonou': { src: apartmentHotelImg, alt: 'Apartment vs hotel' },
+  'things-to-do-cotonou': { src: cotonouCityImg, alt: 'Things to do in Cotonou' },
+  'travel-benin-guide': { src: beninTravelImg, alt: 'Traveling to Benin' },
+  'digital-nomad-cotonou': { src: digitalNomadImg, alt: 'Digital nomad in Cotonou' },
+  'beninese-food-guide': { src: cuisineImg, alt: 'Beninese cuisine' },
 };
 
 const tagColors = [

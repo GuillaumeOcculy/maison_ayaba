@@ -8,6 +8,13 @@ import { t } from '../../../i18n/utils';
 import safetyImg from '../../../assets/images/blog/cotonou.jpg';
 import transportImg from '../../../assets/images/blog/taxi.jpg';
 import apartmentImg from '../../../assets/images/blog/apartment-interior.jpg';
+import electriciteImg from '../../../assets/images/blog/electricite.jpg';
+import fidjrosseImg from '../../../assets/images/blog/fidjrosse.jpg';
+import apartmentHotelImg from '../../../assets/images/blog/apartment-hotel.jpg';
+import cotonouCityImg from '../../../assets/images/blog/cotonou-city.jpg';
+import beninTravelImg from '../../../assets/images/blog/benin-travel.jpg';
+import digitalNomadImg from '../../../assets/images/blog/digital-nomad.jpg';
+import cuisineImg from '../../../assets/images/blog/cuisine-beninoise.jpg';
 
 const locale = 'fr';
 const allPosts = await getCollection('blog');
@@ -27,6 +34,13 @@ const heroImages: Record<string, { src: ImageMetadata; alt: string }> = {
   'securite-cotonou': { src: safetyImg, alt: 'Rue animée à Cotonou' },
   'transport-cotonou': { src: transportImg, alt: 'Transport à Cotonou' },
   'appartement-meuble-cotonou': { src: apartmentImg, alt: 'Appartement meublé' },
+  'coupures-electricite-cotonou': { src: electriciteImg, alt: 'Coupures d\'électricité à Cotonou' },
+  'quartier-fidjrosse-cotonou': { src: fidjrosseImg, alt: 'Quartier Fidjrossè, Cotonou' },
+  'appartement-vs-hotel-cotonou': { src: apartmentHotelImg, alt: 'Appartement vs hôtel' },
+  'que-faire-cotonou': { src: cotonouCityImg, alt: 'Que faire à Cotonou' },
+  'voyager-benin-guide': { src: beninTravelImg, alt: 'Voyager au Bénin' },
+  'digital-nomad-cotonou': { src: digitalNomadImg, alt: 'Digital nomad à Cotonou' },
+  'cuisine-beninoise-guide': { src: cuisineImg, alt: 'Cuisine béninoise' },
 };
 
 const tagColors = [
