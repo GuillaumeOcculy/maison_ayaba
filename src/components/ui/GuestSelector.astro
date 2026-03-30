@@ -9,9 +9,7 @@ interface Props {
 
 const { locale, variant = 'full' } = Astro.props;
 
-const priceMin = apartments[0].pricePerNight.min;
-const priceFcfa = eurToFcfa(priceMin);
-const priceLabel = t(locale, 'guest.priceFrom', { price: String(priceMin) });
+const priceTemplate = locale === 'fr' ? 'À partir de {price}€/nuit' : 'From €{price}/night';
 ---
 
 <div
@@ -19,6 +17,13 @@ const priceLabel = t(locale, 'guest.priceFrom', { price: String(priceMin) });
   data-url-1={apartments[0].airbnbUrl}
   data-url-2={apartments[1].airbnbUrl}
   data-url-3={apartments[2].airbnbUrl}
+  data-price-1={apartments[0].pricePerNight.min}
+  data-price-2={apartments[1].pricePerNight.min}
+  data-price-3={apartments[2].pricePerNight.min}
+  data-fcfa-1={eurToFcfa(apartments[0].pricePerNight.min)}
+  data-fcfa-2={eurToFcfa(apartments[1].pricePerNight.min)}
+  data-fcfa-3={eurToFcfa(apartments[2].pricePerNight.min)}
+  data-price-template={priceTemplate}
   class="flex flex-col items-center gap-4"
 >
   {variant === 'full' && (
@@ -44,8 +49,8 @@ const priceLabel = t(locale, 'guest.priceFrom', { price: String(priceMin) });
   </select>
 
   <div class="text-center mt-2">
-    <p class="text-ayaba-dark font-semibold">{priceLabel}</p>
-    <p class="text-ayaba-muted text-xs">{priceFcfa} FCFA</p>
+    <p class="text-ayaba-dark font-semibold" data-guest-price>{t(locale, 'guest.priceFrom', { price: String(apartments[0].pricePerNight.min) })}</p>
+    <p class="text-ayaba-muted text-xs" data-guest-fcfa>{eurToFcfa(apartments[0].pricePerNight.min)} FCFA</p>
   </div>
 
   <button
@@ -62,10 +67,23 @@ const priceLabel = t(locale, 'guest.priceFrom', { price: String(priceMin) });
   document.querySelectorAll('[data-guest-selector]').forEach((container) => {
     const select = container.querySelector('[data-guest-select]') as HTMLSelectElement;
     const button = container.querySelector('[data-guest-book]') as HTMLButtonElement;
+    const priceEl = container.querySelector('[data-guest-price]') as HTMLElement;
+    const fcfaEl = container.querySelector('[data-guest-fcfa]') as HTMLElement;
 
     if (!select || !button) return;
 
     const configMap: Record<string, string> = { '1': '1ch', '2': '2ch', '3': '3ch' };
+    const template = container.getAttribute('data-price-template') || '';
+
+    function updatePrice() {
+      const value = select.value;
+      const price = container.getAttribute(`data-price-${value}`) || '';
+      const fcfa = container.getAttribute(`data-fcfa-${value}`) || '';
+      if (priceEl) priceEl.textContent = template.replace('{price}', price);
+      if (fcfaEl) fcfaEl.textContent = `${fcfa} FCFA`;
+    }
+
+    select.addEventListener('change', updatePrice);
 
     button.addEventListener('click', () => {
       const value = select.value;
