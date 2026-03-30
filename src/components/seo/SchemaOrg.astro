@@ -58,18 +58,18 @@ function buildLodgingBusiness(withOffers: boolean) {
   };
 
   if (withOffers) {
-    schema.makesOffer = apartments.map((apt) => ({
+    schema.makesOffer = {
       '@type': 'Offer',
-      name: apt.name,
+      name: locale === 'fr' ? 'Maison Ayaba — Appartement entier' : 'Maison Ayaba — Entire apartment',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: apt.pricePerNight.min,
+        price: apartments[0].pricePerNight.min,
         priceCurrency: 'EUR',
         unitCode: 'DAY',
       },
-      url: apt.airbnbUrl,
+      url: `${baseUrl}${locale === 'fr' ? '/fr/appartement/' : '/en/apartment/'}`,
       availability: 'https://schema.org/InStock',
-    }));
+    };
   }
 
   return schema;

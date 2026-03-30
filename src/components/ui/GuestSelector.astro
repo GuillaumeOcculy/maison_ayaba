@@ -1,0 +1,86 @@
+---
+import { apartments, eurToFcfa } from '../../data/apartments';
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  variant?: 'full' | 'compact';
+}
+
+const { locale, variant = 'full' } = Astro.props;
+
+const priceMin = apartments[0].pricePerNight.min;
+const priceFcfa = eurToFcfa(priceMin);
+const priceLabel = t(locale, 'guest.priceFrom', { price: String(priceMin) });
+---
+
+<div
+  data-guest-selector
+  data-url-1={apartments[0].airbnbUrl}
+  data-url-2={apartments[1].airbnbUrl}
+  data-url-3={apartments[2].airbnbUrl}
+  class="flex flex-col items-center gap-4"
+>
+  {variant === 'full' && (
+    <>
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3">
+        {t(locale, 'guest.selectorLabel')}
+      </h2>
+      <div class="bg-ayaba-cream/60 border border-ayaba-gold/20 rounded-xl px-6 py-4 max-w-2xl mx-auto text-center text-sm mb-8">
+        {t(locale, 'guest.privateNote')}
+      </div>
+    </>
+  )}
+
+  <label for="guest-count-select" class="sr-only">{t(locale, 'guest.selectorLabel')}</label>
+  <select
+    id="guest-count-select"
+    class="w-full max-w-xs mx-auto block border border-gray-200 rounded-lg px-4 py-3 text-base text-ayaba-dark bg-white"
+    data-guest-select
+  >
+    <option value="1">{t(locale, 'guest.option1')}</option>
+    <option value="2">{t(locale, 'guest.option2')}</option>
+    <option value="3">{t(locale, 'guest.option3')}</option>
+  </select>
+
+  <div class="text-center mt-2">
+    <p class="text-ayaba-dark font-semibold">{priceLabel}</p>
+    <p class="text-ayaba-muted text-xs">{priceFcfa} FCFA</p>
+  </div>
+
+  <button
+    data-guest-book
+    class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-6 py-3 text-base font-semibold min-h-[44px] w-full max-w-xs transition-colors"
+  >
+    {t(locale, 'guest.bookButton')}
+  </button>
+
+  <p class="text-ayaba-muted text-[10px] mt-1.5">{t(locale, 'guest.redirectNote')}</p>
+</div>
+
+<script>
+  document.querySelectorAll('[data-guest-selector]').forEach((container) => {
+    const select = container.querySelector('[data-guest-select]') as HTMLSelectElement;
+    const button = container.querySelector('[data-guest-book]') as HTMLButtonElement;
+
+    if (!select || !button) return;
+
+    const configMap: Record<string, string> = { '1': '1ch', '2': '2ch', '3': '3ch' };
+
+    button.addEventListener('click', () => {
+      const value = select.value;
+      const url = container.getAttribute(`data-url-${value}`);
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'airbnb_click', {
+          guests: select.options[select.selectedIndex].text,
+          config: configMap[value],
+          page: window.location.pathname,
+        });
+      }
+    });
+  });
+</script>

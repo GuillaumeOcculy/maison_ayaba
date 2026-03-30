@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import ApartmentGrid from '../../components/sections/ApartmentGrid.astro';
-import CompareTable from '../../components/sections/CompareTable.astro';
+
 import FaqSection from '../../components/sections/FaqSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
@@ -34,19 +34,18 @@ const locale = 'en' as const;
       { value: t(locale, 'home.statGuestsValue'), label: t(locale, 'home.statGuestsLabel') },
       { value: t(locale, 'home.statBeachValue'), label: t(locale, 'home.statBeachLabel') },
     ]}
-    primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '/en/book/' }}
+    primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '/en/apartment/#book' }}
     secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#configurations' }}
   />
 
   <ApartmentGrid locale={locale} />
 
-  <CompareTable locale={locale} />
   <FaqSection locale={locale} />
 
   <FinalCta
     title={t(locale, 'home.finalCtaTitle')}
     subtitle={t(locale, 'home.finalCtaSubtitle')}
     ctaText={t(locale, 'home.finalCtaCta')}
-    ctaHref="/en/book/"
+    ctaHref="/en/apartment/#book"
   />
 </BaseLayout>

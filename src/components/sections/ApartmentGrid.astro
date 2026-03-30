@@ -1,23 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import ApartmentCard from './ApartmentCard.astro';
-import { apartments, getAmenities, eurToFcfa } from '../../data/apartments';
+import GuestSelector from '../ui/GuestSelector.astro';
 import { t, type Locale } from '../../i18n/utils';
-import chambre1Img from '../../assets/images/apartments/chambre1.png';
-import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
-import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
-import chambre1Sdb from '../../assets/images/apartments/chambre1-sdb.png';
-import chambre2Img from '../../assets/images/apartments/chambre2.png';
-import chambre2Img2 from '../../assets/images/apartments/chambre2-2.png';
-import chambre2Img3 from '../../assets/images/apartments/chambre2-3.png';
-import chambre2Img4 from '../../assets/images/apartments/chambre2-4.png';
-import chambre3Img from '../../assets/images/apartments/chambre3.png';
-import chambre3Img2 from '../../assets/images/apartments/chambre3-2.png';
-import chambre3Img3 from '../../assets/images/apartments/chambre3-3.png';
-import chambre3Img4 from '../../assets/images/apartments/chambre3-4.png';
-import chambre3Img5 from '../../assets/images/apartments/chambre3-5.png';
-import chambre3Sdb from '../../assets/images/apartments/chambre3-sdb.png';
-import chambre3Sdb2 from '../../assets/images/apartments/chambre3-sdb2.png';
 import salon1 from '../../assets/images/apartments/salon1.png';
 import salon3 from '../../assets/images/apartments/salon3.png';
 import salon4 from '../../assets/images/apartments/salon4.png';
@@ -29,18 +13,6 @@ interface Props {
 }
 
 const { locale } = Astro.props;
-
-const configIds = ['1ch', '2ch', '3ch'] as const;
-const nameKeys = ['home.config1chName', 'home.config2chName', 'home.config3chName'];
-const subtitleKeys = ['home.config1chSubtitle', 'home.config2chSubtitle', 'home.config3chSubtitle'];
-const noteKeys = ['home.config1chNote', 'home.config2chNote', 'home.config3chNote'];
-const priceUnit = t(locale, 'labels.pricePerNight');
-
-const imagesByConfig: ImageMetadata[][] = [
-  [chambre1Img, chambre1Img2, chambre1Img3, chambre1Sdb],
-  [chambre2Img, chambre2Img2, chambre2Img3, chambre2Img4],
-  [chambre3Img, chambre3Img2, chambre3Img3, chambre3Sdb, chambre3Sdb2, chambre3Img4, chambre3Img5],
-];
 
 const showcaseImages = [
   { src: salon1, alt: 'Salon — Maison Ayaba' },
@@ -57,16 +29,6 @@ const showcaseFeatures = [
   t(locale, 'home.apartmentShowcaseFeature4'),
 ];
 
-const bonusKeys = [
-  'home.bonusWelcomeBasket',
-  'home.bonusCleaning',
-  'home.bonusConcierge',
-  'home.bonusTransfer',
-];
-const bonuses = bonusKeys.map((key) => t(locale, key));
-
-// Order: smallest price first (anchoring), then up
-const displayOrder = [0, 1, 2];
 ---
 
 {/* Section 1: Apartment showcase — espaces communs */}
@@ -144,47 +106,13 @@ const displayOrder = [0, 1, 2];
       ))}
     </div>
 
-    <div class="bg-ayaba-cream/60 border border-ayaba-gold/20 rounded-xl px-6 py-4 max-w-2xl mx-auto text-center">
+    <div class="bg-ayaba-cream/60 border border-ayaba-gold/20 rounded-xl px-6 py-4 max-w-2xl mx-auto text-center mb-12">
       <p class="text-ayaba-dark text-sm lg:text-base">
         {t(locale, 'home.configExplainer')}
       </p>
     </div>
-  </div>
-</section>
 
-{/* Section 2: Choix du nombre de chambres */}
-<section class="bg-ayaba-cream py-16 lg:py-20">
-  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
-    <div class="text-center mb-10">
-      <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[28px] font-bold mb-3">
-        {t(locale, 'home.bedroomChoiceTitle')}
-      </h2>
-      <p class="text-ayaba-muted text-base max-w-xl mx-auto">
-        {t(locale, 'home.bedroomChoiceSubtitle')}
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-[420px] md:max-w-none mx-auto">
-      {displayOrder.map((i) => (
-        <div>
-          <ApartmentCard
-            images={imagesByConfig[i]}
-            imageAlt={`${t(locale, nameKeys[i])} — Maison Ayaba`}
-            name={t(locale, nameKeys[i])}
-            subtitle={t(locale, subtitleKeys[i])}
-            price={locale === 'fr' ? `${apartments[i].pricePerNight.min}\u20AC` : `\u20AC${apartments[i].pricePerNight.min}`}
-            priceFcfa={eurToFcfa(apartments[i].pricePerNight.min)}
-            priceUnit={priceUnit}
-            priceNote={t(locale, noteKeys[i])}
-            capacity={apartments[i].capacity}
-            features={getAmenities(apartments[i], locale)}
-            bonuses={bonuses}
-            configId={configIds[i]}
-            locale={locale}
-          />
-        </div>
-      ))}
-    </div>
+    <GuestSelector locale={locale} variant="compact" />
   </div>
 </section>
 

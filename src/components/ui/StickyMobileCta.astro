@@ -13,7 +13,7 @@ const fromPriceText = t(locale, 'cta.fromPrice', { price: minPrice });
 const perNightText = t(locale, 'labels.pricePerNight');
 const bookLabel = t(locale, 'nav.book');
 
-const bookUrl = locale === 'fr' ? '/fr/reserver/' : '/en/book/';
+const bookUrl = locale === 'fr' ? '/fr/appartement/#reserver' : '/en/apartment/#book';
 ---
 <aside aria-label={locale === 'fr' ? 'Réservation rapide' : 'Quick booking'} class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] px-4 py-3 md:hidden">
   <div class="flex items-center justify-between">
