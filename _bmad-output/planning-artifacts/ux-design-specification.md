@@ -2,6 +2,11 @@
 stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 lastStep: 14
 workflow_completed: true
+revisions:
+  - id: REV-001
+    date: 2026-04-01
+    title: "Clarification modèle mental — Appartement entier vs chambres partagées"
+    status: validated
 inputDocuments:
   - product-brief-maison_ayaba-2026-03-14.md
   - prd.md
@@ -1473,3 +1478,146 @@ body { font-size: 1rem; }    /* 16px */
   outline-offset: 2px;
 }
 ```
+
+---
+
+## Révisions UX
+
+### REV-001 — Clarification modèle mental : Appartement entier vs chambres partagées
+
+**Date :** 2026-04-01
+**Statut :** Validé par Onizuka
+**Problème identifié :** Malgré les mentions textuelles "appartement entier" et la note de privatisation, des visiteurs pensent encore qu'ils réservent une chambre dans un logement partagé avec d'autres voyageurs — comme dans un hostel ou un Airbnb en chambre privée.
+
+**Diagnostic UX :**
+
+Le problème n'est pas un manque d'information mais une **contradiction structurelle** entre le cadrage du choix et le message de rassurance :
+
+1. Les données internes (`apartments.ts`) nomment les configs "Maison Ayaba — 1 Chambre / 2 Chambres / 3 Chambres" → le mot "chambre" comme unité de choix installe un modèle mental "réservation de chambre"
+2. Les textes i18n présentent "Choisissez le nombre de chambres" comme titre de section → renforce l'idée qu'on choisit des chambres individuelles
+3. La section "Les chambres" de la page appartement présente les chambres séparément → le visiteur voit des unités indépendantes
+4. Le hero mentionne "3 chambres, 3 salles de bain" comme compteurs séparés → renforce l'idée de 3 unités distinctes
+
+Le cerveau du visiteur installe le mauvais modèle mental **avant** de lire les textes rassurants — aucun paragraphe ne peut combattre un modèle mental installé par la structure du choix.
+
+**Principe UX appliqué :** Le cadrage du choix (framing) a plus d'impact sur la compréhension que le contenu explicatif. Il faut aligner la structure ET le message.
+
+---
+
+#### Modification 1 — Hero subtitle homepage
+
+**Composant :** Homepage hero (`apartmentShowcaseSubtitle` dans i18n)
+**Objectif :** Éliminer le compteur "3 chambres" qui suggère 3 unités séparées
+
+| Langue | Avant | Après |
+|--------|-------|-------|
+| FR | "Un appartement entier, rien qu'à vous. 167 m², 3 chambres, 3 salles de bain, salon, cuisine équipée et terrasse." | "Un appartement entier, rien qu'à vous. 167 m² à Fidjrossè — salon, cuisine équipée, terrasse, et jusqu'à 3 chambres avec salles de bain privées." |
+| EN | (équivalent anglais) | (équivalent anglais) |
+
+**Rationale :** "Jusqu'à 3 chambres" signale que le nombre varie selon la réservation. "Avec salles de bain privées" attache les SDB aux chambres au lieu d'en faire un compteur séparé.
+
+---
+
+#### Modification 2 — Section chambres page appartement
+
+**Composant :** Page Appartement, section chambres (`bedroomsTitle`, `bedroomsSubtitle` dans i18n)
+**Objectif :** Ancrer la possession et l'exclusivité via le vocabulaire
+
+| Clé i18n | Avant | Après |
+|----------|-------|-------|
+| `apartment.bedroomsTitle` | "Les chambres" | "Vos chambres privées" |
+| `apartment.bedroomsSubtitle` | "Jusqu'à 3 chambres, chacune avec sa propre salle de bain." | "Selon le nombre de voyageurs, 1 à 3 chambres avec salle de bain privative — toujours dans votre appartement privatif." |
+
+**Rationale :** "Les chambres" est neutre — compatible avec un hôtel. "Vos chambres privées" + "votre appartement privatif" renforce l'exclusivité et la possession.
+
+---
+
+#### Modification 3 — Suppression du cadrage "Choisissez vos chambres"
+
+**Composant :** Page Appartement, section au-dessus du GuestSelector (`bedroomChoiceTitle`, `bedroomChoiceSubtitle` dans i18n)
+**Objectif :** Éliminer la contradiction entre "choisissez vos chambres" et "c'est un appartement entier"
+
+| Clé i18n | Avant | Après |
+|----------|-------|-------|
+| `apartment.bedroomChoiceTitle` | "Choisissez le nombre de chambres" | Remplacer par le titre du GuestSelector : "Combien de voyageurs ?" |
+| `apartment.bedroomChoiceSubtitle` | "Tout l'appartement est à vous — vous choisissez simplement le nombre de chambres dont vous avez besoin." | Remplacer par la `privateNote` existante : "L'appartement est toujours privatif, quel que soit le nombre de voyageurs. Personne d'autre n'y séjourne — les chambres inutilisées restent simplement fermées." |
+
+**Rationale :** Le GuestSelector cadre déjà le choix autour des voyageurs. Présenter ce même choix comme "choisir des chambres" juste au-dessus contredit le message. Cohérence à 100%.
+
+---
+
+#### Modification 4 — Badge visuel "Appartement entier privatif"
+
+**Composant :** Nouveau badge dans le hero de la homepage et de la page appartement
+**Objectif :** Utiliser un pattern visuel reconnu (badge Airbnb "Logement entier") pour catégoriser immédiatement le type de logement
+
+**Spécification du badge :**
+
+```
+[🏠 Appartement entier privatif]
+```
+
+- **Position :** Au-dessus du titre h1 dans le hero, sous le label "MAISON AYABA — FIDJROSSÈ, COTONOU"
+- **Style :** Badge pill — fond `ayaba-cream`, bordure 1px `ayaba-gold/30`, texte `ayaba-dark`, 14px Inter semi-bold, padding 6px 16px, border-radius 50px
+- **Icône :** Emoji maison 🏠 ou icône SVG inline
+- **Présence :** Hero homepage + Hero page appartement + Au-dessus de chaque GuestSelector
+
+**Rationale :** Un badge est traité visuellement comme une **catégorie**, pas comme du contenu. Le cerveau le classe immédiatement sans lecture consciente. C'est le même pattern que les voyageurs reconnaissent sur Airbnb ("Logement entier").
+
+**Clés i18n à créer :**
+- `badge.entireApartment` : "Appartement entier privatif" (FR) / "Entire private apartment" (EN)
+
+---
+
+#### Modification 5 — FAQ reformulée
+
+**Composant :** FAQ page appartement (`faq1Q`, `faq1A` dans i18n)
+**Objectif :** Formuler la question du point de vue de l'inquiétude réelle du visiteur
+
+| Clé i18n | Avant | Après |
+|----------|-------|-------|
+| `apartment.faq1Q` | "Est-ce que je loue l'appartement entier ?" | "Est-ce que je partage l'appartement avec d'autres voyageurs ?" |
+| `apartment.faq1A` | "Oui, toujours. Maison Ayaba est un appartement que vous louez en entier. Aucun autre voyageur n'y séjourne en même temps que vous. Vous avez accès au salon, à la cuisine équipée, à la terrasse et à tous les équipements." | "Non, jamais. Vous louez l'appartement entier — personne d'autre n'y séjourne pendant votre réservation. Selon le nombre de voyageurs, 1 à 3 chambres sont ouvertes, mais l'appartement (salon, cuisine, terrasse) est toujours 100% privatif." |
+
+**Rationale :** La question actuelle est formulée du point de vue de la réponse ("Est-ce que je loue l'entier ?"). La vraie question que les visiteurs se posent est "Est-ce que je partage ?". En la formulant ainsi, le visiteur se sent compris dès la question, avant même de lire la réponse. De plus, la réponse commence par "Non, jamais" — un démenti immédiat et sans ambiguïté.
+
+---
+
+#### Impact sur le document UX existant
+
+**Sections impactées :**
+- **Effortless Interactions** (ligne 82) : La mention "3 configurations côte à côte" reflète l'ancien design. Le site utilise maintenant un `GuestSelector` dropdown — cette section reste valide dans l'esprit (choix rapide) mais le mécanisme a changé.
+- **ApartmentCard.astro** (ligne 910) : Ce composant existe toujours dans le spec mais n'est plus utilisé sur la homepage (remplacé par `ApartmentGrid.astro` avec galerie photos + `GuestSelector`). Le spec original reste comme référence historique.
+- **Success Criteria** (ligne 368) : Ajouter un critère : "Le visiteur comprend en < 10 secondes que l'appartement est entier et privatif, sans avoir besoin de lire un paragraphe explicatif"
+
+**Fichiers modifiés (implémentation terminée 2026-04-01) :**
+- `src/i18n/fr.json` — clés mises à jour + `home.heroBadge` + 12 clés `floorPlan*` ajoutées
+- `src/i18n/en.json` — équivalents anglais
+- `src/components/sections/HeroSection.astro` — prop `badge` optionnelle avec badge pill
+- `src/components/ui/GuestSelector.astro` — badge ajouté au-dessus en variante `full`
+- `src/components/ui/ApartmentFloorPlan.astro` — **nouveau composant** (voir Modification 6)
+- `src/pages/index.astro` — prop `badge` passée au HeroSection
+- `src/pages/en/index.astro` — idem EN
+- `src/pages/fr/appartement.astro` — badge dans le hero inline + ApartmentFloorPlan dans "Comment ça marche"
+- `src/pages/en/apartment.astro` — idem EN
+
+---
+
+#### Modification 6 — Plan schématique de l'appartement (ajout post-validation)
+
+**Composant :** Nouveau — `src/components/ui/ApartmentFloorPlan.astro`
+**Objectif :** Fournir une preuve visuelle immédiate que l'appartement est un seul logement, sans nécessiter de lecture
+
+**Description :**
+Illustration SVG schématique intégrée dans la section "Comment ça marche ?" de la page appartement (FR et EN). Le plan montre :
+- Un contour en pointillés dorés englobant l'ensemble de l'appartement
+- Un label central "TOUT L'APPARTEMENT EST À VOUS" / "THE ENTIRE APARTMENT IS YOURS"
+- Les pièces communes (Salon, Cuisine équipée, Terrasse) à gauche
+- Les 3 chambres avec salles de bain à droite
+- Un encart de synthèse : "1 seul logement, 1 seule réservation / Chambres inutilisées = fermées à clé"
+
+**Style :** Couleurs du design system (ayaba-gold contour, ayaba-terra texte encart, ayaba-success bordures chambres, ayaba-cream fond). SVG inline responsive, pas d'image externe.
+
+**Rationale :** Les modifications 1-5 agissent sur le texte et le cadrage. Le plan agit sur la **perception visuelle** — le cerveau comprend "un seul logement" en voyant le contour unique avant de lire quoi que ce soit. C'est la différence entre dire "c'est un appartement entier" et le montrer.
+
+**Clés i18n :** `apartment.floorPlanAlt`, `apartment.floorPlanLabel`, `apartment.floorPlanLiving`, `apartment.floorPlanKitchen`, `apartment.floorPlanTerrace`, `apartment.floorPlanBed1-3`, `apartment.floorPlanBathroom`, `apartment.floorPlanNote1`, `apartment.floorPlanNote2`

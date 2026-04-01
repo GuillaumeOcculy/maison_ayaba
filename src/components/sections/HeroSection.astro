@@ -16,6 +16,7 @@ interface CtaLink {
 interface Props {
   image?: ImageMetadata;
   imageAlt: string;
+  badge?: string;
   label: string;
   title: string;
   subtitle: string;
@@ -24,7 +25,7 @@ interface Props {
   secondaryCta: CtaLink;
 }
 
-const { image, imageAlt, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
+const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
 ---
 <section class="relative h-svh overflow-hidden">
   {image ? (
@@ -52,6 +53,13 @@ const { image, imageAlt, label, title, subtitle, stats, primaryCta, secondaryCta
     <p class="text-white/60 text-xs uppercase tracking-[1.5px] font-semibold mb-4">
       {label}
     </p>
+
+    {badge && (
+      <span class="inline-flex items-center gap-1.5 bg-ayaba-cream/95 border border-ayaba-gold/30 text-ayaba-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-4 w-fit">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
+        {badge}
+      </span>
+    )}
 
     <h1 class="text-white font-heading text-[28px] lg:text-[48px] font-bold leading-tight max-w-2xl mb-3">
       {title}
