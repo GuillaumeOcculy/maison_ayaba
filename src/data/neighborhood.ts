@@ -47,6 +47,8 @@ export const neighborhoodSections: NeighborhoodSection[] = [
       { nameKey: 'neighborhood.commerce2Name', detailKey: 'neighborhood.commerce2Detail' },
       { nameKey: 'neighborhood.commerce3Name', detailKey: 'neighborhood.commerce3Detail', url: 'https://maps.app.goo.gl/rGTMEwdcMqBwvMLWA' },
       { nameKey: 'neighborhood.commerce4Name', detailKey: 'neighborhood.commerce4Detail' },
+      { nameKey: 'neighborhood.commerce5Name', detailKey: 'neighborhood.commerce5Detail' },
+      { nameKey: 'neighborhood.commerce6Name', detailKey: 'neighborhood.commerce6Detail' },
     ],
   },
   {
