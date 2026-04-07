@@ -333,7 +333,7 @@
     "heroSubtitle": "Behind Maison Ayaba, a host who knows Cotonou and anticipates your every need.",
     "name": "Guillaume",
     "role": "Founder & Host of Maison Ayaba",
-    "introStory": "Coming from the diaspora, I discovered Cotonou and fell in love with the city's energy. But when looking for quality accommodation, I noticed a gap: comfortable, reliable apartments designed for discerning travelers simply didn't exist.\n\nI decided to create what I wished I had found. Maison Ayaba is an apartment in Fidjrossè — a calm neighborhood, close to the beach, 20 minutes from the airport — equipped so you don't have to worry about a thing: inverter that keeps WiFi running during outages, AC in every room, high-speed WiFi, smart lock.\n\nAn on-site team, documented processes. This isn't an improvised Airbnb — it's a structured hospitality brand. And that changes everything for your experience.",
+    "introStory": "Coming from the diaspora, I discovered Cotonou and fell in love with the city's energy. But when looking for quality accommodation, I noticed a gap: comfortable, reliable apartments designed for discerning travelers simply didn't exist.\n\nI decided to create what I wished I had found. Maison Ayaba offers 3 private accommodations in Fidjrossè — a calm neighborhood, close to the beach, 20 minutes from the airport. From 2 to 6 guests, each is a fully equipped private apartment so you don't have to worry about a thing: inverter, AC in every room, high-speed WiFi, smart lock.\n\nAn on-site team, documented processes. This isn't an improvised Airbnb — it's a structured hospitality brand. And that changes everything for your experience.",
     "philosophyTitle": "My hosting philosophy",
     "philosophyDesc": "I believe great accommodation isn't just four walls and a bed. It's a place that lets you live normally from day one.",
     "value1Title": "Every detail matters",
@@ -353,10 +353,12 @@
     "kwaboPanierDesc": "Fresh seasonal fruits, cold drinks, coffee and next morning's breakfast. Everything to start your stay without rushing to the supermarket.",
     "kwaboMotTitle": "Warm welcome",
     "kwaboMotDesc": "A personalized welcome to start your stay on the right foot — because feeling welcome changes everything.",
-    "viewApartment": "Discover the apartment",
-    "finalCtaTitle": "Ready to book?",
-    "finalCtaSubtitle": "Select the number of guests and book with confidence",
-    "finalCtaCta": "Book"
+    "inlineCta": "Want to see where it all comes together?",
+    "inlineCtaLink": "Discover our accommodations",
+    "viewApartment": "Discover our accommodations",
+    "finalCtaTitle": "Ready to book your private accommodation?",
+    "finalCtaSubtitle": "3 accommodations to choose from, for 2 to 6 guests — from €60/night in Fidjrossè.",
+    "finalCtaCta": "Book my accommodation"
   },
   "blog": {
     "pageTitle": "Blog — Maison Ayaba",

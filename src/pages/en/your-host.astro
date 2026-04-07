@@ -59,6 +59,19 @@ const resolvedKwabo = kwaboAttentions.map((a) => ({
     values={resolvedValues}
   />
 
+  {/* Inline CTA after Philosophy */}
+  <div class="bg-white py-8">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <p class="text-ayaba-muted text-sm mb-2">{t(locale, 'host.inlineCta')}</p>
+      <a
+        href="/en/apartment/"
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-sm underline underline-offset-4 transition-colors"
+      >
+        {t(locale, 'host.inlineCtaLink')} →
+      </a>
+    </div>
+  </div>
+
   {/* Kwabo Protocol Section */}
   <KwaboSection
     label={t(locale, 'host.kwaboLabel')}

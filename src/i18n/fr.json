@@ -333,7 +333,7 @@
     "heroSubtitle": "Derrière Maison Ayaba, un hôte qui connaît Cotonou et anticipe chacun de vos besoins.",
     "name": "Guillaume",
     "role": "Fondateur & Hôte de Maison Ayaba",
-    "introStory": "Originaire de la diaspora, j'ai découvert Cotonou et j'ai eu un coup de cœur pour l'énergie de cette ville. Mais en cherchant un hébergement de qualité, j'ai constaté un manque : des appartements confortables, fiables et pensés pour les voyageurs exigeants, ça n'existait pas vraiment.\n\nJ'ai décidé de créer ce que j'aurais voulu trouver. Maison Ayaba, c'est un appartement à Fidjrossè — quartier calme, proche de la plage, à 20 minutes de l'aéroport — équipé pour que vous n'ayez à vous soucier de rien : onduleur qui maintient le WiFi actif même pendant les coupures, climatisation dans chaque pièce, WiFi haut débit, serrure connectée.\n\nUne équipe sur place, des process documentés. Ce n'est pas un Airbnb improvisé — c'est une marque hôtelière structurée. Et ça change tout pour votre expérience.",
+    "introStory": "Originaire de la diaspora, j'ai découvert Cotonou et j'ai eu un coup de cœur pour l'énergie de cette ville. Mais en cherchant un hébergement de qualité, j'ai constaté un manque : des appartements confortables, fiables et pensés pour les voyageurs exigeants, ça n'existait pas vraiment.\n\nJ'ai décidé de créer ce que j'aurais voulu trouver. Maison Ayaba, ce sont 3 logements privatifs à Fidjrossè — quartier calme, proche de la plage, à 20 minutes de l'aéroport. De 2 à 6 voyageurs, chaque logement est un appartement entier équipé pour que vous n'ayez à vous soucier de rien : onduleur, climatisation dans chaque pièce, WiFi haut débit, serrure connectée.\n\nUne équipe sur place, des process documentés. Ce n'est pas un Airbnb improvisé — c'est une marque hôtelière structurée. Et ça change tout pour votre expérience.",
     "philosophyTitle": "Ma philosophie d'accueil",
     "philosophyDesc": "Je crois qu'un bon hébergement ne se résume pas à quatre murs et un lit. C'est un lieu qui vous permet de vivre normalement, dès le premier jour.",
     "value1Title": "Chaque détail compte",
@@ -353,10 +353,12 @@
     "kwaboPanierDesc": "Fruits frais de saison, boissons fraîches, café et petit déjeuner du lendemain matin. De quoi commencer votre séjour sans courir au supermarché.",
     "kwaboMotTitle": "Accueil chaleureux",
     "kwaboMotDesc": "Un accueil personnalisé pour démarrer votre séjour du bon pied — parce que se sentir bienvenu, ça change tout.",
-    "viewApartment": "Découvrir l'appartement",
-    "finalCtaTitle": "Prêt à réserver ?",
-    "finalCtaSubtitle": "Indiquez le nombre de voyageurs et réservez en toute confiance",
-    "finalCtaCta": "Réserver"
+    "inlineCta": "Envie de voir où tout cela prend vie ?",
+    "inlineCtaLink": "Découvrir nos logements",
+    "viewApartment": "Découvrir nos logements",
+    "finalCtaTitle": "Prêt à réserver votre logement privatif ?",
+    "finalCtaSubtitle": "3 logements au choix, de 2 à 6 voyageurs — dès 60 €/nuit à Fidjrossè.",
+    "finalCtaCta": "Réserver mon logement"
   },
   "blog": {
     "pageTitle": "Blog — Maison Ayaba",
