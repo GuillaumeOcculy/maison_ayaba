@@ -2,14 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import ImageGallery from '../../components/ui/ImageGallery.astro';
-import GuestSelector from '../../components/ui/GuestSelector.astro';
+import LogementCards from '../../components/sections/LogementCards.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { getSharedAmenities } from '../../data/apartments';
 import { t } from '../../i18n/utils';
 import { whatsappNumber } from '../../data/siteConfig';
-import ApartmentFloorPlan from '../../components/ui/ApartmentFloorPlan.astro';
 import chambre1Img from '../../assets/images/apartments/chambre1.png';
 import chambre1Img2 from '../../assets/images/apartments/chambre1-2.png';
 import chambre1Img3 from '../../assets/images/apartments/chambre1-3.png';
@@ -94,20 +93,6 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
     </div>
   </section>
 
-  {/* Comment ça marche */}
-  <section class="bg-ayaba-cream py-10 lg:py-12">
-    <div class="max-w-[800px] mx-auto px-6 lg:px-16">
-      <div class="bg-white rounded-2xl shadow-sm border border-ayaba-gold/20 px-8 py-6 text-center">
-        <h2 class="font-heading text-ayaba-dark text-[22px] lg:text-[26px] font-bold mb-3">
-          {t(locale, 'apartment.howItWorksTitle')}
-        </h2>
-        <p class="text-ayaba-muted text-base lg:text-lg">
-          {t(locale, 'apartment.howItWorks')}
-        </p>
-        <ApartmentFloorPlan locale={locale} />
-      </div>
-    </div>
-  </section>
 
   {/* Visite de l'appartement — espaces communs */}
   <section class="bg-white py-16 lg:py-20">
@@ -154,11 +139,9 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
     </div>
   </section>
 
-  {/* 1er CTA — Sélecteur voyageurs */}
-  <section id="reserver" class="bg-white py-16 lg:py-20">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
-      <GuestSelector locale={locale} variant="full" />
-    </div>
+  {/* Choisissez votre logement */}
+  <section id="reserver">
+    <LogementCards locale={locale} />
   </section>
 
   {/* Équipements communs */}
@@ -184,12 +167,6 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
   {/* FAQ */}
   <FaqSection locale={locale} />
 
-  {/* 2e CTA — Sélecteur voyageurs compact */}
-  <section class="bg-ayaba-cream py-12 lg:py-16">
-    <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
-      <GuestSelector locale={locale} variant="compact" />
-    </div>
-  </section>
 
   {/* CTA WhatsApp */}
   <FinalCta
