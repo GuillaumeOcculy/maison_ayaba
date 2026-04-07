@@ -103,14 +103,32 @@ const resolvedTransportModes = transportModes.map((mode) => ({
     />
   ))}
 
-  {/* Lien vers page Appartement */}
-  <section class="bg-white py-12 lg:py-16">
+  {/* Mini-encart offre */}
+  <section class="bg-ayaba-cream py-16 lg:py-20">
     <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[32px] font-bold mb-3">
+        {t(locale, 'neighborhood.offerTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base max-w-2xl mx-auto mb-8">
+        {t(locale, 'neighborhood.offerSubtitle')}
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerDuo')}</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerFamille')}</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-sm">
+          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerTribu')}</p>
+        </div>
+      </div>
+      <p class="text-ayaba-terra font-bold text-lg mb-6">{t(locale, 'neighborhood.offerFrom')}</p>
       <a
         href="/fr/appartement/"
-        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-base underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        class="inline-flex items-center justify-center bg-ayaba-terra text-white font-semibold text-base px-8 py-3 rounded-full hover:bg-ayaba-terra/90 transition-colors min-h-[44px] focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
       >
-        {t(locale, 'neighborhood.viewApartment')} →
+        {t(locale, 'neighborhood.offerCta')}
       </a>
     </div>
   </section>
