@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
-import ApartmentGrid from '../components/sections/ApartmentGrid.astro';
-
+import ShowcaseSection from '../components/sections/ShowcaseSection.astro';
+import LogementCards from '../components/sections/LogementCards.astro';
+import ReviewsSection from '../components/sections/ReviewsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import SchemaOrg from '../components/seo/SchemaOrg.astro';
@@ -13,7 +14,7 @@ const locale = 'fr' as const;
 ---
 <BaseLayout
   locale={locale}
-  title="Maison Ayaba — Appartement meublé à Fidjrossè, Cotonou"
+  title="Maison Ayaba — Logements meublés à Fidjrossè, Cotonou"
   description={t(locale, 'home.heroSubtitle')}
   hideHeader={true}
 >
@@ -30,16 +31,20 @@ const locale = 'fr' as const;
     title={t(locale, 'home.heroTitle')}
     subtitle={t(locale, 'home.heroSubtitle')}
     stats={[
-      { value: t(locale, 'home.statPriceValue'), label: t(locale, 'home.statPriceLabel'), oldPrice: t(locale, 'home.statPriceOld'), promoBadge: t(locale, 'home.statPricePromo') },
+      { value: t(locale, 'home.statPriceValue'), label: t(locale, 'home.statPriceLabel') },
       { value: t(locale, 'home.statConfigsValue'), label: t(locale, 'home.statConfigsLabel') },
       { value: t(locale, 'home.statGuestsValue'), label: t(locale, 'home.statGuestsLabel') },
       { value: t(locale, 'home.statBeachValue'), label: t(locale, 'home.statBeachLabel') },
     ]}
-    primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '/fr/appartement/#reserver' }}
-    secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#configurations' }}
+    primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '#logements' }}
+    secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#photos' }}
   />
 
-  <ApartmentGrid locale={locale} />
+  <ShowcaseSection locale={locale} />
+
+  <LogementCards locale={locale} />
+
+  <ReviewsSection locale={locale} />
 
   <FaqSection locale={locale} />
 
@@ -47,6 +52,6 @@ const locale = 'fr' as const;
     title={t(locale, 'home.finalCtaTitle')}
     subtitle={t(locale, 'home.finalCtaSubtitle')}
     ctaText={t(locale, 'home.finalCtaCta')}
-    ctaHref="/fr/appartement/#reserver"
+    ctaHref="#logements"
   />
 </BaseLayout>

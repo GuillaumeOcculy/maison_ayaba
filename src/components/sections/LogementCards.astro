@@ -1,0 +1,137 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+import { apartments } from '../../data/apartments';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const cards = [
+  {
+    name: t(locale, 'home.card1Name'),
+    capacity: t(locale, 'home.card1Capacity'),
+    surface: t(locale, 'home.card1Surface'),
+    features: [
+      t(locale, 'home.card1Feature1'),
+      t(locale, 'home.card1Feature2'),
+      t(locale, 'home.card1Feature3'),
+      t(locale, 'home.card1Feature4'),
+    ],
+    price: '60€',
+    airbnbUrl: apartments[0].airbnbUrl,
+    popular: false,
+    badge: null as string | null,
+    badgeColor: '',
+    perPerson: null as string | null,
+  },
+  {
+    name: t(locale, 'home.card2Name'),
+    capacity: t(locale, 'home.card2Capacity'),
+    surface: t(locale, 'home.card2Surface'),
+    features: [
+      t(locale, 'home.card2Feature1'),
+      t(locale, 'home.card2Feature2'),
+      t(locale, 'home.card2Feature3'),
+      t(locale, 'home.card2Feature4'),
+    ],
+    price: '80€',
+    airbnbUrl: apartments[1].airbnbUrl,
+    popular: true,
+    badge: t(locale, 'home.card2Badge'),
+    badgeColor: 'bg-ayaba-gold',
+    perPerson: t(locale, 'home.card2PerPerson'),
+  },
+  {
+    name: t(locale, 'home.card3Name'),
+    capacity: t(locale, 'home.card3Capacity'),
+    surface: t(locale, 'home.card3Surface'),
+    features: [
+      t(locale, 'home.card3Feature1'),
+      t(locale, 'home.card3Feature2'),
+      t(locale, 'home.card3Feature3'),
+      t(locale, 'home.card3Feature4'),
+    ],
+    price: '100€',
+    airbnbUrl: apartments[2].airbnbUrl,
+    popular: false,
+    badge: t(locale, 'home.card3Badge'),
+    badgeColor: 'bg-ayaba-success',
+    perPerson: t(locale, 'home.card3PerPerson'),
+  },
+];
+
+const privateLabel = t(locale, 'home.cardPrivateLabel');
+const bookCta = t(locale, 'home.cardBookCta');
+---
+<section id="logements" class="bg-ayaba-cream py-20">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[36px] font-bold mb-3">
+        {t(locale, 'home.cardsTitle')}
+      </h2>
+      <p class="text-ayaba-muted text-base lg:text-[17px] max-w-xl mx-auto">
+        {t(locale, 'home.cardsSubtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
+      {cards.map((card) => (
+        <div class:list={[
+          "bg-white border rounded-2xl px-7 py-8 flex flex-col items-center text-center relative transition-shadow hover:shadow-lg",
+          card.popular ? "border-ayaba-terra border-2" : "border-gray-200"
+        ]}>
+          {card.badge && (
+            <span class:list={[
+              "absolute -top-3 text-white text-[11px] font-semibold uppercase tracking-wide px-4 py-1 rounded-full",
+              card.badgeColor
+            ]}>
+              {card.badge}
+            </span>
+          )}
+
+          <h3 class="font-heading text-ayaba-dark text-[22px] font-bold mb-1">{card.name}</h3>
+          <p class="text-ayaba-muted text-sm mb-4">{card.capacity}</p>
+
+          <div class="flex items-center gap-1.5 text-ayaba-success text-xs font-semibold mb-4">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+            {privateLabel}
+          </div>
+
+          <p class="flex items-center gap-1.5 text-ayaba-muted text-[13px] mb-4">
+            <svg class="w-4 h-4 text-ayaba-terra shrink-0" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
+            {card.surface}
+          </p>
+
+          <ul class="w-full text-left mb-6 space-y-0">
+            {card.features.map((f) => (
+              <li class="flex items-center gap-2 py-1.5 text-sm text-ayaba-dark border-b border-gray-100 last:border-b-0">
+                <span class="text-ayaba-success font-bold shrink-0">&#10003;</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-auto mb-5">
+            <span class="font-heading text-ayaba-terra text-[32px] font-bold">{card.price}</span>
+            <span class="text-ayaba-muted text-sm"> /{t(locale, 'home.cardPerNight')}</span>
+            {card.perPerson && (
+              <p class="text-ayaba-muted text-xs mt-0.5">{card.perPerson}</p>
+            )}
+          </div>
+
+          <a
+            href={card.airbnbUrl}
+            target="_blank"
+            rel="noopener"
+            class="bg-ayaba-terra hover:bg-ayaba-terra/90 text-white font-semibold text-[15px] rounded-md px-6 py-3.5 w-full flex items-center justify-center gap-2 min-h-[48px] transition-colors"
+          >
+            {bookCta}
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

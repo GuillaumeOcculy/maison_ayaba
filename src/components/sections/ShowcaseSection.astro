@@ -1,0 +1,149 @@
+---
+import { Image } from 'astro:assets';
+import { t, type Locale } from '../../i18n/utils';
+import salon1 from '../../assets/images/apartments/salon1.png';
+import salon3 from '../../assets/images/apartments/salon3.png';
+import salon4 from '../../assets/images/apartments/salon4.png';
+import cuisine1 from '../../assets/images/apartments/cuisine1.png';
+import terrasse1 from '../../assets/images/apartments/terrasse1.png';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const images = [
+  { src: salon1, alt: 'Salon — Maison Ayaba', big: true },
+  { src: salon3, alt: 'Salon TV — Maison Ayaba' },
+  { src: cuisine1, alt: 'Cuisine équipée — Maison Ayaba' },
+  { src: terrasse1, alt: 'Terrasse — Maison Ayaba' },
+  { src: salon4, alt: 'Salle à manger — Maison Ayaba' },
+];
+
+const features = [
+  t(locale, 'home.showcaseFeature1'),
+  t(locale, 'home.showcaseFeature2'),
+  t(locale, 'home.showcaseFeature3'),
+  t(locale, 'home.showcaseFeature4'),
+  t(locale, 'home.showcaseFeature5'),
+  t(locale, 'home.showcaseFeature6'),
+];
+---
+<section id="photos" class="bg-white py-20">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+    <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[36px] font-bold mb-3">
+      {t(locale, 'home.showcaseTitle')}
+    </h2>
+    <p class="text-ayaba-muted text-base lg:text-lg max-w-xl mx-auto mb-10">
+      {t(locale, 'home.showcaseSubtitle')}
+    </p>
+
+    {/* Grille photo — 4 colonnes, première image en grand (2x2) */}
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 rounded-2xl overflow-hidden mb-8" id="photo-grid">
+      <div class="col-span-2 row-span-2">
+        <Image
+          src={images[0].src}
+          alt={images[0].alt}
+          class="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity min-h-[200px] md:min-h-[280px]"
+          widths={[480, 640, 960]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="lazy"
+          data-photo-index="0"
+        />
+      </div>
+      {images.slice(1).map((img, idx) => (
+        <div>
+          <Image
+            src={img.src}
+            alt={img.alt}
+            class="w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity min-h-[96px] md:min-h-[120px]"
+            widths={[320, 480, 640]}
+            sizes="(max-width: 768px) 50vw, 25vw"
+            loading="lazy"
+            data-photo-index={String(idx + 1)}
+          />
+        </div>
+      ))}
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-x-7 gap-y-2">
+      {features.map((feature) => (
+        <span class="flex items-center gap-1.5 text-sm">
+          <span class="text-ayaba-success font-bold" aria-hidden="true">&#10003;</span>
+          {feature}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Lightbox */}
+<div id="lightbox" class="fixed inset-0 z-50 bg-black/92 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200">
+  <button class="absolute top-4 right-5 bg-transparent border-none text-white text-[32px] cursor-pointer w-11 h-11 flex items-center justify-center" id="lb-close" aria-label="Fermer">×</button>
+  <button class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/15 hover:bg-white/30 border-none text-white text-[28px] cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-colors hidden md:flex" id="lb-prev" aria-label="Photo précédente">‹</button>
+  <img src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-lg select-none" id="lb-img" />
+  <button class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/15 hover:bg-white/30 border-none text-white text-[28px] cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-colors hidden md:flex" id="lb-next" aria-label="Photo suivante">›</button>
+  <div class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm" id="lb-counter"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+    const lbCounter = document.getElementById('lb-counter')!;
+    const photos = Array.from(document.querySelectorAll<HTMLImageElement>('#photo-grid img'));
+    let current = 0;
+
+    function open(index: number) {
+      current = index;
+      update();
+      lightbox!.classList.remove('opacity-0', 'pointer-events-none');
+      lightbox!.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox!.classList.add('opacity-0', 'pointer-events-none');
+      lightbox!.classList.remove('opacity-100');
+      document.body.style.overflow = '';
+    }
+
+    function update() {
+      lbImg.src = photos[current].src;
+      lbImg.alt = photos[current].alt;
+      lbCounter.textContent = `${current + 1} / ${photos.length}`;
+    }
+
+    function next() { current = (current + 1) % photos.length; update(); }
+    function prev() { current = (current - 1 + photos.length) % photos.length; update(); }
+
+    photos.forEach((img, i) => {
+      img.addEventListener('click', () => open(i));
+    });
+
+    document.getElementById('lb-close')!.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    document.getElementById('lb-prev')!.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+    document.getElementById('lb-next')!.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+    lbImg.addEventListener('click', (e) => e.stopPropagation());
+
+    lightbox!.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox!.classList.contains('pointer-events-none')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Swipe mobile
+    let touchStartX = 0;
+    lightbox!.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox!.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    }, { passive: true });
+  });
+</script>

@@ -1,0 +1,38 @@
+---
+import { t, type Locale } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const reviews = [
+  {
+    text: t(locale, 'home.review1Text'),
+    author: t(locale, 'home.review1Author'),
+  },
+  {
+    text: t(locale, 'home.review2Text'),
+    author: t(locale, 'home.review2Author'),
+  },
+];
+---
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-[960px] mx-auto px-6 lg:px-16">
+    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold text-center mb-2">
+      {t(locale, 'home.reviewsTitle')}
+    </h2>
+    <p class="text-ayaba-gold text-center text-lg mb-8">★★★★★ 5/5 {t(locale, 'home.reviewsSource')}</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {reviews.map((review) => (
+        <div class="bg-ayaba-cream rounded-xl p-6">
+          <p class="text-ayaba-gold text-sm mb-2">★★★★★</p>
+          <p class="text-ayaba-dark text-sm leading-relaxed italic mb-3">"{review.text}"</p>
+          <p class="text-ayaba-muted text-[13px] font-semibold">— {review.author}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
