@@ -83,6 +83,19 @@ const resolvedTransportModes = transportModes.map((mode) => ({
     />
   ))}
 
+  {/* Inline CTA after Restaurants & Shops */}
+  <div class="bg-white py-8">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <p class="text-ayaba-muted text-sm mb-2">{t(locale, 'neighborhood.inlineCta1')}</p>
+      <a
+        href="/en/apartment/"
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-sm underline underline-offset-4 transition-colors"
+      >
+        {t(locale, 'neighborhood.inlineCtaLink')} →
+      </a>
+    </div>
+  </div>
+
   {/* Transport section */}
   <TransportSection
     title={t(locale, 'neighborhood.sectionTransportsTitle')}
@@ -106,6 +119,19 @@ const resolvedTransportModes = transportModes.map((mode) => ({
       columns={section.columns}
     />
   ))}
+
+  {/* Inline CTA after Beach & Points of interest */}
+  <div class="bg-white py-8">
+    <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
+      <p class="text-ayaba-muted text-sm mb-2">{t(locale, 'neighborhood.inlineCta2')}</p>
+      <a
+        href="/en/apartment/"
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-sm underline underline-offset-4 transition-colors"
+      >
+        {t(locale, 'neighborhood.inlineCtaLink')} →
+      </a>
+    </div>
+  </div>
 
   {/* Offer summary */}
   <section class="bg-ayaba-cream py-16 lg:py-20">
