@@ -6,9 +6,10 @@ interface Props {
   images: { src: ImageMetadata; alt: string }[];
   configName: string;
   locale: Locale;
+  lightboxGroup?: string;
 }
 
-const { images, configName, locale } = Astro.props;
+const { images, configName, locale, lightboxGroup } = Astro.props;
 const hasMultiple = images.length > 1;
 const galleryLabel = t(locale, 'apartment.galleryLabel', { name: configName });
 ---
@@ -26,10 +27,11 @@ const galleryLabel = t(locale, 'apartment.galleryLabel', { name: configName });
         <Image
           src={img.src}
           alt={img.alt}
-          class="w-full h-full object-cover"
+          class:list={["w-full h-full object-cover", lightboxGroup && "hover:opacity-90 transition-opacity"]}
           widths={[480, 768, 1024]}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
           loading="lazy"
+          {...(lightboxGroup ? { 'data-lightbox-group': lightboxGroup } : {})}
         />
       </div>
     ))}

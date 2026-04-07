@@ -1,0 +1,86 @@
+---
+/**
+ * Lightbox plein écran pour photos.
+ * Ajouter data-lightbox-group="<groupId>" et data-lightbox-index="<n>" sur chaque <img> cliquable.
+ * Ce composant gère l'ouverture, la navigation (clavier + swipe) et la fermeture.
+ */
+---
+<div id="photo-lightbox" class="fixed inset-0 z-50 bg-black/92 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200">
+  <button class="absolute top-4 right-5 bg-transparent border-none text-white text-[32px] cursor-pointer w-11 h-11 flex items-center justify-center" id="plb-close" aria-label="Fermer">×</button>
+  <button class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/15 hover:bg-white/30 border-none text-white text-[28px] cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-colors hidden md:flex" id="plb-prev" aria-label="Photo précédente">‹</button>
+  <img src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-lg select-none" id="plb-img" />
+  <button class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/15 hover:bg-white/30 border-none text-white text-[28px] cursor-pointer w-12 h-12 rounded-full flex items-center justify-center transition-colors hidden md:flex" id="plb-next" aria-label="Photo suivante">›</button>
+  <div class="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/60 text-sm" id="plb-counter"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('photo-lightbox')!;
+    const lbImg = document.getElementById('plb-img') as HTMLImageElement;
+    const lbCounter = document.getElementById('plb-counter')!;
+
+    let photos: HTMLImageElement[] = [];
+    let current = 0;
+
+    function open(group: HTMLImageElement[], index: number) {
+      photos = group;
+      current = index;
+      update();
+      lightbox.classList.remove('opacity-0', 'pointer-events-none');
+      lightbox.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.add('opacity-0', 'pointer-events-none');
+      lightbox.classList.remove('opacity-100');
+      document.body.style.overflow = '';
+    }
+
+    function update() {
+      lbImg.src = photos[current].src;
+      lbImg.alt = photos[current].alt;
+      lbCounter.textContent = `${current + 1} / ${photos.length}`;
+    }
+
+    function next() { current = (current + 1) % photos.length; update(); }
+    function prev() { current = (current - 1 + photos.length) % photos.length; update(); }
+
+    // Attach click handlers to all lightbox-enabled images
+    const groups = new Map<string, HTMLImageElement[]>();
+    document.querySelectorAll<HTMLImageElement>('[data-lightbox-group]').forEach((img) => {
+      const groupId = img.dataset.lightboxGroup!;
+      if (!groups.has(groupId)) groups.set(groupId, []);
+      groups.get(groupId)!.push(img);
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        const group = groups.get(groupId)!;
+        const idx = group.indexOf(img);
+        open(group, idx);
+      });
+    });
+
+    document.getElementById('plb-close')!.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    document.getElementById('plb-prev')!.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+    document.getElementById('plb-next')!.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+    lbImg.addEventListener('click', (e) => e.stopPropagation());
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('pointer-events-none')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    }, { passive: true });
+  });
+</script>

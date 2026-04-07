@@ -6,6 +6,7 @@ import LogementCards from '../../components/sections/LogementCards.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
+import PhotoLightbox from '../../components/ui/PhotoLightbox.astro';
 import { getSharedAmenities } from '../../data/apartments';
 import { t } from '../../i18n/utils';
 import { whatsappNumber } from '../../data/siteConfig';
@@ -106,17 +107,18 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
         </p>
       </div>
 
-      {/* Photo grid — masonry-style */}
+      {/* Photo grid — masonry-style, cliquable */}
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 rounded-2xl overflow-hidden">
         {tourImages.map((img, idx) => (
           <div class:list={[idx === 0 && 'col-span-2 row-span-2']}>
             <Image
               src={img.src}
               alt={img.alt}
-              class="w-full h-full object-cover rounded-lg"
+              class="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity"
               widths={idx === 0 ? [640, 960] : [320, 480]}
               sizes={idx === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
               loading="lazy"
+              data-lightbox-group="tour"
             />
           </div>
         ))}
@@ -135,7 +137,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
           {t(locale, 'apartment.bedroomsSubtitle')}
         </p>
       </div>
-      <ImageGallery images={bedroomImages} configName="Maison Ayaba" locale={locale} />
+      <ImageGallery images={bedroomImages} configName="Maison Ayaba" locale={locale} lightboxGroup="chambres" />
     </div>
   </section>
 
@@ -176,4 +178,6 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
     ctaHref={whatsappUrl}
     isExternal
   />
+
+  <PhotoLightbox />
 </BaseLayout>

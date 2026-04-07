@@ -6,6 +6,7 @@ import LogementCards from '../../components/sections/LogementCards.astro';
 import ReviewsSection from '../../components/sections/ReviewsSection.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
+import PhotoLightbox from '../../components/ui/PhotoLightbox.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { t } from '../../i18n/utils';
 import heroImage from '../../assets/images/hero/salon.png';
@@ -54,4 +55,6 @@ const locale = 'en' as const;
     ctaText={t(locale, 'home.finalCtaCta')}
     ctaHref="#logements"
   />
+
+  <PhotoLightbox />
 </BaseLayout>
