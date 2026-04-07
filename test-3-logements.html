@@ -186,9 +186,12 @@
     margin: 0 auto;
   }
   .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 28px; text-align: center; margin-bottom: 32px; }
-  .faq-item { border-bottom: 1px solid #ede6dd; padding: 20px 0; }
-  .faq-q { font-weight: 600; font-size: 15px; margin-bottom: 8px; }
-  .faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  .faq-item { border-bottom: 1px solid #ede6dd; }
+  .faq-q { font-weight: 600; font-size: 15px; padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after { content: '+'; font-size: 20px; color: var(--terra); font-weight: 400; flex-shrink: 0; margin-left: 16px; }
+  details[open] .faq-q::after { content: '−'; }
+  .faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; padding: 0 0 20px; }
 
   /* ---- REVIEWS ---- */
   .reviews-section {
@@ -466,6 +469,31 @@
       <div class="review-author">— Olutayo · Logement Famille</div>
     </div>
   </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <h2>Questions fréquentes</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">Est-ce que je partage le logement avec d'autres voyageurs ?</summary>
+    <p class="faq-a">Non, jamais. Chaque logement est entièrement privatif — personne d'autre n'y séjourne pendant votre réservation.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Y a-t-il le WiFi ?</summary>
+    <p class="faq-a">Oui, WiFi haut débit avec un signal fort dans tout l'appartement, où que vous soyez. Même en cas de coupure d'électricité, le WiFi reste actif — vous pouvez continuer à travailler sans interruption.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Le transfert aéroport est-il inclus ?</summary>
+    <p class="faq-a">Oui, le transfert depuis l'aéroport de Cotonou est offert pour chaque réservation. Votre hôte organise tout avant votre arrivée.</p>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Quelle est la différence entre les 3 logements ?</summary>
+    <p class="faq-a">Les 3 logements partagent le même standing (salon, cuisine équipée, terrasse, clim, WiFi). La différence : le nombre de chambres et salles de bain — 1, 2 ou 3 selon vos besoins. Chaque logement est entièrement privatif.</p>
+  </details>
 </section>
 
 <!-- NOTE -->
