@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import NeighborhoodSection from '../../components/sections/NeighborhoodSection.astro';
 import TransportSection from '../../components/sections/TransportSection.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import SchemaOrg from '../../components/seo/SchemaOrg.astro';
 import { neighborhoodSections, transportModes } from '../../data/neighborhood';
 import { t } from '../../i18n/utils';
+import salon1 from '../../assets/images/apartments/salon1.png';
+import salon2 from '../../assets/images/apartments/salon2.png';
+import salon3 from '../../assets/images/apartments/salon3.png';
 
 const locale = 'en' as const;
 
@@ -113,14 +117,17 @@ const resolvedTransportModes = transportModes.map((mode) => ({
         {t(locale, 'neighborhood.offerSubtitle')}
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div class="bg-white rounded-xl p-5 shadow-sm">
-          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerDuo')}</p>
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+          <Image src={salon1} alt="Duo apartment living room" width={400} height={260} class="w-full h-36 object-cover" loading="lazy" />
+          <p class="text-ayaba-dark font-semibold text-sm p-4">{t(locale, 'neighborhood.offerDuo')}</p>
         </div>
-        <div class="bg-white rounded-xl p-5 shadow-sm">
-          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerFamille')}</p>
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+          <Image src={salon2} alt="Family apartment living room" width={400} height={260} class="w-full h-36 object-cover" loading="lazy" />
+          <p class="text-ayaba-dark font-semibold text-sm p-4">{t(locale, 'neighborhood.offerFamille')}</p>
         </div>
-        <div class="bg-white rounded-xl p-5 shadow-sm">
-          <p class="text-ayaba-dark font-semibold text-sm">{t(locale, 'neighborhood.offerTribu')}</p>
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm">
+          <Image src={salon3} alt="Group apartment living room" width={400} height={260} class="w-full h-36 object-cover" loading="lazy" />
+          <p class="text-ayaba-dark font-semibold text-sm p-4">{t(locale, 'neighborhood.offerTribu')}</p>
         </div>
       </div>
       <p class="text-ayaba-terra font-bold text-lg mb-6">{t(locale, 'neighborhood.offerFrom')}</p>
