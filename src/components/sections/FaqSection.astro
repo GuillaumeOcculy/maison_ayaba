@@ -13,7 +13,7 @@ const { locale } = Astro.props;
       {t(locale, 'apartment.faqTitle')}
     </h2>
     <div class="space-y-4">
-      {[1, 2, 3, 4, 5].map((n) => (
+      {[1, 2, 3, 4].map((n) => (
         <details class="bg-white rounded-xl border border-gray-100 overflow-hidden group">
           <summary class="px-6 py-4 cursor-pointer font-semibold text-ayaba-dark text-sm lg:text-base flex items-center justify-between gap-4 min-h-[44px]">
             {t(locale, `apartment.faq${n}Q`)}
