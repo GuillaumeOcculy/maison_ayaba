@@ -69,7 +69,7 @@ const tagColors = [
   <section class="bg-ayaba-cream py-16 lg:py-20">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
       <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-        {frPosts.map((post) => {
+        {frPosts.map((post, index) => {
           const slug = post.id.replace(/^fr\//, '');
           const hero = heroImages[slug];
           const formattedDate = post.data.pubDate.toLocaleDateString('fr-FR', {
@@ -78,63 +78,73 @@ const tagColors = [
             day: 'numeric',
           });
           return (
-            <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <a href={`/fr/blog/${slug}/`} class="block">
-                {hero ? (
-                  <Image
-                    src={hero.src}
-                    alt={hero.alt}
-                    widths={[400, 600]}
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    class="w-full h-52 object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div class="h-52 bg-gradient-to-br from-ayaba-terra/10 via-ayaba-cream to-ayaba-gold/10"></div>
-                )}
-              </a>
+            <>
+              <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                <a href={`/fr/blog/${slug}/`} class="block">
+                  {hero ? (
+                    <Image
+                      src={hero.src}
+                      alt={hero.alt}
+                      widths={[400, 600]}
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      class="w-full h-52 object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="h-52 bg-gradient-to-br from-ayaba-terra/10 via-ayaba-cream to-ayaba-gold/10"></div>
+                  )}
+                </a>
 
-              <div class="p-6 lg:p-8 flex flex-col flex-1">
-                {/* Tags */}
-                {post.data.tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    {post.data.tags.slice(0, 3).map((tag, tagIdx) => (
-                      <span class:list={[
-                        'text-xs font-body font-medium px-2.5 py-1 rounded-full',
-                        tagColors[tagIdx % tagColors.length],
-                      ]}>
-                        {tag}
-                      </span>
-                    ))}
+                <div class="p-6 lg:p-8 flex flex-col flex-1">
+                  {/* Tags */}
+                  {post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      {post.data.tags.slice(0, 3).map((tag, tagIdx) => (
+                        <span class:list={[
+                          'text-xs font-body font-medium px-2.5 py-1 rounded-full',
+                          tagColors[tagIdx % tagColors.length],
+                        ]}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  <h2 class="font-heading text-xl lg:text-[22px] text-ayaba-dark leading-snug mb-3">
+                    <a href={`/fr/blog/${slug}/`} class="hover:text-ayaba-terra transition-colors">
+                      {post.data.title}
+                    </a>
+                  </h2>
+
+                  <p class="font-body text-sm text-ayaba-muted leading-relaxed mb-6 flex-1">
+                    {post.data.description}
+                  </p>
+
+                  <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <time class="text-xs text-ayaba-muted font-body" datetime={post.data.pubDate.toISOString()}>
+                      {formattedDate}
+                    </time>
+                    <a
+                      href={`/fr/blog/${slug}/`}
+                      class="text-ayaba-terra font-body text-sm font-semibold hover:text-ayaba-terra/80 transition-colors inline-flex items-center gap-1"
+                    >
+                      {t(locale, 'blog.readMore')}
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
                   </div>
-                )}
-
-                <h2 class="font-heading text-xl lg:text-[22px] text-ayaba-dark leading-snug mb-3">
-                  <a href={`/fr/blog/${slug}/`} class="hover:text-ayaba-terra transition-colors">
-                    {post.data.title}
-                  </a>
-                </h2>
-
-                <p class="font-body text-sm text-ayaba-muted leading-relaxed mb-6 flex-1">
-                  {post.data.description}
-                </p>
-
-                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <time class="text-xs text-ayaba-muted font-body" datetime={post.data.pubDate.toISOString()}>
-                    {formattedDate}
-                  </time>
-                  <a
-                    href={`/fr/blog/${slug}/`}
-                    class="text-ayaba-terra font-body text-sm font-semibold hover:text-ayaba-terra/80 transition-colors inline-flex items-center gap-1"
-                  >
-                    {t(locale, 'blog.readMore')}
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
+                </div>
+              </article>
+              {index === 4 && (
+                <div class="md:col-span-2 lg:col-span-3 text-center py-6">
+                  <p class="text-ayaba-muted text-sm mb-2">{t(locale, 'blog.inlineCta')}</p>
+                  <a href="/fr/appartement/" class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-sm underline underline-offset-4 transition-colors">
+                    {t(locale, 'blog.inlineCtaLink')} →
                   </a>
                 </div>
-              </div>
-            </article>
+              )}
+            </>
           );
         })}
       </div>
@@ -142,9 +152,9 @@ const tagColors = [
   </section>
 
   <FinalCta
-    title={t(locale, 'apartment.finalCtaTitle')}
-    subtitle={t(locale, 'apartment.finalCtaSubtitle')}
-    ctaText={t(locale, 'apartment.finalCtaCta')}
+    title={t(locale, 'blog.finalCtaTitle')}
+    subtitle={t(locale, 'blog.finalCtaSubtitle')}
+    ctaText={t(locale, 'blog.finalCtaCta')}
     ctaHref="/fr/appartement/#reserver"
   />
 </BaseLayout>

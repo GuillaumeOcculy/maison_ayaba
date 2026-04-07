@@ -369,7 +369,15 @@
     "publishedOn": "Published on {date}",
     "backToList": "← Back to blog",
     "readNext": "Read next",
-    "articleCta": "Discover the apartment"
+    "articleCta": "Discover the apartment",
+    "finalCtaTitle": "Ready to book your private accommodation?",
+    "finalCtaSubtitle": "3 accommodations to choose from, for 2 to 6 guests — from €60/night in Fidjrossè.",
+    "finalCtaCta": "Book my accommodation",
+    "inlineCta": "These guides help you prepare your stay — all that's missing is your accommodation",
+    "inlineCtaLink": "View accommodations",
+    "articleCtaTitle": "Discover our accommodations",
+    "articleCtaSubtitle": "3 private accommodations, for 2 to 6 guests. WiFi, inverter, AC — everything included. From €60/night in Fidjrossè.",
+    "articleCtaLink": "View accommodations"
   },
   "booking": {
     "pageTitle": "Book — Maison Ayaba",

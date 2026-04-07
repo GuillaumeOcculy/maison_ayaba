@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import SchemaOrg from '../components/seo/SchemaOrg.astro';
-import AirbnbCta from '../components/ui/AirbnbCta.astro';
 import { t, type Locale } from '../i18n/utils';
 import { baseUrl } from '../data/siteConfig';
 import { getCollection } from 'astro:content';
@@ -167,18 +166,21 @@ const tagColors = [
     </div>
   </article>
 
-  {/* CTA Airbnb */}
+  {/* CTA vers les logements */}
   <section class="bg-ayaba-cream py-16 lg:py-20">
     <div class="max-w-[800px] mx-auto px-6 lg:px-16 text-center">
       <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[28px] font-bold mb-4">
-        {t(locale, 'blog.articleCta')}
+        {t(locale, 'blog.articleCtaTitle')}
       </h2>
       <p class="text-ayaba-muted text-base mb-8 max-w-lg mx-auto">
-        {locale === 'fr'
-          ? 'WiFi, onduleur, clim — tout est inclus. Dès 60€/nuit à Fidjrossè.'
-          : 'WiFi, inverter, AC — everything included. From €60/night in Fidjrossè.'}
+        {t(locale, 'blog.articleCtaSubtitle')}
       </p>
-      <AirbnbCta configId="1ch" locale={locale} variant="primary" size="large" label={t(locale, 'blog.articleCta')} />
+      <a
+        href={locale === 'fr' ? '/fr/appartement/' : '/en/apartment/'}
+        class="inline-flex items-center justify-center bg-ayaba-terra text-white font-semibold text-base px-8 py-3 rounded-full hover:bg-ayaba-terra/90 transition-colors min-h-[44px] focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+      >
+        {t(locale, 'blog.articleCtaLink')}
+      </a>
     </div>
   </section>
 

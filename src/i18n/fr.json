@@ -369,7 +369,15 @@
     "publishedOn": "Publié le {date}",
     "backToList": "← Retour au blog",
     "readNext": "À lire aussi",
-    "articleCta": "Découvrir l'appartement"
+    "articleCta": "Découvrir l'appartement",
+    "finalCtaTitle": "Prêt à réserver votre logement privatif ?",
+    "finalCtaSubtitle": "3 logements au choix, de 2 à 6 voyageurs — dès 60 €/nuit à Fidjrossè.",
+    "finalCtaCta": "Réserver mon logement",
+    "inlineCta": "Ces guides vous aident à préparer votre séjour — il ne manque plus que votre logement",
+    "inlineCtaLink": "Voir les logements",
+    "articleCtaTitle": "Découvrir nos logements",
+    "articleCtaSubtitle": "3 logements privatifs, de 2 à 6 voyageurs. WiFi, onduleur, clim — tout est inclus. Dès 60 €/nuit à Fidjrossè.",
+    "articleCtaLink": "Voir les logements"
   },
   "booking": {
     "pageTitle": "Réserver — Maison Ayaba",
