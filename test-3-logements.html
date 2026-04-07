@@ -179,6 +179,17 @@
   /* ---- POPULAR HIGHLIGHT ---- */
   .card.popular { border: 2px solid var(--terra); }
 
+  .card-private {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--success);
+    margin-bottom: 16px;
+  }
+  .card-private svg { width: 14px; height: 14px; }
+
   /* ---- FAQ (simplified) ---- */
   .faq-section {
     padding: 64px 24px;
@@ -333,7 +344,7 @@
       Logements privatifs à Cotonou
     </span>
     <h1>Tout le confort que vous attendez. À Cotonou.</h1>
-    <p class="hero-sub">3 logements meublés à Fidjrossè, Cotonou. Dès 60€ la nuit.</p>
+    <p class="hero-sub">Appartement entier et privatif — vous ne partagez jamais. 3 tailles au choix, dès 60€/nuit.</p>
     <div class="hero-stats">
       <div><div class="hero-stat-value">60€</div><div class="hero-stat-label">par nuit</div></div>
       <div><div class="hero-stat-value">122–167 m²</div><div class="hero-stat-label">d'espace</div></div>
@@ -350,7 +361,7 @@
 <!-- PHOTOS -->
 <section class="showcase" id="photos">
   <h2>Inclus dans chaque logement</h2>
-  <p class="subtitle">Salon, cuisine équipée, terrasse — des espaces privatifs dans chacun de nos logements.</p>
+  <p class="subtitle">Tout est à vous — salon, cuisine, terrasse, chambres. Rien n'est partagé.</p>
 
   <div class="photo-grid">
     <div class="big"><img src="src/assets/images/apartments/salon1.png" alt="Salon"></div>
@@ -381,6 +392,7 @@
     <div class="card">
       <div class="card-name">Logement Duo</div>
       <div class="card-capacity">1 à 2 voyageurs</div>
+      <div class="card-private"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg> Appartement entier — 100% privatif</div>
       <div class="card-surface">
         <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
         122 m² · 1 chambre · 1 salle de bain
@@ -405,6 +417,7 @@
       <span class="card-badge">Le plus populaire</span>
       <div class="card-name">Logement Famille</div>
       <div class="card-capacity">3 à 4 voyageurs</div>
+      <div class="card-private"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg> Appartement entier — 100% privatif</div>
       <div class="card-surface">
         <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
         144 m² · 2 chambres · 2 salles de bain
@@ -430,6 +443,7 @@
       <span class="card-badge" style="background: var(--success);">Meilleur rapport qualité/prix</span>
       <div class="card-name">Logement Tribu</div>
       <div class="card-capacity">5 à 6 voyageurs</div>
+      <div class="card-private"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg> Appartement entier — 100% privatif</div>
       <div class="card-surface">
         <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
         167 m² · 3 chambres · 3 salles de bain
