@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "apartment": "Apartment",
+    "apartment": "Our accommodations",
     "neighborhood": "Fidjrossè & Cotonou",
     "host": "Your Host",
     "book": "Book",
@@ -9,7 +9,7 @@
   },
   "buttons": {
     "bookOnAirbnb": "Book on Airbnb",
-    "viewApartment": "View apartment",
+    "viewApartment": "View accommodations",
     "switchLanguage": "Switch language"
   },
   "cta": {
@@ -143,14 +143,14 @@
     "finalCtaCta": "Book"
   },
   "apartment": {
-    "pageTitle": "The apartment — Maison Ayaba",
-    "pageDescription": "Rent the entire Maison Ayaba apartment in Fidjrossè, Cotonou. 167 m², up to 3 bedrooms. Living room, kitchen, terrace. From €60/night.",
-    "sectionTitle": "Tour the apartment",
-    "sectionSubtitle": "167 m² entirely yours — living room, equipped kitchen, terrace and up to 3 bedrooms with private bathrooms.",
+    "pageTitle": "Our accommodations — Maison Ayaba",
+    "pageDescription": "3 furnished apartments in Fidjrossè, Cotonou. 122 to 167 m², 1 to 3 bedrooms. Living room, kitchen, terrace. From €60/night.",
+    "sectionTitle": "Tour our accommodations",
+    "sectionSubtitle": "3 sizes, same high standard. Each accommodation is an entire apartment with living room, equipped kitchen, terrace and private bedrooms.",
     "tourTitle": "Your living spaces",
-    "tourSubtitle": "Living room, kitchen, terrace — spaces you enjoy entirely.",
-    "bedroomsTitle": "Your private bedrooms",
-    "bedroomsSubtitle": "Depending on the number of guests, 1 to 3 bedrooms with private bathrooms — always in your own private apartment.",
+    "tourSubtitle": "Living room, kitchen, terrace — these spaces are identical in all 3 accommodations. Everything is yours.",
+    "bedroomsTitle": "The bedrooms",
+    "bedroomsSubtitle": "Depending on your chosen accommodation, you get 1 to 3 bedrooms with private bathrooms. Each bedroom is exclusively yours.",
     "howItWorksTitle": "How does it work?",
     "howItWorks": "Maison Ayaba is a complete apartment that you rent entirely. No other guests stay at the same time.",
     "floorPlanAlt": "Floor plan of Maison Ayaba apartment — one single home with living room, kitchen, terrace and up to 3 bedrooms",

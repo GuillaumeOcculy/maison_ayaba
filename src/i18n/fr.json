@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Accueil",
-    "apartment": "Appartement",
+    "apartment": "Nos logements",
     "neighborhood": "Fidjrossè & Cotonou",
     "host": "Votre Hôte",
     "book": "Réserver",
@@ -9,7 +9,7 @@
   },
   "buttons": {
     "bookOnAirbnb": "Réserver sur Airbnb",
-    "viewApartment": "Voir l'appartement",
+    "viewApartment": "Voir les logements",
     "switchLanguage": "Changer de langue"
   },
   "cta": {
@@ -143,14 +143,14 @@
     "finalCtaCta": "Réserver"
   },
   "apartment": {
-    "pageTitle": "L'appartement — Maison Ayaba",
-    "pageDescription": "Louez l'appartement entier Maison Ayaba à Fidjrossè, Cotonou. 167 m², jusqu'à 3 chambres. Salon, cuisine, terrasse. Dès 60€/nuit.",
-    "sectionTitle": "Visitez l'appartement",
-    "sectionSubtitle": "167 m² entièrement à vous — salon, cuisine équipée, terrasse et jusqu'à 3 chambres avec salles de bain privées.",
+    "pageTitle": "Nos logements — Maison Ayaba",
+    "pageDescription": "3 logements meublés à Fidjrossè, Cotonou. 122 à 167 m², 1 à 3 chambres. Salon, cuisine, terrasse. Dès 60€/nuit.",
+    "sectionTitle": "Visitez nos logements",
+    "sectionSubtitle": "3 tailles, même standing. Chaque logement est un appartement entier avec salon, cuisine équipée, terrasse et chambres privatives.",
     "tourTitle": "Votre espace de vie",
-    "tourSubtitle": "Salon, cuisine, terrasse — des espaces que vous profitez en entier.",
-    "bedroomsTitle": "Vos chambres privées",
-    "bedroomsSubtitle": "Selon le nombre de voyageurs, 1 à 3 chambres avec salle de bain privative — toujours dans votre appartement privatif.",
+    "tourSubtitle": "Salon, cuisine, terrasse — ces espaces sont identiques dans les 3 logements. Tout est à vous.",
+    "bedroomsTitle": "Les chambres",
+    "bedroomsSubtitle": "Selon le logement choisi, vous disposez de 1 à 3 chambres avec salle de bain privative. Chaque chambre est exclusivement la vôtre.",
     "howItWorksTitle": "Comment ça marche ?",
     "howItWorks": "Maison Ayaba est un appartement complet que vous louez en entier. Aucun autre voyageur n'y séjourne en même temps que vous.",
     "floorPlanAlt": "Plan schématique de l'appartement Maison Ayaba — un seul logement avec salon, cuisine, terrasse et jusqu'à 3 chambres",

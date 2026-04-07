@@ -36,15 +36,21 @@ import terrasse2 from '../../assets/images/apartments/terrasse2.png';
 
 const locale = 'fr' as const;
 
-const bedroomImages: { src: ImageMetadata; alt: string }[] = [
+const bedroom1Images: { src: ImageMetadata; alt: string }[] = [
   { src: chambre1Img, alt: 'Chambre 1 — Maison Ayaba' },
   { src: chambre1Img2, alt: 'Chambre 1 vue 2 — Maison Ayaba' },
   { src: chambre1Img3, alt: 'Chambre 1 vue 3 — Maison Ayaba' },
   { src: chambre1Sdb, alt: 'Salle de bain chambre 1 — Maison Ayaba' },
+];
+
+const bedroom2Images: { src: ImageMetadata; alt: string }[] = [
   { src: chambre2Img, alt: 'Chambre 2 — Maison Ayaba' },
   { src: chambre2Img2, alt: 'Chambre 2 vue 2 — Maison Ayaba' },
   { src: chambre2Img3, alt: 'Chambre 2 vue 3 — Maison Ayaba' },
   { src: chambre2Img4, alt: 'Chambre 2 vue 4 — Maison Ayaba' },
+];
+
+const bedroom3Images: { src: ImageMetadata; alt: string }[] = [
   { src: chambre3Img, alt: 'Chambre 3 — Maison Ayaba' },
   { src: chambre3Img2, alt: 'Chambre 3 vue 2 — Maison Ayaba' },
   { src: chambre3Img3, alt: 'Chambre 3 vue 3 — Maison Ayaba' },
@@ -126,7 +132,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
     </div>
   </section>
 
-  {/* Les chambres — galerie unique */}
+  {/* Les chambres — par logement */}
   <section class="bg-ayaba-cream py-16 lg:py-20">
     <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
       <div class="text-center mb-10">
@@ -137,7 +143,24 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t
           {t(locale, 'apartment.bedroomsSubtitle')}
         </p>
       </div>
-      <ImageGallery images={bedroomImages} configName="Maison Ayaba" locale={locale} lightboxGroup="chambres" />
+
+      <div class="space-y-12">
+        <div>
+          <h3 class="font-heading text-ayaba-dark text-lg font-bold mb-1">Chambre 1</h3>
+          <p class="text-ayaba-muted text-sm mb-4">Incluse dans Duo, Famille et Tribu</p>
+          <ImageGallery images={bedroom1Images} configName="Chambre 1" locale={locale} lightboxGroup="chambre1" />
+        </div>
+        <div>
+          <h3 class="font-heading text-ayaba-dark text-lg font-bold mb-1">Chambre 2</h3>
+          <p class="text-ayaba-muted text-sm mb-4">Incluse dans Famille et Tribu</p>
+          <ImageGallery images={bedroom2Images} configName="Chambre 2" locale={locale} lightboxGroup="chambre2" />
+        </div>
+        <div>
+          <h3 class="font-heading text-ayaba-dark text-lg font-bold mb-1">Chambre 3</h3>
+          <p class="text-ayaba-muted text-sm mb-4">Incluse dans Tribu uniquement</p>
+          <ImageGallery images={bedroom3Images} configName="Chambre 3" locale={locale} lightboxGroup="chambre3" />
+        </div>
+      </div>
     </div>
   </section>
 
