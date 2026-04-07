@@ -190,6 +190,55 @@
   .faq-q { font-weight: 600; font-size: 15px; margin-bottom: 8px; }
   .faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
+  /* ---- REVIEWS ---- */
+  .reviews-section {
+    padding: 64px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .reviews-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 32px); text-align: center; margin-bottom: 8px; }
+  .reviews-stars { text-align: center; color: var(--gold); font-size: 20px; margin-bottom: 32px; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .review-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .review-stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; }
+  .review-text { font-size: 14px; color: var(--dark); line-height: 1.6; font-style: italic; margin-bottom: 12px; }
+  .review-author { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+  /* ---- HOST ---- */
+  .host-bar {
+    background: var(--cream);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .host-inner {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+  .host-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--terra);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .host-info { text-align: left; }
+  .host-name { font-size: 14px; font-weight: 600; color: var(--dark); }
+  .host-detail { font-size: 12px; color: var(--muted); }
+
   /* ---- FOOTER NOTE ---- */
   .note-section {
     text-align: center;
@@ -278,13 +327,13 @@
     <p class="hero-label">MAISON AYABA — FIDJROSSÈ, COTONOU</p>
     <span class="hero-badge">
       <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
-      Appartement entier privatif
+      Logements privatifs à Cotonou
     </span>
     <h1>Tout le confort que vous attendez. À Cotonou.</h1>
     <p class="hero-sub">3 logements meublés à Fidjrossè, Cotonou. Dès 60€ la nuit.</p>
     <div class="hero-stats">
       <div><div class="hero-stat-value">60€</div><div class="hero-stat-label">par nuit</div></div>
-      <div><div class="hero-stat-value">167 m²</div><div class="hero-stat-label">d'espace</div></div>
+      <div><div class="hero-stat-value">122–167 m²</div><div class="hero-stat-label">d'espace</div></div>
       <div><div class="hero-stat-value">1–6</div><div class="hero-stat-label">voyageurs</div></div>
       <div><div class="hero-stat-value">10 min</div><div class="hero-stat-label">plage</div></div>
     </div>
@@ -398,6 +447,24 @@
       </a>
     </div>
 
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <h2>Ce que disent nos voyageurs</h2>
+  <div class="reviews-stars">★★★★★ 5/5 sur Airbnb</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Agréablement surpris de la qualité du logement et de la réactivité d'Olivia. La localisation le rend encore plus unique. La propreté, le cadre, tout était parfait."</p>
+      <div class="review-author">— Sefou · Logement Duo</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Un espace magnifique et accueillant. Bien pensé, confortable et relaxant. Olivia a été aimable, réactive et très attentionnée. Hautement recommandé !"</p>
+      <div class="review-author">— Olutayo · Logement Famille</div>
+    </div>
   </div>
 </section>
 
