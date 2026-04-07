@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test 6 — 3 logements + trust bar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --terra: #A0522D;
+    --terra-dark: #8B4726;
+    --gold: #C8A45C;
+    --cream: #FAF7F2;
+    --dark: #2C1810;
+    --muted: #6B5E57;
+    --success: #5A7247;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--dark);
+    background: white;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    position: relative;
+    height: 92vh;
+    min-height: 560px;
+    background: linear-gradient(180deg, rgba(44,24,16,0.15) 0%, rgba(44,24,16,0.65) 50%, rgba(44,24,16,0.92) 100%),
+                url('src/assets/images/hero/salon.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 24px 40px;
+  }
+  .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; }
+  .hero-label { color: rgba(255,255,255,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 16px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,247,242,0.95); border: 1px solid rgba(200,164,92,0.3); color: var(--dark); font-size: 14px; font-weight: 600; padding: 6px 16px; border-radius: 50px; margin-bottom: 16px; }
+  .hero-badge svg { width: 16px; height: 16px; }
+  .hero h1 { font-family: 'Playfair Display', serif; color: white; font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.15; max-width: 640px; margin-bottom: 12px; }
+  .hero-sub { color: rgba(255,255,255,0.7); font-size: clamp(15px, 2vw, 18px); max-width: 520px; margin-bottom: 32px; }
+  .hero-stats { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 32px; }
+  .hero-stat-value { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 24px; font-weight: 700; }
+  .hero-stat-label { color: rgba(255,255,255,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-primary { background: var(--terra); color: white; border: none; padding: 14px 28px; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--terra-dark); }
+  .btn-secondary { border: 1px solid rgba(255,255,255,0.3); color: white; background: none; padding: 14px 28px; border-radius: 6px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; transition: background 0.2s; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  /* ---- SHOWCASE (photos) ---- */
+  .showcase {
+    padding: 80px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .showcase h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 36px); margin-bottom: 12px; }
+  .showcase .subtitle { color: var(--muted); font-size: clamp(15px, 2vw, 18px); max-width: 600px; margin: 0 auto 40px; }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .photo-grid .big { grid-column: span 2; grid-row: span 2; }
+  .photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 120px; }
+  .photo-grid .big img { min-height: 280px; }
+
+  @media (max-width: 640px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid .big { grid-column: span 2; }
+  }
+
+  .features-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-top: 32px; }
+  .features-list span { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+  .features-list .check { color: var(--success); font-weight: 700; }
+
+  /* ---- 3 CARDS ---- */
+  .cards-section {
+    background: var(--cream);
+    padding: 80px 24px;
+  }
+  .cards-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 36px); text-align: center; margin-bottom: 12px; }
+  .cards-section .subtitle { color: var(--muted); text-align: center; font-size: clamp(15px, 2vw, 17px); max-width: 540px; margin: 0 auto 48px; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: white;
+    border: 1px solid #ede6dd;
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.3s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(44,24,16,0.1); }
+
+  .card-badge {
+    position: absolute;
+    top: -12px;
+    background: var(--gold);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 16px;
+    border-radius: 50px;
+  }
+
+  .card-name { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 6px; }
+  .card-capacity { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .card-surface { font-size: 13px; color: var(--muted); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+  .card-surface svg { width: 16px; height: 16px; color: var(--terra); }
+
+  .card-features {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 24px;
+    padding: 0;
+  }
+  .card-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--dark);
+    border-bottom: 1px solid #f5f0eb;
+  }
+  .card-features li:last-child { border-bottom: none; }
+  .card-features .check { color: var(--success); font-weight: 700; flex-shrink: 0; }
+
+  .card-price { margin-top: auto; margin-bottom: 20px; }
+  .card-price .amount { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--terra); font-weight: 700; }
+  .card-price .unit { color: var(--muted); font-size: 14px; }
+  .card-price .per-person { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  .card .btn-book {
+    background: var(--terra);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    min-height: 48px;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .card .btn-book:hover { background: var(--terra-dark); }
+  .card .btn-book svg { width: 16px; height: 16px; }
+
+  /* ---- POPULAR HIGHLIGHT ---- */
+  .card.popular { border: 2px solid var(--terra); }
+
+  /* ---- FAQ (simplified) ---- */
+  .faq-section {
+    padding: 64px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 28px; text-align: center; margin-bottom: 32px; }
+  .faq-item { border-bottom: 1px solid #ede6dd; padding: 20px 0; }
+  .faq-q { font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .faq-a { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  /* ---- TRUST BAR ---- */
+  .trust-bar {
+    background: white;
+    padding: 48px 24px;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  @media (max-width: 640px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+  .trust-item-icon { font-size: 28px; margin-bottom: 8px; }
+  .trust-item-title { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+  .trust-item-desc { font-size: 12px; color: var(--muted); }
+
+  /* ---- FOOTER NOTE ---- */
+  .note-section {
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--cream);
+  }
+  .note-section p { color: var(--muted); font-size: 13px; max-width: 480px; margin: 0 auto; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">MAISON AYABA — FIDJROSSÈ, COTONOU</p>
+    <span class="hero-badge">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+      Appartement entier privatif
+    </span>
+    <h1>Tout le confort que vous attendez. À Cotonou.</h1>
+    <p class="hero-sub">3 logements meublés à Fidjrossè — WiFi, onduleur, climatisation. Dès 60€ la nuit.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-value">60€</div><div class="hero-stat-label">par nuit</div></div>
+      <div><div class="hero-stat-value">167 m²</div><div class="hero-stat-label">d'espace</div></div>
+      <div><div class="hero-stat-value">6</div><div class="hero-stat-label">voyageurs</div></div>
+      <div><div class="hero-stat-value">10 min</div><div class="hero-stat-label">plage</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#logements" class="btn-primary">Choisir mon logement ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div>
+      <div class="trust-item-icon">⚡</div>
+      <div class="trust-item-title">Onduleur automatique</div>
+      <div class="trust-item-desc">Zéro coupure</div>
+    </div>
+    <div>
+      <div class="trust-item-icon">❄️</div>
+      <div class="trust-item-title">Clim dans chaque pièce</div>
+      <div class="trust-item-desc">Confort garanti</div>
+    </div>
+    <div>
+      <div class="trust-item-icon">📶</div>
+      <div class="trust-item-title">WiFi haut débit</div>
+      <div class="trust-item-desc">Travail et streaming</div>
+    </div>
+    <div>
+      <div class="trust-item-icon">🏖️</div>
+      <div class="trust-item-title">10 min de la plage</div>
+      <div class="trust-item-desc">Fidjrossè, quartier résidentiel</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 LOGEMENTS -->
+<section class="cards-section" id="logements">
+  <h2>Choisissez votre logement</h2>
+  <p class="subtitle">3 logements, 3 tailles. Chacun est un appartement privé avec salon, cuisine et terrasse.</p>
+
+  <div class="cards-grid">
+
+    <!-- Logement 1 -->
+    <div class="card">
+      <div class="card-name">Logement Duo</div>
+      <div class="card-capacity">1 à 2 voyageurs</div>
+      <div class="card-surface">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
+        122 m² · 1 chambre · 1 salle de bain
+      </div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Salon, cuisine, terrasse</li>
+        <li><span class="check">✓</span> Bureau dédié</li>
+        <li><span class="check">✓</span> WiFi haut débit</li>
+        <li><span class="check">✓</span> Onduleur + clim</li>
+      </ul>
+      <div class="card-price">
+        <span class="amount">60€</span><span class="unit"> /nuit</span>
+      </div>
+      <a href="https://airbnb.fr/h/wabi-sabi-cotonou-1ch" target="_blank" rel="noopener" class="btn-book">
+        Réserver sur Airbnb
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+
+    <!-- Logement 2 -->
+    <div class="card popular">
+      <span class="card-badge">Le plus populaire</span>
+      <div class="card-name">Logement Famille</div>
+      <div class="card-capacity">3 à 4 voyageurs</div>
+      <div class="card-surface">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
+        144 m² · 2 chambres · 2 salles de bain
+      </div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Salon, cuisine, terrasse</li>
+        <li><span class="check">✓</span> Idéal couple ou petite famille</li>
+        <li><span class="check">✓</span> WiFi haut débit</li>
+        <li><span class="check">✓</span> Onduleur + clim</li>
+      </ul>
+      <div class="card-price">
+        <span class="amount">80€</span><span class="unit"> /nuit</span>
+        <div class="per-person">soit ~25€/nuit par personne</div>
+      </div>
+      <a href="https://airbnb.fr/h/wabi-sabi-cotonou-2ch" target="_blank" rel="noopener" class="btn-book">
+        Réserver sur Airbnb
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+
+    <!-- Logement 3 -->
+    <div class="card">
+      <span class="card-badge" style="background: var(--success);">Meilleur rapport qualité/prix</span>
+      <div class="card-name">Logement Tribu</div>
+      <div class="card-capacity">5 à 6 voyageurs</div>
+      <div class="card-surface">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"/></svg>
+        167 m² · 3 chambres · 3 salles de bain
+      </div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Salon, cuisine, terrasse</li>
+        <li><span class="check">✓</span> Parfait pour groupes & familles</li>
+        <li><span class="check">✓</span> Machine à laver</li>
+        <li><span class="check">✓</span> Lit bébé disponible</li>
+      </ul>
+      <div class="card-price">
+        <span class="amount">100€</span><span class="unit"> /nuit</span>
+        <div class="per-person">soit ~23€/nuit par personne</div>
+      </div>
+      <a href="https://airbnb.fr/h/wabi-sabi-cotonou-3ch" target="_blank" rel="noopener" class="btn-book">
+        Réserver sur Airbnb
+        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="note-section">
+  <p>Chaque logement est un appartement entier privatif situé à Fidjrossè, Cotonou. Vous ne partagez jamais avec d'autres voyageurs. La réservation se fait via Airbnb.</p>
+</section>
+
+</body>
+</html>
