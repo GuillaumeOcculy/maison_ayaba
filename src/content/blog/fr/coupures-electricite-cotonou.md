@@ -37,7 +37,7 @@ Dans beaucoup d'hôtels et locations, la solution proposée est un **groupe éle
 
 ## L'onduleur automatique : la vraie solution
 
-C'est la raison pour laquelle j'ai équipé [Maison Ayaba](/fr/appartement/) d'un **onduleur automatique** (aussi appelé inverter). Le principe est simple : un système de batteries se charge en permanence quand le courant est disponible. Dès que la SBEE coupe, l'onduleur prend le relais **en moins d'une seconde**.
+C'est la raison pour laquelle j'ai équipé [Maison Ayaba](/#logements) d'un **onduleur automatique** (aussi appelé inverter). Le principe est simple : un système de batteries se charge en permanence quand le courant est disponible. Dès que la SBEE coupe, l'onduleur prend le relais **en moins d'une seconde**.
 
 Concrètement, vous ne remarquez rien. Pas de coupure visible, pas d'interruption. La clim continue de tourner, le WiFi reste actif, les lumières restent allumées. Vous pouvez dormir tranquille — littéralement.
 
@@ -58,4 +58,4 @@ Si vous comparez des hébergements à Cotonou, posez systématiquement ces quest
 
 Les coupures d'électricité à Cotonou ne sont pas un drame — c'est une réalité locale qu'on peut gérer intelligemment. La différence entre un séjour confortable et une mauvaise expérience tient souvent à ce genre de détail technique.
 
-Si vous cherchez un appartement à Cotonou où l'électricité n'est jamais un sujet, [découvrez Maison Ayaba →](/fr/appartement/). Onduleur automatique, WiFi haut débit, clim dans chaque pièce — tout est prévu pour que vous n'ayez à penser à rien.
+Si vous cherchez un appartement à Cotonou où l'électricité n'est jamais un sujet, [découvrez Maison Ayaba →](/#logements). Onduleur automatique, WiFi haut débit, clim dans chaque pièce — tout est prévu pour que vous n'ayez à penser à rien.

@@ -91,4 +91,4 @@ L'aéroport international Cadjehoun est situé **en plein centre-ville** — un 
 
 L'avantage de loger à [Fidjrossè](/fr/fidjrosse-cotonou/), c'est la position centrale : proche de la plage, des restaurants, des commerces, et à 20 minutes de l'aéroport. La plupart de vos déplacements quotidiens se feront en zem pour quelques centaines de FCFA.
 
-Et pour les excursions plus lointaines, votre hôte à [Maison Ayaba](/fr/appartement/) peut organiser un chauffeur privé en un message WhatsApp. De quoi explorer le Bénin en toute tranquillité.
+Et pour les excursions plus lointaines, votre hôte à [Maison Ayaba](/#logements) peut organiser un chauffeur privé en un message WhatsApp. De quoi explorer le Bénin en toute tranquillité.

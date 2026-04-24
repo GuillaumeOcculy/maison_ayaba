@@ -95,7 +95,7 @@ A premium apartment costs more, but the value is unbeatable when compared to the
 
 ## Maison Ayaba — Every Box Checked
 
-At [Maison Ayaba](/en/apartment/), every point on this checklist is covered:
+At [Maison Ayaba](/en/#logements), every point on this checklist is covered:
 
 - **Automatic inverter** — zero outages, 100% of the time
 - **High-speed WiFi + Ethernet** — work and streaming without interruption

@@ -61,7 +61,7 @@ The process is straightforward. I've never had a guest report issues with the e-
 ### Malaria
 Benin is a malaria zone. Consult your doctor about **antimalarial prophylaxis** (Malarone or doxycycline are common choices). In Cotonou, the risk is lower than in rural areas, but it exists. Use mosquito repellent in the evenings.
 
-**Tip:** At [Maison Ayaba](/en/apartment/), every room has AC, which helps significantly — mosquitoes are far less active in air-conditioned spaces.
+**Tip:** At [Maison Ayaba](/en/#logements), every room has AC, which helps significantly — mosquitoes are far less active in air-conditioned spaces.
 
 ## Currency and Money
 
@@ -120,6 +120,6 @@ Here's what a smooth arrival looks like:
 6. **Welcome basket** waiting for you — water, fruit, local snacks
 7. **AC already running** — the apartment is cool when you arrive
 
-That's the experience we aim for at [Maison Ayaba](/en/apartment/): you step off the plane and into comfort, without the usual first-day stress of figuring things out in a new country.
+That's the experience we aim for at [Maison Ayaba](/en/#logements): you step off the plane and into comfort, without the usual first-day stress of figuring things out in a new country.
 
 [Book your stay and get your free airport transfer →](/en/book/)

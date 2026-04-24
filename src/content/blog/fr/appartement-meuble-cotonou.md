@@ -95,7 +95,7 @@ Un appartement haut de gamme coûte plus cher, mais le rapport qualité/prix est
 
 ## Maison Ayaba — tous les critères cochés
 
-À [Maison Ayaba](/fr/appartement/), chaque point de cette checklist est couvert :
+À [Maison Ayaba](/#logements), chaque point de cette checklist est couvert :
 
 - **Onduleur automatique** — zéro coupure, 100% du temps
 - **WiFi haut débit + Ethernet** — travail et streaming sans interruption

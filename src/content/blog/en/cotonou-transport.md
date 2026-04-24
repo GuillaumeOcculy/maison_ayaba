@@ -91,4 +91,4 @@ Cadjehoun International Airport is located **right in the city center** — a ra
 
 The advantage of staying in [Fidjrossè](/en/fidjrosse-cotonou/) is the central location: close to the beach, restaurants, shops, and 20 minutes from the airport. Most of your daily trips will be by zem for a few hundred FCFA.
 
-And for longer excursions, your host at [Maison Ayaba](/en/apartment/) can arrange a private driver with a single WhatsApp message. Everything you need to explore Benin with peace of mind.
+And for longer excursions, your host at [Maison Ayaba](/en/#logements) can arrange a private driver with a single WhatsApp message. Everything you need to explore Benin with peace of mind.

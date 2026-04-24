@@ -14,7 +14,7 @@ faqItems:
     answer: "Pour une journée de visites, le chauffeur privé est le plus confortable (25 000 FCFA/jour, environ 38€). Pour des trajets ponctuels, utilisez Gozem (VTC local). Les zems (moto-taxis) sont économiques mais moins confortables pour les longues distances."
 ---
 
-Trois jours à Cotonou, c'est le format idéal pour un premier séjour. Assez pour sentir le pouls de la ville, goûter la cuisine, et faire l'excursion incontournable à Ganvié. Voici l'itinéraire que je recommande à tous les voyageurs qui séjournent à [Maison Ayaba](/fr/appartement/).
+Trois jours à Cotonou, c'est le format idéal pour un premier séjour. Assez pour sentir le pouls de la ville, goûter la cuisine, et faire l'excursion incontournable à Ganvié. Voici l'itinéraire que je recommande à tous les voyageurs qui séjournent à [Maison Ayaba](/#logements).
 
 ## Jour 1 : Immersion dans le Cotonou authentique
 
@@ -80,4 +80,4 @@ Pour suivre cet itinéraire confortablement, deux options :
 - **Chauffeur privé** à la journée (25 000 FCFA, environ 38 €) — je peux vous mettre en contact avec un chauffeur de confiance. Idéal pour Ganvié et les journées chargées.
 - **Gozem** (VTC) — parfait pour les trajets individuels en ville
 
-Si vous cherchez un pied-à-terre confortable entre deux journées d'exploration, [Maison Ayaba](/fr/appartement/) est idéalement situé à Fidjrossè — à 10 minutes de la plage et 20 minutes de tout.
+Si vous cherchez un pied-à-terre confortable entre deux journées d'exploration, [Maison Ayaba](/#logements) est idéalement situé à Fidjrossè — à 10 minutes de la plage et 20 minutes de tout.

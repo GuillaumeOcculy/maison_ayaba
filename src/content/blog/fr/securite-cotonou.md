@@ -63,7 +63,7 @@ Cotonou a une vie nocturne, surtout le week-end. Les restaurants, bars et maquis
 
 ## Et votre hébergement ?
 
-La sécurité commence par le choix de votre logement. À [Maison Ayaba](/fr/appartement/), nous avons investi dans des équipements qui vous garantissent une tranquillité totale :
+La sécurité commence par le choix de votre logement. À [Maison Ayaba](/#logements), nous avons investi dans des équipements qui vous garantissent une tranquillité totale :
 
 - **Serrure connectée** — accès par code, pas de clé à perdre
 - **Caméra Ring** à l'entrée — vous savez qui sonne avant d'ouvrir

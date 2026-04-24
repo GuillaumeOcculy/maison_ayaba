@@ -85,6 +85,6 @@ End your trip with a **maquis dinner** — a local open-air restaurant serving g
 - **Language:** French is the official language. A few words in Fon ("Kwabo" for welcome) will earn big smiles
 - **Pace yourself:** The heat is real. Hydrate constantly and take midday breaks
 
-Three days gives you a rich introduction to Cotonou and southern Benin. Many of my guests at [Maison Ayaba](/en/apartment/) extend their stay once they realize how much there is to discover.
+Three days gives you a rich introduction to Cotonou and southern Benin. Many of my guests at [Maison Ayaba](/en/#logements) extend their stay once they realize how much there is to discover.
 
 [Book your stay in Cotonou →](/en/book/)

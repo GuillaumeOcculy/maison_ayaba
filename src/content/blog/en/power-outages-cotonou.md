@@ -67,7 +67,7 @@ These aren't luxury questions — they're essential comfort questions in a tropi
 
 ## How We Handle It at Maison Ayaba
 
-When I set up [Maison Ayaba](/en/apartment/), the inverter system was one of my biggest investments. Here's what we have:
+When I set up [Maison Ayaba](/en/#logements), the inverter system was one of my biggest investments. Here's what we have:
 
 - **Automatic inverter** covering the entire 167 square meter apartment
 - **AC in every room** stays on during outages

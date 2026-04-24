@@ -74,7 +74,7 @@ Budget 5,000 to 15,000 FCFA (8 to 23 euros) for a restaurant meal with drinks.
 
 ## Cooking at the Apartment
 
-One of the advantages of staying in a [furnished apartment](/en/apartment/) rather than a hotel is having a full kitchen. And in Cotonou, that kitchen becomes your gateway to the local food culture.
+One of the advantages of staying in a [furnished apartment](/en/#logements) rather than a hotel is having a full kitchen. And in Cotonou, that kitchen becomes your gateway to the local food culture.
 
 **Market shopping tips:**
 - The neighborhood markets near Fidjrosse have everything you need — fresh fish, vegetables, fruit, spices

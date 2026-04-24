@@ -14,7 +14,7 @@ faqItems:
     answer: "Plus d'espace (167m² vs 25m²), une cuisine équipée, un lave-linge, plus d'intimité, et un prix 2 à 3 fois inférieur. Vous vivez comme chez vous, tout en bénéficiant d'un service de conciergerie."
 ---
 
-Quand on prépare un voyage à Cotonou, la question de l'hébergement se pose vite : hôtel classique ou appartement meublé ? J'ai longtemps séjourné dans les deux avant de créer [Maison Ayaba](/fr/appartement/), et je peux vous partager un comparatif honnête.
+Quand on prépare un voyage à Cotonou, la question de l'hébergement se pose vite : hôtel classique ou appartement meublé ? J'ai longtemps séjourné dans les deux avant de créer [Maison Ayaba](/#logements), et je peux vous partager un comparatif honnête.
 
 ## Le prix : l'écart est massif
 
@@ -75,4 +75,4 @@ L'appartement meublé est clairement supérieur pour :
 
 Si vous voyagez seul pour 2-3 nuits en déplacement professionnel, l'hôtel peut avoir du sens. Pour tout le reste, l'appartement est difficilement battable.
 
-Envie de voir concrètement à quoi ressemble l'alternative ? [Découvrez Maison Ayaba →](/fr/appartement/) ou [réservez directement →](/fr/reserver/).
+Envie de voir concrètement à quoi ressemble l'alternative ? [Découvrez Maison Ayaba →](/#logements) ou [réservez directement →](/fr/reserver/).

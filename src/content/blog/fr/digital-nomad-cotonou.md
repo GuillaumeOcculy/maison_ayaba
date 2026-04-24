@@ -20,7 +20,7 @@ Cotonou n'est pas (encore) sur la carte des destinations digital nomad classique
 
 Soyons directs : la connexion internet au Bénin n'est pas celle de Séoul ou de Lisbonne. La qualité varie **énormément** d'un endroit à l'autre. Dans beaucoup de logements, le WiFi est lent, instable, ou les deux.
 
-C'est précisément pour ça que j'ai investi dans une infrastructure sérieuse à [Maison Ayaba](/fr/appartement/) :
+C'est précisément pour ça que j'ai investi dans une infrastructure sérieuse à [Maison Ayaba](/#logements) :
 
 - **WiFi haut débit** — connexion fibre, suffisante pour les visioconférences
 - **Connexion Ethernet filaire** — pour une stabilité maximale quand ça compte (calls importants, uploads lourds)

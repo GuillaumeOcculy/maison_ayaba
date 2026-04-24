@@ -63,7 +63,7 @@ Cotonou has a nightlife, especially on weekends. Restaurants, bars, and maquis (
 
 ## Your Accommodation Matters
 
-Safety starts with your choice of accommodation. At [Maison Ayaba](/en/apartment/), we've invested in features that guarantee your complete peace of mind:
+Safety starts with your choice of accommodation. At [Maison Ayaba](/en/#logements), we've invested in features that guarantee your complete peace of mind:
 
 - **Smart lock** — code access, no key to lose
 - **Ring camera** at the entrance — see who's at the door before opening

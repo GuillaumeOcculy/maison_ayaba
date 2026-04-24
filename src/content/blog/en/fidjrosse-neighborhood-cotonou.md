@@ -72,7 +72,7 @@ The neighborhood is well-connected without being on a major traffic artery, whic
 
 ## Why I Chose Fidjrosse for Maison Ayaba
 
-When I was looking for the right location for [Maison Ayaba](/en/apartment/), I spent weeks exploring every neighborhood in Cotonou. Fidjrosse won because it ticked every box:
+When I was looking for the right location for [Maison Ayaba](/en/#logements), I spent weeks exploring every neighborhood in Cotonou. Fidjrosse won because it ticked every box:
 
 - Safe and residential, perfect for travelers who want to feel at home
 - Walking distance to the beach
@@ -84,4 +84,4 @@ The specific area — **Fidjrosse Jacquot** — is particularly well-situated, o
 
 If you're visiting Cotonou for the first time, or even the fifth, Fidjrosse is the neighborhood that will make you feel like you belong.
 
-[Discover the apartment in Fidjrosse →](/en/apartment/)
+[Discover the apartment in Fidjrosse →](/en/#logements)

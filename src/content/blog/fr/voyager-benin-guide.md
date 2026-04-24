@@ -70,7 +70,7 @@ Quelques repères de prix :
 
 À votre arrivée, achetez une **carte SIM locale** (MTN ou Moov). Disponible à l'aéroport et partout en ville pour quelques euros. Un forfait data de 5 à 10 Go coûte environ 3 000 à 5 000 FCFA (5 à 8 €).
 
-Bonne nouvelle : le réseau 4G couvre bien Cotonou. Et à [Maison Ayaba](/fr/appartement/), vous avez un **WiFi haut débit + connexion Ethernet** — idéal si vous travaillez à distance.
+Bonne nouvelle : le réseau 4G couvre bien Cotonou. Et à [Maison Ayaba](/#logements), vous avez un **WiFi haut débit + connexion Ethernet** — idéal si vous travaillez à distance.
 
 ## Électricité
 
@@ -95,4 +95,4 @@ L'essentiel :
 - Chaussures confortables pour marcher + tongs
 - Photocopies de vos documents (passeport, visa, carnet de vaccination)
 
-Vous voilà prêt pour le Bénin. Si vous cherchez un appartement confortable et bien équipé à Cotonou pour poser vos valises, [découvrez Maison Ayaba →](/fr/appartement/). Transfert aéroport offert, panier de bienvenue, et un hôte disponible pour vous accompagner tout au long du séjour.
+Vous voilà prêt pour le Bénin. Si vous cherchez un appartement confortable et bien équipé à Cotonou pour poser vos valises, [découvrez Maison Ayaba →](/#logements). Transfert aéroport offert, panier de bienvenue, et un hôte disponible pour vous accompagner tout au long du séjour.

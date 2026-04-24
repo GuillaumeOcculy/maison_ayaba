@@ -70,7 +70,7 @@ Si vous venez de France, préparez-vous à redécouvrir le goût des fruits :
 
 ## Où manger à Fidjrossè
 
-Si vous séjournez à [Maison Ayaba](/fr/appartement/), voici mes adresses de quartier :
+Si vous séjournez à [Maison Ayaba](/#logements), voici mes adresses de quartier :
 
 - **Kalebasse** — cuisine béninoise authentique, généreuse, dans une ambiance chaleureuse. Mon choix pour un premier repas à Cotonou.
 - **Paul Cuisine** — spécialités locales revisitées, portions copieuses, service attentionné. Une valeur sûre.
@@ -80,6 +80,6 @@ Et n'oubliez pas les **maquis du quartier** — ces petits restaurants de rue o�
 
 ## Cuisiner local chez soi
 
-L'avantage d'un appartement avec cuisine, c'est de pouvoir **cuisiner vos trouvailles du marché**. Ramenez du poisson frais de Dantokpa, des épices, des fruits — et préparez votre propre version d'un repas béninois. La cuisine de [Maison Ayaba](/fr/appartement/) est entièrement équipée pour ça.
+L'avantage d'un appartement avec cuisine, c'est de pouvoir **cuisiner vos trouvailles du marché**. Ramenez du poisson frais de Dantokpa, des épices, des fruits — et préparez votre propre version d'un repas béninois. La cuisine de [Maison Ayaba](/#logements) est entièrement équipée pour ça.
 
 La cuisine béninoise est une porte d'entrée magnifique dans la culture du pays. Goûtez tout, posez des questions, et laissez-vous surprendre. Votre palais vous remerciera.

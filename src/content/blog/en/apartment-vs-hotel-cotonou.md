@@ -29,7 +29,7 @@ This is where apartments win decisively.
 | Living room | No | Yes |
 | Terrace | Rarely | Yes |
 
-At [Maison Ayaba](/en/apartment/), even the smallest configuration (1 bedroom) gives you **122 square meters** — that's 4 to 5 times the size of a standard hotel room. You have a real living room, a full kitchen, a terrace, and space to breathe.
+At [Maison Ayaba](/en/#logements), even the smallest configuration (1 bedroom) gives you **122 square meters** — that's 4 to 5 times the size of a standard hotel room. You have a real living room, a full kitchen, a terrace, and space to breathe.
 
 For families or groups, the difference is even more dramatic. A 3-bedroom apartment replaces 3 hotel rooms while keeping everyone under the same roof.
 
@@ -102,6 +102,6 @@ That's a fundamentally different experience from hotel corridors and lobby music
 
 For most travelers to Cotonou — whether on vacation, business, visiting family, or working remotely — **a quality furnished apartment is the better choice.** More space, more flexibility, more authenticity, lower cost.
 
-The key is finding one that's professionally managed with proper infrastructure. That's exactly what we built at [Maison Ayaba](/en/apartment/).
+The key is finding one that's professionally managed with proper infrastructure. That's exactly what we built at [Maison Ayaba](/en/#logements).
 
 [Check availability and pricing →](/en/book/)

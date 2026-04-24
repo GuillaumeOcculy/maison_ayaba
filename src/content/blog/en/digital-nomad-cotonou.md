@@ -31,7 +31,7 @@ Let's address the elephant in the room first. **Can you get reliable internet in
 - An **automatic inverter** that keeps the router running during power cuts
 - A host who actually monitors and maintains the connection
 
-At [Maison Ayaba](/en/apartment/), I invested specifically in infrastructure for remote workers: high-speed WiFi, Ethernet ports, and an inverter that covers the entire apartment. When the grid goes down — and it will — your connection stays up.
+At [Maison Ayaba](/en/#logements), I invested specifically in infrastructure for remote workers: high-speed WiFi, Ethernet ports, and an inverter that covers the entire apartment. When the grid goes down — and it will — your connection stays up.
 
 ## Power: The Non-Negotiable
 
@@ -103,6 +103,6 @@ You won't find a polished nomad scene here — no Instagram-friendly coworking s
 - You're uncomfortable with heat and humidity
 - You require ultra-fast internet (100+ Mbps) for heavy uploads
 
-The right accommodation solves most of the practical challenges. At [Maison Ayaba](/en/apartment/), I've built exactly the setup that I need as a remote worker myself — and my guests who work remotely consistently tell me it works for them too.
+The right accommodation solves most of the practical challenges. At [Maison Ayaba](/en/#logements), I've built exactly the setup that I need as a remote worker myself — and my guests who work remotely consistently tell me it works for them too.
 
-[See the apartment and workspace setup →](/en/apartment/)
+[See the apartment and workspace setup →](/en/#logements)

@@ -14,7 +14,7 @@ faqItems:
     answer: "Fidjrossè offre un bon choix de restaurants : Kalebasse pour les spécialités locales, Paul Cuisine pour une cuisine béninoise raffinée, Le Jardin de Canelya pour un cadre verdoyant. On trouve aussi des maquis (restaurants de rue) pour manger local à petit prix."
 ---
 
-Quand on ne connaît pas Cotonou, choisir son quartier peut sembler anodin. Pourtant, c'est l'une des décisions qui influence le plus votre expérience. Après avoir exploré la ville sous toutes ses coutures, j'ai installé [Maison Ayaba](/fr/appartement/) à Fidjrossè — et ce n'est pas un hasard.
+Quand on ne connaît pas Cotonou, choisir son quartier peut sembler anodin. Pourtant, c'est l'une des décisions qui influence le plus votre expérience. Après avoir exploré la ville sous toutes ses coutures, j'ai installé [Maison Ayaba](/#logements) à Fidjrossè — et ce n'est pas un hasard.
 
 ## Un quartier résidentiel, vivant mais pas chaotique
 
@@ -36,7 +36,7 @@ La plage de Fidjrossè est longue, large, et moins fréquentée que celles du ce
 
 Fidjrossè est situé entre la plage et l'axe principal qui mène à l'aéroport international Cardinal Bernardin Gantin. Résultat : vous êtes à **20 minutes** de l'aéroport en voiture, ce qui est un vrai confort pour vos arrivées et départs.
 
-D'ailleurs, pour tous les voyageurs qui séjournent à [Maison Ayaba](/fr/appartement/), le **transfert aéroport est offert**. Vous êtes accueillis à la sortie de l'avion et déposés directement à l'appartement.
+D'ailleurs, pour tous les voyageurs qui séjournent à [Maison Ayaba](/#logements), le **transfert aéroport est offert**. Vous êtes accueillis à la sortie de l'avion et déposés directement à l'appartement.
 
 ## Où manger à Fidjrossè
 
@@ -66,4 +66,4 @@ Depuis Fidjrossè, vous accédez facilement à tout Cotonou :
 
 Le quartier est bien desservi par les **zems** (moto-taxis) et **Gozem** (VTC). Vous pouvez aussi faire appel à un chauffeur privé via votre hôte pour les journées d'excursion.
 
-Pour en savoir plus sur Fidjrossè et découvrir le quartier en détail, consultez notre [page dédiée au quartier Fidjrossè →](/fr/fidjrosse-cotonou/). Et si vous cherchez un appartement confortable et bien situé dans ce quartier, [découvrez Maison Ayaba →](/fr/appartement/).
+Pour en savoir plus sur Fidjrossè et découvrir le quartier en détail, consultez notre [page dédiée au quartier Fidjrossè →](/fr/fidjrosse-cotonou/). Et si vous cherchez un appartement confortable et bien situé dans ce quartier, [découvrez Maison Ayaba →](/#logements).
