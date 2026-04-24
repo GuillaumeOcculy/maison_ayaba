@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
-import ShowcaseSection from '../components/sections/ShowcaseSection.astro';
 import LogementCards from '../components/sections/LogementCards.astro';
 import ReviewsSection from '../components/sections/ReviewsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
@@ -30,10 +29,7 @@ const locale = 'fr' as const;
     title={t(locale, 'home.heroTitle')}
     subtitle={t(locale, 'home.heroSubtitle')}
     primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '#logements' }}
-    secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#photos' }}
   />
-
-  <ShowcaseSection locale={locale} />
 
   <LogementCards locale={locale} />
 

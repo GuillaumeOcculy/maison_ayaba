@@ -22,7 +22,7 @@ interface Props {
   subtitle: string;
   stats?: StatItem[];
   primaryCta: CtaLink;
-  secondaryCta: CtaLink;
+  secondaryCta?: CtaLink;
 }
 
 const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
@@ -99,12 +99,14 @@ const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secon
       >
         {primaryCta.text}
       </a>
-      <a
-        href={secondaryCta.href}
-        class="border border-white/30 text-white hover:bg-white/10 rounded-md px-6 py-3 font-body min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra transition-colors"
-      >
-        {secondaryCta.text}
-      </a>
+      {secondaryCta && (
+        <a
+          href={secondaryCta.href}
+          class="border border-white/30 text-white hover:bg-white/10 rounded-md px-6 py-3 font-body min-h-[44px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra transition-colors"
+        >
+          {secondaryCta.text}
+        </a>
+      )}
     </div>
   </div>
 </section>
