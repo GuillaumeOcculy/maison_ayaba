@@ -27,16 +27,8 @@ const locale = 'fr' as const;
   <HeroSection
     image={heroImage}
     imageAlt="Salon lumineux de Maison Ayaba a Fidjrosse, Cotonou"
-    label={t(locale, 'home.heroLabel')}
-    badge={t(locale, 'home.heroBadge')}
     title={t(locale, 'home.heroTitle')}
     subtitle={t(locale, 'home.heroSubtitle')}
-    stats={[
-      { value: t(locale, 'home.statPriceValue'), label: t(locale, 'home.statPriceLabel') },
-      { value: t(locale, 'home.statConfigsValue'), label: t(locale, 'home.statConfigsLabel') },
-      { value: t(locale, 'home.statGuestsValue'), label: t(locale, 'home.statGuestsLabel') },
-      { value: t(locale, 'home.statBeachValue'), label: t(locale, 'home.statBeachLabel') },
-    ]}
     primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '#logements' }}
     secondaryCta={{ text: t(locale, 'home.heroSecondaryCta'), href: '#photos' }}
   />

@@ -17,17 +17,17 @@ interface Props {
   image?: ImageMetadata;
   imageAlt: string;
   badge?: string;
-  label: string;
+  label?: string;
   title: string;
   subtitle: string;
-  stats: StatItem[];
+  stats?: StatItem[];
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
 }
 
 const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
 ---
-<section class="relative h-svh overflow-hidden">
+<section class="relative h-svh lg:h-[80vh] overflow-hidden">
   {image ? (
     <Image
       src={image}
@@ -45,14 +45,16 @@ const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secon
 
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(180deg, rgba(44,24,16,0.15) 0%, rgba(44,24,16,0.65) 50%, rgba(44,24,16,0.92) 100%)"
+    style="background: linear-gradient(180deg, rgba(44,24,16,0.10) 0%, rgba(44,24,16,0.50) 60%, rgba(44,24,16,0.75) 100%)"
     aria-hidden="true"
   ></div>
 
   <div class="relative h-full flex flex-col justify-end px-6 pb-10 lg:px-16 lg:pb-16 max-w-7xl mx-auto">
-    <p class="text-white/60 text-xs uppercase tracking-[1.5px] font-semibold mb-4">
-      {label}
-    </p>
+    {label && (
+      <p class="text-white/60 text-xs uppercase tracking-[1.5px] font-semibold mb-4">
+        {label}
+      </p>
+    )}
 
     {badge && (
       <span class="inline-flex items-center gap-1.5 bg-ayaba-cream/95 border border-ayaba-gold/30 text-ayaba-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-4 w-fit">
@@ -69,24 +71,26 @@ const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secon
       {subtitle}
     </p>
 
-    <dl class="grid grid-cols-2 lg:flex lg:flex-row items-baseline gap-4 lg:gap-8 mb-8">
-      {stats.map((stat) => (
-        <div class:list={["relative flex flex-col", stat.promoBadge && "mr-16"]}>
-          <dt class="text-ayaba-gold font-heading text-2xl font-bold flex items-baseline gap-2">
-            {stat.value}
-            {stat.oldPrice && (
-              <span class="text-white/40 text-3xl line-through">{stat.oldPrice}</span>
+    {stats && stats.length > 0 && (
+      <dl class="grid grid-cols-2 lg:flex lg:flex-row items-baseline gap-4 lg:gap-8 mb-8">
+        {stats.map((stat) => (
+          <div class:list={["relative flex flex-col", stat.promoBadge && "mr-16"]}>
+            <dt class="text-ayaba-gold font-heading text-2xl font-bold flex items-baseline gap-2">
+              {stat.value}
+              {stat.oldPrice && (
+                <span class="text-white/40 text-3xl line-through">{stat.oldPrice}</span>
+              )}
+            </dt>
+            {stat.promoBadge && (
+              <span class="absolute left-[calc(100%+8px)] top-1/2 -translate-y-1/2 bg-ayaba-terra text-white text-[7px] uppercase leading-none tracking-wide w-14 h-14 rounded-full font-semibold flex items-center justify-center text-center p-1">{stat.promoBadge}</span>
             )}
-          </dt>
-          {stat.promoBadge && (
-            <span class="absolute left-[calc(100%+8px)] top-1/2 -translate-y-1/2 bg-ayaba-terra text-white text-[7px] uppercase leading-none tracking-wide w-14 h-14 rounded-full font-semibold flex items-center justify-center text-center p-1">{stat.promoBadge}</span>
-          )}
-          <dd class="text-white/60 text-[11px] uppercase tracking-[1.5px]">
-            {stat.label}
-          </dd>
-        </div>
-      ))}
-    </dl>
+            <dd class="text-white/60 text-[11px] uppercase tracking-[1.5px]">
+              {stat.label}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    )}
 
     <div class="flex flex-wrap gap-3">
       <a
