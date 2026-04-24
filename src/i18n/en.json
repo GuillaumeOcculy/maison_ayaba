@@ -108,6 +108,8 @@
     "review2Text": "A beautiful and welcoming space. Well thought out, comfortable and relaxing. Olivia was kind, responsive and very attentive. Highly recommended!",
     "review2Author": "Olutayo · 2-bedroom apartment",
 
+    "faqViewAll": "See all questions →",
+
     "finalCtaTitle": "Ready for Cotonou?",
     "finalCtaSubtitle": "Book your apartment and start planning your stay",
     "finalCtaCta": "Book"
@@ -155,8 +157,6 @@
     "compareHeader7": "Price",
     "compareYes": "Included",
     "faqTitle": "Frequently asked questions",
-    "faq1Q": "Do I rent the entire apartment?",
-    "faq1A": "Yes. Every booking includes an entire apartment: living room, kitchen, terrace and bedrooms. No other guests stay at the same time.",
     "faq2Q": "Is there WiFi?",
     "faq2A": "Yes, high-speed WiFi with a strong signal throughout the apartment, wherever you are. Even during power outages, WiFi stays on — you can keep working without interruption.",
     "faq3Q": "Is the airport transfer included?",
@@ -195,6 +195,8 @@
     "faq14A": "Local kitchen right across the street (from 100 FCFA). Within 10 min walk: Kalebasse, Jardin de Canelya, Paul Cuisine (vegan options). The apartment kitchen also lets you prepare your own meals.",
     "faq15Q": "Is the beach nearby?",
     "faq15A": "Yes, Fidjrossè beach is a 10-minute walk away. Local atmosphere with beach bars. Cautious swimming recommended due to currents.",
+    "faq16Q": "Is there air conditioning?",
+    "faq16A": "Yes, air conditioning in every room — living room and bedrooms. During a power cut, the AC stops temporarily, but the WiFi stays active thanks to the inverter.",
     "finalCtaTitle": "Ready to book?",
     "finalCtaSubtitle": "Select the number of guests and book the entire apartment on Airbnb",
     "finalCtaCta": "Book"

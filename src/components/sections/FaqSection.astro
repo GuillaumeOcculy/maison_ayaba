@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+
+const faqUrl = locale === 'fr' ? '/fr/faq/' : '/en/faq/';
 ---
 <section class="bg-ayaba-cream py-16 lg:py-20">
   <div class="max-w-[800px] mx-auto px-6 lg:px-16">
@@ -13,7 +15,7 @@ const { locale } = Astro.props;
       {t(locale, 'apartment.faqTitle')}
     </h2>
     <div class="space-y-4">
-      {[1, 2, 3, 4].map((n) => (
+      {[16, 2, 3, 4, 5].map((n) => (
         <details class="bg-white rounded-xl border border-gray-100 overflow-hidden group">
           <summary class="px-6 py-4 cursor-pointer font-semibold text-ayaba-dark text-sm lg:text-base flex items-center justify-between gap-4 min-h-[44px]">
             {t(locale, `apartment.faq${n}Q`)}
@@ -24,6 +26,14 @@ const { locale } = Astro.props;
           </div>
         </details>
       ))}
+    </div>
+    <div class="text-center mt-8">
+      <a
+        href={faqUrl}
+        class="text-ayaba-terra hover:text-ayaba-terra/80 font-semibold text-sm underline underline-offset-4 transition-colors"
+      >
+        {t(locale, 'home.faqViewAll')}
+      </a>
     </div>
   </div>
 </section>

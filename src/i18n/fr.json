@@ -108,6 +108,8 @@
     "review2Text": "Un espace magnifique et accueillant. Bien pensé, confortable et relaxant. Olivia a été aimable, réactive et très attentionnée. Hautement recommandé !",
     "review2Author": "Olutayo · Appartement 2 chambres",
 
+    "faqViewAll": "Voir toutes les questions →",
+
     "finalCtaTitle": "Prêt pour Cotonou ?",
     "finalCtaSubtitle": "Réservez votre appartement et commencez à préparer votre séjour",
     "finalCtaCta": "Réserver"
@@ -155,8 +157,6 @@
     "compareHeader7": "Prix",
     "compareYes": "Inclus",
     "faqTitle": "Questions fréquentes",
-    "faq1Q": "Est-ce que je loue l'appartement entier ?",
-    "faq1A": "Oui. À chaque réservation vous louez un appartement entier : salon, cuisine, terrasse et chambres. Aucun autre voyageur n'y séjourne en même temps que vous.",
     "faq2Q": "Y a-t-il le WiFi ?",
     "faq2A": "Oui, WiFi haut débit avec un signal fort dans tout l'appartement, où que vous soyez. Même en cas de coupure d'électricité, le WiFi reste actif — vous pouvez continuer à travailler sans interruption.",
     "faq3Q": "Le transfert aéroport est-il inclus ?",
@@ -195,6 +195,8 @@
     "faq14A": "Cuisine locale juste en face de l'appartement (dès 100 FCFA). À 10 min à pied : Kalebasse, Jardin de Canelya, Paul Cuisine (options vegan). La cuisine de l'appartement vous permet aussi de préparer vos repas.",
     "faq15Q": "La plage est-elle proche ?",
     "faq15A": "Oui, la plage de Fidjrossè est à 10 minutes à pied. Ambiance locale avec bars de plage. Baignade prudente recommandée en raison des courants.",
+    "faq16Q": "Y a-t-il la climatisation ?",
+    "faq16A": "Oui, climatisation dans chaque pièce — salon et chambres. En cas de coupure d'électricité, la clim s'arrête temporairement, mais le WiFi reste actif grâce à l'onduleur.",
     "finalCtaTitle": "Prêt à réserver ?",
     "finalCtaSubtitle": "Indiquez le nombre de voyageurs et réservez l'appartement entier sur Airbnb",
     "finalCtaCta": "Réserver"

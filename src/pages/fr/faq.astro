@@ -8,16 +8,12 @@ const locale = 'fr' as const;
 
 const categories = [
   {
-    title: t(locale, 'apartment.faqCatLogement'),
-    questions: [1],
-  },
-  {
     title: t(locale, 'apartment.faqCatReservation'),
     questions: [3, 4, 13],
   },
   {
     title: t(locale, 'apartment.faqCatEquipements'),
-    questions: [2, 5, 10, 11, 12],
+    questions: [16, 2, 5, 10, 11, 12],
   },
   {
     title: t(locale, 'apartment.faqCatQuartier'),
@@ -91,6 +87,6 @@ const categories = [
     title={t(locale, 'blog.finalCtaTitle')}
     subtitle={t(locale, 'blog.finalCtaSubtitle')}
     ctaText={t(locale, 'blog.finalCtaCta')}
-    ctaHref="/fr/appartement/#reserver"
+    ctaHref="/#logements"
   />
 </BaseLayout>
