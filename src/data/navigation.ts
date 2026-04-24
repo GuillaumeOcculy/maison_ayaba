@@ -12,7 +12,6 @@ interface NavRoute {
 
 const NAV_ROUTES: NavRoute[] = [
   { i18nKey: 'nav.home', href: { fr: '/', en: '/en/' } },
-  { i18nKey: 'nav.apartment', href: { fr: '/fr/appartement/', en: '/en/apartment/' } },
   { i18nKey: 'nav.neighborhood', href: { fr: '/fr/fidjrosse-cotonou/', en: '/en/fidjrosse-cotonou/' } },
   { i18nKey: 'nav.host', href: { fr: '/fr/votre-hote/', en: '/en/your-host/' } },
   { i18nKey: 'nav.blog', href: { fr: '/fr/blog/', en: '/en/blog/' } },
