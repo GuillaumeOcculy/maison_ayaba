@@ -27,7 +27,7 @@ interface Props {
 
 const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secondaryCta } = Astro.props;
 ---
-<section class="relative h-svh lg:h-[80vh] overflow-hidden">
+<section class="relative h-[70vh] lg:h-[75vh] overflow-hidden">
   {image ? (
     <Image
       src={image}
@@ -45,11 +45,11 @@ const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secon
 
   <div
     class="absolute inset-0"
-    style="background: linear-gradient(180deg, rgba(44,24,16,0.10) 0%, rgba(44,24,16,0.50) 60%, rgba(44,24,16,0.75) 100%)"
+    style="background: linear-gradient(135deg, rgba(44,24,16,0.85) 0%, rgba(44,24,16,0.50) 40%, rgba(44,24,16,0.10) 70%, transparent 100%)"
     aria-hidden="true"
   ></div>
 
-  <div class="relative h-full flex flex-col justify-end px-6 pb-10 lg:px-16 lg:pb-16 max-w-7xl mx-auto">
+  <div class="relative h-full flex flex-col justify-center px-6 py-10 lg:px-16 lg:py-16 max-w-7xl mx-auto">
     {label && (
       <p class="text-white/60 text-xs uppercase tracking-[1.5px] font-semibold mb-4">
         {label}
@@ -63,7 +63,7 @@ const { image, imageAlt, badge, label, title, subtitle, stats, primaryCta, secon
       </span>
     )}
 
-    <h1 class="text-white font-heading text-[28px] lg:text-[48px] font-bold leading-tight max-w-2xl mb-3">
+    <h1 class="text-white font-heading text-[32px] lg:text-[48px] font-bold leading-tight max-w-2xl mb-3">
       {title}
     </h1>
 
