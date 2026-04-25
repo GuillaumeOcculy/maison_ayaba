@@ -102,7 +102,7 @@ At [Maison Ayaba](/en/#logements), every point on this checklist is covered:
 - **AC in every room** — including the kitchen
 - **Smart lock + Ring camera** — security without compromise
 - **Fidjrossè Jacquot** — residential neighborhood, 10 min from the beach
-- **3 configurations** — 1, 2, or 3 bedrooms, from €60 to €140/night
+- **3 configurations** — 1, 2, or 3 bedrooms, from €60 to €100/night
 - **Kwabo Protocol** — welcome basket, pre-cooled AC, available host
 
 Over €20,000 invested in infrastructure to guarantee a stay without surprises. That's the difference between an improvised Airbnb and a structured hospitality brand.
