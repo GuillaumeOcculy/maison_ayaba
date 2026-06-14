@@ -1,6 +1,5 @@
 ---
 interface KwaboItem {
-  icon: string;
   title: string;
   description: string;
 }
@@ -31,10 +30,10 @@ const { label, title, subtitle, items } = Astro.props;
     </p>
 
     <div class={`grid grid-cols-1 ${items.length === 4 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'} gap-7 max-w-4xl mx-auto`}>
-      {items.map((item) => (
+      {items.map((item, i) => (
         <div class="flex flex-col items-center">
-          <div class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
-            <span class="text-2xl" aria-hidden="true">{item.icon}</span>
+          <div class="w-14 h-14 rounded-full bg-white border border-ayaba-terra/20 shadow-sm flex items-center justify-center mb-4">
+            <span class="font-heading text-ayaba-terra text-xl font-bold" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           </div>
           <h3 class="font-body font-semibold text-ayaba-dark mb-1 text-base">{item.title}</h3>
           <p class="text-ayaba-muted text-sm">{item.description}</p>

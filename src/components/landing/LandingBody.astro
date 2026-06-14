@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import LineIcon from '../ui/LineIcon.astro';
+import salon from '../../assets/images/apartments/salon1.png';
+import chambre from '../../assets/images/apartments/chambre1.png';
+import sdb from '../../assets/images/apartments/chambre1-sdb.png';
+import terrasse from '../../assets/images/apartments/terrasse1.png';
+
+interface Props {
+  ctaHref: string;
+}
+
+const { ctaHref } = Astro.props;
+
+const reassurance = ['5/5 sur Airbnb', 'Avis vérifiés', 'Paiement protégé', 'Équipe sur place'];
+
+const solutions = [
+  { icon: 'star', lead: 'Des avis vérifiés, pas des promesses', text: 'Note 5/5 de voyageurs réels, consultables sur Airbnb.' },
+  { icon: 'chat', lead: 'Une équipe sur place, qui répond', text: 'Nous sommes à Cotonou, pas à distance. Olivia, votre contact, est joignable sur WhatsApp avant et pendant votre séjour.' },
+  { icon: 'camera', lead: 'Conforme aux photos', text: 'Le logement que vous réservez est celui que vous trouvez. Photos réelles, rien de trafiqué.' },
+  { icon: 'snowflake', lead: 'Tout fonctionne', text: 'Climatisation dans chaque pièce, une salle de bain par chambre, WiFi maintenu pendant les coupures grâce à un onduleur.' },
+  { icon: 'plane', lead: 'Une arrivée sans stress', text: 'Transfert aéroport offert, organisé avant votre venue. Check-in autonome avec votre code.' },
+  { icon: 'shield', lead: 'Paiement protégé', text: 'Vous réservez via Airbnb : paiement sécurisé, avis vérifiés, assistance en cas de problème.' },
+];
+
+const reviews = [
+  { text: "Agréablement surpris de la qualité du logement et de la réactivité d'Olivia. La localisation le rend encore plus unique. La propreté, le cadre, tout était parfait.", author: 'Sefou' },
+  { text: "Un espace magnifique et accueillant. Bien pensé, confortable et relaxant. Olivia a été aimable, réactive et très attentionnée. Hautement recommandé !", author: 'Olutayo' },
+];
+
+const photos = [
+  { src: salon, alt: "Salon de l'appartement Maison Ayaba à Fidjrossè, Cotonou" },
+  { src: chambre, alt: "Chambre de l'appartement Maison Ayaba à Fidjrossè, Cotonou" },
+  { src: sdb, alt: "Salle de bain de l'appartement Maison Ayaba à Fidjrossè, Cotonou" },
+  { src: terrasse, alt: "Terrasse de l'appartement Maison Ayaba à Fidjrossè, Cotonou" },
+];
+
+const faq = [
+  { q: 'Comment être sûr que le logement ressemble aux photos ?', a: "Avis 5/5 de voyageurs réels et photos non retouchées. Et avec le paiement protégé Airbnb, vous n'êtes jamais seul en cas de souci." },
+  { q: 'Vais-je partager le logement ?', a: "Non. L'appartement est à vous seul." },
+  { q: 'Êtes-vous joignables une fois sur place ?', a: 'Oui — nous sommes à Cotonou. Olivia, votre contact, répond sur WhatsApp avant et pendant votre séjour.' },
+  { q: 'Et si le courant saute ?', a: "Le WiFi reste actif grâce à un onduleur dédié. La lumière et la clim s'arrêtent le temps de la coupure." },
+  { q: 'Comment réserver ?', a: "En un clic vers l'annonce Airbnb : paiement protégé, avis vérifiés." },
+];
+---
+{/* Bandeau réassurance */}
+<section class="bg-ayaba-dark text-white">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 py-3.5">
+    <ul class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-[12px] lg:text-sm">
+      {reassurance.map((item, i) => (
+        <li class="flex items-center gap-3">
+          {i > 0 && <span class="text-ayaba-gold/60" aria-hidden="true">·</span>}
+          <span class="flex items-center gap-1.5"><LineIcon name="check" class="w-3.5 h-3.5 text-ayaba-gold shrink-0" />{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+{/* La douleur */}
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8">
+    <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[34px] font-bold mb-6 leading-tight">
+      Réserver un logement qu'on ne peut pas visiter, c'est un pari
+    </h2>
+    <p class="text-ayaba-muted text-base lg:text-lg leading-relaxed mb-4">
+      Les photos sont belles. Mais est-ce qu'elles ressemblent à la réalité ? L'hôte répondra-t-il une fois sur place ? Et si c'est sale, si la clim ne marche pas, si personne ne vous attend à l'aéroport ?
+    </p>
+    <p class="text-ayaba-dark text-base lg:text-lg leading-relaxed font-semibold">
+      Quand vous rentrez au pays, votre séjour est trop précieux pour le jouer à pile ou face.
+    </p>
+  </div>
+</section>
+
+{/* La solution */}
+<section class="bg-ayaba-cream py-16 lg:py-20">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8">
+    <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[34px] font-bold mb-10 lg:mb-12 text-center max-w-2xl mx-auto leading-tight">
+      Aucune surprise. Tout est exactement comme annoncé.
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-7">
+      {solutions.map((s) => (
+        <div class="flex items-start gap-4">
+          <span class="w-11 h-11 rounded-full bg-white border border-ayaba-terra/15 flex items-center justify-center shrink-0">
+            <LineIcon name={s.icon} class="w-5 h-5 text-ayaba-terra" />
+          </span>
+          <div>
+            <h3 class="font-semibold text-ayaba-dark text-base lg:text-[17px] mb-1">{s.lead}</h3>
+            <p class="text-ayaba-muted text-sm lg:text-base leading-relaxed">{s.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Vraies photos de l'appartement */}
+<section class="bg-white pt-16 lg:pt-20">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+      {photos.map((p) => (
+        <div class="rounded-xl overflow-hidden aspect-[4/3] bg-ayaba-cream">
+          <Image src={p.src} alt={p.alt} widths={[280, 480]} sizes="(min-width:1024px) 280px, 45vw" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Preuve */}
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-4xl mx-auto px-5 lg:px-8">
+    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold mb-10 text-center leading-tight">
+      Ils ont réservé sans nous connaître. Voilà ce qu'ils en disent.
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {reviews.map((r) => (
+        <figure class="bg-ayaba-cream rounded-2xl p-6 lg:p-7 flex flex-col">
+          <div class="text-ayaba-gold text-lg mb-3" aria-hidden="true">★★★★★</div>
+          <blockquote class="text-ayaba-dark text-base leading-relaxed mb-4 flex-1">« {r.text} »</blockquote>
+          <figcaption class="text-ayaba-muted text-sm font-semibold">— {r.author}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Réassurance partage */}
+<section class="bg-ayaba-cream py-12 lg:py-14">
+  <div class="max-w-2xl mx-auto px-5 lg:px-8 text-center">
+    <span class="w-12 h-12 rounded-full bg-white border border-ayaba-terra/15 flex items-center justify-center mx-auto mb-4">
+      <LineIcon name="lock" class="w-5 h-5 text-ayaba-terra" />
+    </span>
+    <h3 class="font-heading text-ayaba-dark text-[22px] lg:text-[26px] font-bold mb-2">L'appartement est à vous seul</h3>
+    <p class="text-ayaba-muted text-base">Vous ne le partagez avec aucun autre voyageur. Vous êtes chez vous.</p>
+  </div>
+</section>
+
+{/* L'offre */}
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8 text-center">
+    <h2 class="font-heading text-ayaba-dark text-[26px] lg:text-[34px] font-bold mb-8 leading-tight">
+      Votre appartement à Fidjrossè, jusqu'à 6 voyageurs
+    </h2>
+    <div class="bg-ayaba-cream rounded-2xl p-7 lg:p-9 border border-ayaba-terra/15">
+      <p class="font-heading text-ayaba-terra text-2xl lg:text-[28px] font-bold mb-2">2 ou 3 chambres — 80 à 100 €/nuit</p>
+      <p class="text-ayaba-muted text-base leading-relaxed mb-6 max-w-xl mx-auto">
+        Pour la famille ou le groupe : chacun sa chambre, chacun sa salle de bain. À six, le confort revient à ~17 €/nuit par personne.
+      </p>
+      <a
+        href={ctaHref}
+        target="_blank"
+        rel="noopener"
+        data-airbnb-cta
+        class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-8 py-4 font-semibold text-base lg:text-lg transition-colors min-h-[52px] inline-flex items-center gap-2 shadow-md focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+      >
+        Réserver sur Airbnb
+        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+      <p class="text-ayaba-muted text-xs mt-4">Paiement protégé · Annulation selon les conditions de l'annonce</p>
+    </div>
+    <p class="text-ayaba-muted text-sm mt-6 max-w-xl mx-auto">
+      En solo ou en couple ? Format 1 chambre, dès 60 €/nuit — votre chambre, votre salle de bain, tout l'espace pour vous.
+    </p>
+  </div>
+</section>
+
+{/* Localisation */}
+<section class="bg-ayaba-cream py-16 lg:py-20">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8 text-center">
+    <span class="w-12 h-12 rounded-full bg-white border border-ayaba-terra/15 flex items-center justify-center mx-auto mb-5">
+      <LineIcon name="pin" class="w-5 h-5 text-ayaba-terra" />
+    </span>
+    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold mb-4 leading-tight">
+      Fidjrossè, bord de mer — à 20 min de l'aéroport
+    </h2>
+    <p class="text-ayaba-muted text-base lg:text-lg leading-relaxed">
+      Quartier résidentiel calme, prisé des expatriés et des familles, à 10 minutes à pied de la plage. Serrure connectée et coffre-fort dans l'appartement.
+    </p>
+  </div>
+</section>
+
+{/* CTA final */}
+<section class="bg-ayaba-dark py-16 lg:py-20">
+  <div class="max-w-2xl mx-auto px-5 lg:px-8 text-center">
+    <h2 class="font-heading text-white text-[26px] lg:text-[34px] font-bold mb-4 leading-tight">
+      Rentrez au pays l'esprit tranquille
+    </h2>
+    <p class="text-white/70 text-base lg:text-lg mb-8 leading-relaxed">
+      Réservez votre appartement à Cotonou — paiement protégé, avis vérifiés, équipe sur place.
+    </p>
+    <a
+      href={ctaHref}
+      target="_blank"
+      rel="noopener"
+      data-airbnb-cta
+      class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-8 py-4 font-semibold text-base lg:text-lg transition-colors min-h-[52px] inline-flex items-center gap-2 shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-white"
+    >
+      Réserver sur Airbnb
+      <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+    </a>
+    <p class="flex items-center justify-center gap-2 text-white/60 text-xs lg:text-sm mt-4">
+      <LineIcon name="shield" class="w-4 h-4 text-ayaba-gold shrink-0" />
+      Paiement protégé par Airbnb · 5/5 sur les avis voyageurs
+    </p>
+  </div>
+</section>
+
+{/* FAQ courte */}
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-2xl mx-auto px-5 lg:px-8">
+    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[30px] font-bold mb-8 text-center">Questions fréquentes</h2>
+    <div class="space-y-3">
+      {faq.map((item) => (
+        <details class="bg-ayaba-cream rounded-xl border border-gray-100 overflow-hidden group">
+          <summary class="px-5 py-4 cursor-pointer font-semibold text-ayaba-dark text-sm lg:text-base flex items-center justify-between gap-4 min-h-[44px]">
+            {item.q}
+            <span class="text-ayaba-terra shrink-0 transition-transform group-open:rotate-45 text-lg" aria-hidden="true">+</span>
+          </summary>
+          <div class="px-5 pb-4 text-ayaba-muted text-sm lg:text-base leading-relaxed">{item.a}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

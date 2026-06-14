@@ -12,7 +12,11 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
-      filter: (page) => new URL(page).pathname !== '/fr/',
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        // Exclude FR canonical root duplicate and paid-traffic landing pages.
+        return path !== '/fr/' && !path.startsWith('/fr/reserver-cotonou');
+      },
     }),
   ],
   adapter: vercel(),

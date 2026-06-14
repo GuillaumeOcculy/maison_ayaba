@@ -12,13 +12,11 @@ import hostImage from '../../assets/images/host/guillaume.jpeg';
 const locale = 'en' as const;
 
 const resolvedValues = hostProfile.philosophyValues.map((v) => ({
-  icon: v.icon,
   title: t(locale, v.titleKey),
   description: t(locale, v.descriptionKey),
 }));
 
 const resolvedKwabo = kwaboAttentions.map((a) => ({
-  icon: a.icon,
   title: t(locale, a.titleKey),
   description: t(locale, a.descriptionKey),
 }));
