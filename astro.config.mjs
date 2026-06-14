@@ -15,7 +15,7 @@ export default defineConfig({
       filter: (page) => {
         const path = new URL(page).pathname;
         // Exclude FR canonical root duplicate and paid-traffic landing pages.
-        return path !== '/fr/' && !path.startsWith('/fr/reserver-cotonou');
+        return path !== '/fr/' && !path.startsWith('/fr/reserver-cotonou') && !path.startsWith('/en/book-cotonou');
       },
     }),
   ],

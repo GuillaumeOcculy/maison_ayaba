@@ -16,6 +16,7 @@ export function getStaticPaths() {
         variant: 'trust',
         image: salonHero,
         imageAlt: "Salon lumineux de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/',
       },
     },
     {
@@ -24,6 +25,7 @@ export function getStaticPaths() {
         variant: 'airport',
         image: terrasse,
         imageAlt: "Terrasse de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/airport/',
       },
     },
     {
@@ -32,15 +34,17 @@ export function getStaticPaths() {
         variant: 'wifi',
         image: salonWork,
         imageAlt: "Espace de vie de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/wifi/',
       },
     },
   ];
 }
 
-const { variant, image, imageAlt } = Astro.props as {
+const { variant, image, imageAlt, enPath } = Astro.props as {
   variant: 'trust' | 'airport' | 'wifi';
   image: ImageMetadata;
   imageAlt: string;
+  enPath: string;
 };
 
 // Annonce Airbnb cible de la landing (format 2 chambres, le plus réservé).
@@ -51,14 +55,21 @@ const title = 'Appartement à Cotonou, Fidjrossè — réserver sans mauvaise su
 const description =
   "Réservez à Cotonou depuis l'étranger en confiance : avis 5/5 vérifiés, hôte réactif, logement conforme aux photos. Climatisation, salle de bain par chambre, transfert aéroport offert. Dès 60 €/nuit, paiement protégé Airbnb.";
 const canonical = `${baseUrl}${Astro.url.pathname}`;
+const alternates = [
+  { hreflang: 'fr', href: canonical },
+  { hreflang: 'en', href: `${baseUrl}${enPath}` },
+  { hreflang: 'x-default', href: canonical },
+];
 ---
 <LandingLayout
+  locale="fr"
   title={title}
   description={description}
   canonical={canonical}
   ctaText="Réserver sur Airbnb"
   ctaHref={airbnbUrl}
+  alternates={alternates}
 >
-  <LandingHero variant={variant} image={image} imageAlt={imageAlt} ctaHref={airbnbUrl} />
-  <LandingBody ctaHref={airbnbUrl} />
+  <LandingHero locale="fr" variant={variant} image={image} imageAlt={imageAlt} ctaHref={airbnbUrl} />
+  <LandingBody locale="fr" ctaHref={airbnbUrl} />
 </LandingLayout>

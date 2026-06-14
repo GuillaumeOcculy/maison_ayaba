@@ -1,20 +1,30 @@
 ---
 import '../styles/global.css';
+import type { Locale } from '../i18n/utils';
+
+interface Alternate {
+  hreflang: string;
+  href: string;
+}
 
 interface Props {
+  locale: Locale;
   title: string;
   description: string;
   canonical: string;
   ctaText: string;
   ctaHref: string;
   ogImage?: string;
+  alternates?: Alternate[];
 }
 
-const { title, description, canonical, ctaText, ctaHref, ogImage = '/og-image.jpg' } = Astro.props;
+const { locale, title, description, canonical, ctaText, ctaHref, ogImage = '/og-image.jpg', alternates = [] } = Astro.props;
 const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
+const footerRights = locale === 'fr' ? '© 2026 Maison Ayaba. Tous droits réservés.' : '© 2026 Maison Ayaba. All rights reserved.';
+const footerLocation = locale === 'fr' ? 'Fidjrossè, Cotonou, Bénin' : 'Fidjrossè, Cotonou, Benin';
 ---
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang={locale} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,12 +40,15 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_US'} />
     <meta property="og:site_name" content="Maison Ayaba" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -94,8 +107,8 @@ const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
     <footer class="bg-ayaba-dark text-white/70 py-8">
       <div class="max-w-6xl mx-auto px-5 lg:px-8 text-center text-xs space-y-1">
         <p class="font-heading text-white text-base">Maison Ayaba</p>
-        <p>Fidjrossè, Cotonou, Bénin</p>
-        <p>© 2026 Maison Ayaba. Tous droits réservés.</p>
+        <p>{footerLocation}</p>
+        <p>{footerRights}</p>
       </div>
     </footer>
 

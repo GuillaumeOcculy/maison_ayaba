@@ -1,41 +1,72 @@
 ---
 import { Image } from 'astro:assets';
 import LineIcon from '../ui/LineIcon.astro';
+import type { Locale } from '../../i18n/utils';
 
 type Variant = 'trust' | 'airport' | 'wifi';
 
 interface Props {
+  locale: Locale;
   variant: Variant;
   image: ImageMetadata;
   imageAlt: string;
   ctaHref: string;
 }
 
-const { variant, image, imageAlt, ctaHref } = Astro.props;
+const { locale, variant, image, imageAlt, ctaHref } = Astro.props;
 
-const eyebrow = 'Appartement à Cotonou · Fidjrossè, bord de mer';
-const ctaText = "Voir l'appartement sur Airbnb";
-const microTrust = 'Paiement protégé par Airbnb · 5/5 sur les avis voyageurs';
+const chrome = {
+  fr: {
+    eyebrow: 'Appartement à Cotonou · Fidjrossè, bord de mer',
+    ctaText: "Voir l'appartement sur Airbnb",
+    microTrust: 'Paiement protégé par Airbnb · 5/5 sur les avis voyageurs',
+  },
+  en: {
+    eyebrow: 'Apartment in Cotonou · Fidjrossè, by the sea',
+    ctaText: 'See the apartment on Airbnb',
+    microTrust: 'Payment protected by Airbnb · 5/5 on traveler reviews',
+  },
+} as const;
 
-const copy: Record<Variant, { title: string; subtitle: string }> = {
-  trust: {
-    title: "Réserver à Cotonou depuis l'étranger, sans mauvaise surprise.",
-    subtitle:
-      "Avis vérifiés 5/5, une équipe qui répond, un logement conforme aux photos. Vous savez exactement ce qui vous attend — climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.",
+const variants: Record<Locale, Record<Variant, { title: string; subtitle: string }>> = {
+  fr: {
+    trust: {
+      title: "Réserver à Cotonou depuis l'étranger, sans mauvaise surprise.",
+      subtitle:
+        "Avis vérifiés 5/5, une équipe qui répond, un logement conforme aux photos. Vous savez exactement ce qui vous attend — climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.",
+    },
+    airport: {
+      title: 'Vous atterrissez à Cotonou. Un chauffeur vous attend.',
+      subtitle:
+        'Transfert aéroport offert et organisé avant votre arrivée, check-in autonome avec votre code, équipe sur place qui répond. Vous posez vos valises et vous êtes chez vous.',
+    },
+    wifi: {
+      title: 'À Cotonou, le courant saute. Pas votre WiFi.',
+      subtitle:
+        'Onduleur dédié : votre connexion tient pendant les coupures. Climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.',
+    },
   },
-  airport: {
-    title: 'Vous atterrissez à Cotonou. Un chauffeur vous attend.',
-    subtitle:
-      'Transfert aéroport offert et organisé avant votre arrivée, check-in autonome avec votre code, équipe sur place qui répond. Vous posez vos valises et vous êtes chez vous.',
-  },
-  wifi: {
-    title: 'À Cotonou, le courant saute. Pas votre WiFi.',
-    subtitle:
-      'Onduleur dédié : votre connexion tient pendant les coupures. Climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.',
+  en: {
+    trust: {
+      title: 'Book in Cotonou from abroad, with no nasty surprises.',
+      subtitle:
+        'Verified 5/5 reviews, a team that answers, an apartment true to the photos. You know exactly what awaits you — air conditioning in every room, your own bathroom, complimentary airport transfer.',
+    },
+    airport: {
+      title: 'You land in Cotonou. A driver is waiting for you.',
+      subtitle:
+        "Complimentary airport transfer arranged before you arrive, self check-in with your code, an on-site team that answers. You drop your bags and you're home.",
+    },
+    wifi: {
+      title: "In Cotonou, the power cuts out. Your WiFi doesn't.",
+      subtitle:
+        'A dedicated inverter: your connection holds through outages. Air conditioning in every room, your own bathroom, complimentary airport transfer.',
+    },
   },
 };
 
-const { title, subtitle } = copy[variant];
+const { eyebrow, ctaText, microTrust } = chrome[locale];
+const { title, subtitle } = variants[locale][variant];
 ---
 <section class="relative min-h-[78vh] lg:min-h-[80vh] flex overflow-hidden">
   <Image
