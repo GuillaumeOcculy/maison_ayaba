@@ -1,0 +1,75 @@
+---
+import LandingLayout from '../../../layouts/LandingLayout.astro';
+import LandingHero from '../../../components/landing/LandingHero.astro';
+import LandingBody from '../../../components/landing/LandingBody.astro';
+import { apartments } from '../../../data/apartments';
+import { baseUrl } from '../../../data/siteConfig';
+import salonHero from '../../../assets/images/hero/salon.png';
+import terrasse from '../../../assets/images/apartments/terrasse2.png';
+import salonWork from '../../../assets/images/apartments/salon3.png';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { variant: undefined },
+      props: {
+        variant: 'trust',
+        image: salonHero,
+        imageAlt: "Salon lumineux de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/',
+      },
+    },
+    {
+      params: { variant: 'aeroport' },
+      props: {
+        variant: 'airport',
+        image: terrasse,
+        imageAlt: "Terrasse de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/airport/',
+      },
+    },
+    {
+      params: { variant: 'wifi' },
+      props: {
+        variant: 'wifi',
+        image: salonWork,
+        imageAlt: "Espace de vie de l'appartement Maison Ayaba à Fidjrossè, Cotonou",
+        enPath: '/en/book-cotonou/wifi/',
+      },
+    },
+  ];
+}
+
+const { variant, image, imageAlt, enPath } = Astro.props as {
+  variant: 'trust' | 'airport' | 'wifi';
+  image: ImageMetadata;
+  imageAlt: string;
+  enPath: string;
+};
+
+// Annonce Airbnb cible de la landing (format 2 chambres, le plus réservé).
+// Pour changer la cible, modifier l'index dans src/data/apartments.ts.
+const airbnbUrl = apartments[1].airbnbUrl;
+
+const title = 'Appartement à Cotonou, Fidjrossè — réserver sans mauvaise surprise | Maison Ayaba';
+const description =
+  "Réservez à Cotonou depuis l'étranger en confiance : avis 5/5 vérifiés, hôte réactif, logement conforme aux photos. Climatisation, salle de bain par chambre, transfert aéroport offert. Dès 60 €/nuit, paiement protégé Airbnb.";
+const canonical = `${baseUrl}${Astro.url.pathname}`;
+const alternates = [
+  { hreflang: 'fr', href: canonical },
+  { hreflang: 'en', href: `${baseUrl}${enPath}` },
+  { hreflang: 'x-default', href: canonical },
+];
+---
+<LandingLayout
+  locale="fr"
+  title={title}
+  description={description}
+  canonical={canonical}
+  ctaText="Réserver sur Airbnb"
+  ctaHref={airbnbUrl}
+  alternates={alternates}
+>
+  <LandingHero locale="fr" variant={variant} image={image} imageAlt={imageAlt} ctaHref={airbnbUrl} />
+  <LandingBody locale="fr" ctaHref={airbnbUrl} />
+</LandingLayout>

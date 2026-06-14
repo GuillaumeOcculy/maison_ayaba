@@ -1,6 +1,5 @@
 ---
 interface PhilosophyValue {
-  icon: string;
   title: string;
   description: string;
 }
@@ -25,10 +24,10 @@ const { title, description, values } = Astro.props;
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-      {values.map((value) => (
+      {values.map((value, i) => (
         <div class="text-center">
-          <div class="w-14 h-14 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl" aria-hidden="true">{value.icon}</span>
+          <div class="w-14 h-14 rounded-full bg-ayaba-cream border border-ayaba-terra/20 flex items-center justify-center mx-auto mb-4">
+            <span class="font-heading text-ayaba-terra text-xl font-bold" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           </div>
           <h3 class="font-body font-semibold text-ayaba-dark mb-2 text-base">{value.title}</h3>
           <p class="text-ayaba-muted text-sm leading-relaxed">{value.description}</p>

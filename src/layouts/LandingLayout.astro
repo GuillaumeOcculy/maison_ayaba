@@ -1,0 +1,125 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../i18n/utils';
+
+interface Alternate {
+  hreflang: string;
+  href: string;
+}
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonical: string;
+  ctaText: string;
+  ctaHref: string;
+  ogImage?: string;
+  alternates?: Alternate[];
+}
+
+const { locale, title, description, canonical, ctaText, ctaHref, ogImage = '/og-image.jpg', alternates = [] } = Astro.props;
+const ga4Id = import.meta.env.GA4_MEASUREMENT_ID;
+const footerRights = locale === 'fr' ? '© 2026 Maison Ayaba. Tous droits réservés.' : '© 2026 Maison Ayaba. All rights reserved.';
+const footerLocation = locale === 'fr' ? 'Fidjrossè, Cotonou, Bénin' : 'Fidjrossè, Cotonou, Benin';
+---
+<!DOCTYPE html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="facebook-domain-verification" content="17ke4enqixazno56mck6k13pgfygyt" />
+    {/* Paid-traffic landing page: keep out of organic index to avoid cannibalising the homepage. */}
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_US'} />
+    <meta property="og:site_name" content="Maison Ayaba" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Meta Pixel Code -->
+    <script is:inline>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1277691234446313');
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1277691234446313&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    {ga4Id && (
+      <Fragment>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+        <script is:inline define:vars={{ ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ga4Id);
+        </script>
+      </Fragment>
+    )}
+  </head>
+  <body class="bg-white text-ayaba-dark font-body min-h-screen flex flex-col">
+    {/* Slim header: logo + single CTA, no navigation (leak-free) */}
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-gray-100">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8 flex items-center justify-between h-14 lg:h-16">
+        <span class="font-heading text-ayaba-terra text-lg lg:text-xl font-bold select-none">Maison Ayaba</span>
+        <a
+          href={ctaHref}
+          target="_blank"
+          rel="noopener"
+          data-airbnb-cta
+          class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 px-4 py-2 rounded-md font-semibold text-[13px] lg:text-sm transition-colors min-h-[40px] inline-flex items-center focus:outline-2 focus:outline-offset-2 focus:outline-ayaba-terra"
+        >
+          {ctaText}
+        </a>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {/* Minimal footer: no nav links */}
+    <footer class="bg-ayaba-dark text-white/70 py-8">
+      <div class="max-w-6xl mx-auto px-5 lg:px-8 text-center text-xs space-y-1">
+        <p class="font-heading text-white text-base">Maison Ayaba</p>
+        <p>{footerLocation}</p>
+        <p>{footerRights}</p>
+      </div>
+    </footer>
+
+    {/* Outbound Airbnb clicks → Meta Lead + GA4 */}
+    <script is:inline>
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('[data-airbnb-cta]');
+        if (!link) return;
+        if (window.fbq) fbq('track', 'Lead');
+        if (window.gtag) gtag('event', 'airbnb_click', { page: window.location.pathname });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+---
+import LandingLayout from '../../../layouts/LandingLayout.astro';
+import LandingHero from '../../../components/landing/LandingHero.astro';
+import LandingBody from '../../../components/landing/LandingBody.astro';
+import { apartments } from '../../../data/apartments';
+import { baseUrl } from '../../../data/siteConfig';
+import salonHero from '../../../assets/images/hero/salon.png';
+import terrasse from '../../../assets/images/apartments/terrasse2.png';
+import salonWork from '../../../assets/images/apartments/salon3.png';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { variant: undefined },
+      props: {
+        variant: 'trust',
+        image: salonHero,
+        imageAlt: 'Bright living room of the Maison Ayaba apartment in Fidjrossè, Cotonou',
+        frPath: '/fr/reserver-cotonou/',
+      },
+    },
+    {
+      params: { variant: 'airport' },
+      props: {
+        variant: 'airport',
+        image: terrasse,
+        imageAlt: 'Terrace of the Maison Ayaba apartment in Fidjrossè, Cotonou',
+        frPath: '/fr/reserver-cotonou/aeroport/',
+      },
+    },
+    {
+      params: { variant: 'wifi' },
+      props: {
+        variant: 'wifi',
+        image: salonWork,
+        imageAlt: 'Living space of the Maison Ayaba apartment in Fidjrossè, Cotonou',
+        frPath: '/fr/reserver-cotonou/wifi/',
+      },
+    },
+  ];
+}
+
+const { variant, image, imageAlt, frPath } = Astro.props as {
+  variant: 'trust' | 'airport' | 'wifi';
+  image: ImageMetadata;
+  imageAlt: string;
+  frPath: string;
+};
+
+// Same Airbnb target as the FR landing (2-bedroom listing).
+const airbnbUrl = apartments[1].airbnbUrl;
+
+const title = 'Apartment in Cotonou, Fidjrossè — book with no nasty surprises | Maison Ayaba';
+const description =
+  'Book in Cotonou from abroad with confidence: verified 5/5 reviews, responsive host, apartment true to the photos. Air conditioning, a bathroom per bedroom, complimentary airport transfer. From €60/night, payment protected by Airbnb.';
+const canonical = `${baseUrl}${Astro.url.pathname}`;
+const alternates = [
+  { hreflang: 'en', href: canonical },
+  { hreflang: 'fr', href: `${baseUrl}${frPath}` },
+  { hreflang: 'x-default', href: `${baseUrl}${frPath}` },
+];
+---
+<LandingLayout
+  locale="en"
+  title={title}
+  description={description}
+  canonical={canonical}
+  ctaText="Book on Airbnb"
+  ctaHref={airbnbUrl}
+  alternates={alternates}
+>
+  <LandingHero locale="en" variant={variant} image={image} imageAlt={imageAlt} ctaHref={airbnbUrl} />
+  <LandingBody locale="en" ctaHref={airbnbUrl} />
+</LandingLayout>

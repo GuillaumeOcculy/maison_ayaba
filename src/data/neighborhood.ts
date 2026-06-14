@@ -25,7 +25,7 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     id: 'restaurants',
     titleKey: 'neighborhood.sectionRestaurantsTitle',
     descriptionKey: 'neighborhood.sectionRestaurantsDesc',
-    icon: '🍽️',
+    icon: 'utensils',
     columns: 2,
     items: [
       { nameKey: 'neighborhood.restaurant1Name', detailKey: 'neighborhood.restaurant1Detail' },
@@ -40,7 +40,7 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     id: 'commerces',
     titleKey: 'neighborhood.sectionCommercesTitle',
     descriptionKey: 'neighborhood.sectionCommercesDesc',
-    icon: '🛒',
+    icon: 'bag',
     columns: 2,
     items: [
       { nameKey: 'neighborhood.commerce1Name', detailKey: 'neighborhood.commerce1Detail', url: 'https://maps.app.goo.gl/W1vhD2Vfg1hvRr6a8' },
@@ -55,7 +55,7 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     id: 'plage',
     titleKey: 'neighborhood.sectionPlageTitle',
     descriptionKey: 'neighborhood.sectionPlageDesc',
-    icon: '🏖️',
+    icon: 'sun',
     items: [
       { nameKey: 'neighborhood.plage1Name', detailKey: 'neighborhood.plage1Detail' },
       { nameKey: 'neighborhood.plage2Name', detailKey: 'neighborhood.plage2Detail' },
@@ -66,7 +66,7 @@ export const neighborhoodSections: NeighborhoodSection[] = [
     id: 'pointsInteret',
     titleKey: 'neighborhood.sectionPointsInteretTitle',
     descriptionKey: 'neighborhood.sectionPointsInteretDesc',
-    icon: '📍',
+    icon: 'pin',
     columns: 2,
     items: [
       { nameKey: 'neighborhood.poi1Name', detailKey: 'neighborhood.poi1Detail', url: 'https://maps.app.goo.gl/ELP1xqUQpeteBvjz9' },

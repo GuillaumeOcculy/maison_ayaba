@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import LineIcon from '../ui/LineIcon.astro';
+import type { Locale } from '../../i18n/utils';
+
+type Variant = 'trust' | 'airport' | 'wifi';
+
+interface Props {
+  locale: Locale;
+  variant: Variant;
+  image: ImageMetadata;
+  imageAlt: string;
+  ctaHref: string;
+}
+
+const { locale, variant, image, imageAlt, ctaHref } = Astro.props;
+
+const chrome = {
+  fr: {
+    eyebrow: 'Appartement à Cotonou · Fidjrossè, bord de mer',
+    ctaText: "Voir l'appartement sur Airbnb",
+    microTrust: 'Paiement protégé par Airbnb · 5/5 sur les avis voyageurs',
+  },
+  en: {
+    eyebrow: 'Apartment in Cotonou · Fidjrossè, by the sea',
+    ctaText: 'See the apartment on Airbnb',
+    microTrust: 'Payment protected by Airbnb · 5/5 on traveler reviews',
+  },
+} as const;
+
+const variants: Record<Locale, Record<Variant, { title: string; subtitle: string }>> = {
+  fr: {
+    trust: {
+      title: "Réserver à Cotonou depuis l'étranger, sans mauvaise surprise.",
+      subtitle:
+        "Avis vérifiés 5/5, une équipe qui répond, un logement conforme aux photos. Vous savez exactement ce qui vous attend — climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.",
+    },
+    airport: {
+      title: 'Vous atterrissez à Cotonou. Un chauffeur vous attend.',
+      subtitle:
+        'Transfert aéroport offert et organisé avant votre arrivée, check-in autonome avec votre code, équipe sur place qui répond. Vous posez vos valises et vous êtes chez vous.',
+    },
+    wifi: {
+      title: 'À Cotonou, le courant saute. Pas votre WiFi.',
+      subtitle:
+        'Onduleur dédié : votre connexion tient pendant les coupures. Climatisation dans chaque pièce, votre salle de bain, transfert aéroport offert.',
+    },
+  },
+  en: {
+    trust: {
+      title: 'Book in Cotonou from abroad, with no nasty surprises.',
+      subtitle:
+        'Verified 5/5 reviews, a team that answers, an apartment true to the photos. You know exactly what awaits you — air conditioning in every room, your own bathroom, complimentary airport transfer.',
+    },
+    airport: {
+      title: 'You land in Cotonou. A driver is waiting for you.',
+      subtitle:
+        "Complimentary airport transfer arranged before you arrive, self check-in with your code, an on-site team that answers. You drop your bags and you're home.",
+    },
+    wifi: {
+      title: "In Cotonou, the power cuts out. Your WiFi doesn't.",
+      subtitle:
+        'A dedicated inverter: your connection holds through outages. Air conditioning in every room, your own bathroom, complimentary airport transfer.',
+    },
+  },
+};
+
+const { eyebrow, ctaText, microTrust } = chrome[locale];
+const { title, subtitle } = variants[locale][variant];
+---
+<section class="relative min-h-[78vh] lg:min-h-[80vh] flex overflow-hidden">
+  <Image
+    src={image}
+    alt={imageAlt}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+    widths={[640, 1024, 1920]}
+    sizes="100vw"
+  />
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(115deg, rgba(44,24,16,0.90) 0%, rgba(44,24,16,0.72) 45%, rgba(44,24,16,0.35) 80%, rgba(44,24,16,0.20) 100%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative w-full max-w-6xl mx-auto px-5 lg:px-8 py-12 lg:py-16 flex flex-col justify-center">
+    <p class="text-ayaba-gold text-xs lg:text-sm uppercase tracking-[1.5px] font-semibold mb-5">
+      {eyebrow}
+    </p>
+
+    <h1 class="text-white font-heading text-[30px] lg:text-[50px] font-bold leading-[1.1] max-w-3xl mb-5">
+      {title}
+    </h1>
+
+    <p class="text-white/80 text-base lg:text-xl max-w-2xl mb-8 leading-relaxed">
+      {subtitle}
+    </p>
+
+    <div class="flex flex-col items-start gap-3">
+      <a
+        href={ctaHref}
+        target="_blank"
+        rel="noopener"
+        data-airbnb-cta
+        class="bg-ayaba-terra text-white hover:bg-ayaba-terra/90 rounded-md px-7 py-4 font-semibold text-base lg:text-lg transition-colors min-h-[52px] inline-flex items-center gap-2 shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-white"
+      >
+        {ctaText}
+        <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+      <p class="flex items-center gap-2 text-white/70 text-xs lg:text-sm">
+        <LineIcon name="shield" class="w-4 h-4 text-ayaba-gold shrink-0" />
+        {microTrust}
+      </p>
+    </div>
+  </div>
+</section>
