@@ -13,10 +13,19 @@ export function getStaticPaths() {
     {
       params: { variant: undefined },
       props: {
-        variant: 'trust',
+        variant: 'securite',
         image: salonHero,
         imageAlt: 'Bright living room of the Maison Ayaba apartment in Fidjrossè, Cotonou',
         frPath: '/fr/reserver-cotonou/',
+      },
+    },
+    {
+      params: { variant: 'no-surprises' },
+      props: {
+        variant: 'trust',
+        image: salonHero,
+        imageAlt: 'Bright living room of the Maison Ayaba apartment in Fidjrossè, Cotonou',
+        frPath: '/fr/reserver-cotonou/sans-surprise/',
       },
     },
     {
@@ -41,18 +50,20 @@ export function getStaticPaths() {
 }
 
 const { variant, image, imageAlt, frPath } = Astro.props as {
-  variant: 'trust' | 'airport' | 'wifi';
+  variant: 'securite' | 'trust' | 'airport' | 'wifi';
   image: ImageMetadata;
   imageAlt: string;
   frPath: string;
 };
 
-// Same Airbnb target as the FR landing (2-bedroom listing).
-const airbnbUrl = apartments[1].airbnbUrl;
+// Generic CTAs (header, hero, final CTA) → 3-bedroom listing (largest basket).
+const ctaHref = apartments[2].airbnbUrl;
+// Offer section: one link per format (1 / 2 / 3 bedrooms), in order.
+const formatHrefs = apartments.map((a) => a.airbnbUrl);
 
-const title = 'Apartment in Cotonou, Fidjrossè — book with no nasty surprises | Maison Ayaba';
+const title = 'Apartment in Cotonou, Fidjrossè — safe neighborhood, no nasty surprises | Maison Ayaba';
 const description =
-  'Book in Cotonou from abroad with confidence: verified 5/5 reviews, responsive host, apartment true to the photos. Air conditioning, a bathroom per bedroom, complimentary airport transfer. From €40/night, payment protected by Airbnb.';
+  'Apartment in Fidjrossè, a safe residential area (night guard, next to the Lycée International Français). Verified 5/5 reviews, true-to-life photos, air conditioning, complimentary airport transfer. From €40/night, payment protected by Airbnb.';
 const canonical = `${baseUrl}${Astro.url.pathname}`;
 const alternates = [
   { hreflang: 'en', href: canonical },
@@ -66,9 +77,9 @@ const alternates = [
   description={description}
   canonical={canonical}
   ctaText="Book on Airbnb"
-  ctaHref={airbnbUrl}
+  ctaHref={ctaHref}
   alternates={alternates}
 >
-  <LandingHero locale="en" variant={variant} image={image} imageAlt={imageAlt} ctaHref={airbnbUrl} />
-  <LandingBody locale="en" ctaHref={airbnbUrl} />
+  <LandingHero locale="en" variant={variant} image={image} imageAlt={imageAlt} ctaHref={ctaHref} />
+  <LandingBody locale="en" ctaHref={ctaHref} formatHrefs={formatHrefs} />
 </LandingLayout>
