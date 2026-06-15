@@ -13,7 +13,7 @@ const categories = [
   },
   {
     title: t(locale, 'apartment.faqCatEquipements'),
-    questions: [16, 2, 5, 10, 11, 12],
+    questions: [16, 2, 5, 18, 10, 11, 12],
   },
   {
     title: t(locale, 'apartment.faqCatQuartier'),
@@ -35,7 +35,7 @@ const categories = [
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [2,3,4,17,13,16,5,10,11,12,6,8,15,7,14].map((n) => ({
+      "mainEntity": [2,3,4,17,13,16,5,18,10,11,12,6,8,15,7,14].map((n) => ({
         "@type": "Question",
         "name": t(locale, `apartment.faq${n}Q`),
         "acceptedAnswer": {

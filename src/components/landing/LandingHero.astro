@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import LineIcon from '../ui/LineIcon.astro';
 import type { Locale } from '../../i18n/utils';
 
-type Variant = 'trust' | 'airport' | 'wifi';
+type Variant = 'securite' | 'trust' | 'airport' | 'wifi';
 
 interface Props {
   locale: Locale;
@@ -28,8 +28,14 @@ const chrome = {
   },
 } as const;
 
-const variants: Record<Locale, Record<Variant, { title: string; subtitle: string }>> = {
+const variants: Record<Locale, Record<Variant, { title: string; subtitle: string; eyebrow?: string }>> = {
   fr: {
+    securite: {
+      eyebrow: 'Appartement à Cotonou · Fidjrossè, quartier sécurisé',
+      title: 'Cotonou en toute sérénité, même pour un premier séjour.',
+      subtitle:
+        "Quartier résidentiel réputé, à deux pas du Lycée International Français. Gardien la nuit, serrure connectée, équipe sur place. Avis vérifiés 5/5 et photos fidèles : aucune mauvaise surprise.",
+    },
     trust: {
       title: "Réserver à Cotonou depuis l'étranger, sans mauvaise surprise.",
       subtitle:
@@ -47,6 +53,12 @@ const variants: Record<Locale, Record<Variant, { title: string; subtitle: string
     },
   },
   en: {
+    securite: {
+      eyebrow: 'Apartment in Cotonou · Fidjrossè, safe neighborhood',
+      title: 'Cotonou with complete peace of mind, even on a first trip.',
+      subtitle:
+        'A well-regarded residential area, steps from the Lycée International Français. Night guard, smart lock, on-site team. Verified 5/5 reviews and true-to-life photos: no nasty surprises.',
+    },
     trust: {
       title: 'Book in Cotonou from abroad, with no nasty surprises.',
       subtitle:
@@ -65,8 +77,9 @@ const variants: Record<Locale, Record<Variant, { title: string; subtitle: string
   },
 };
 
-const { eyebrow, ctaText, microTrust } = chrome[locale];
-const { title, subtitle } = variants[locale][variant];
+const { ctaText, microTrust } = chrome[locale];
+const { title, subtitle, eyebrow: variantEyebrow } = variants[locale][variant];
+const eyebrow = variantEyebrow ?? chrome[locale].eyebrow;
 ---
 <section class="relative min-h-[78vh] lg:min-h-[80vh] flex overflow-hidden">
   <Image

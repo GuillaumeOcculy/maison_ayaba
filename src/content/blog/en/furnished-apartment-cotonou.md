@@ -9,7 +9,7 @@ faqItems:
   - question: "How do I verify an apartment in Cotonou has an inverter?"
     answer: "Ask the host explicitly if the apartment has an automatic inverter (not just a generator). Power outages are frequent in Cotonou — an inverter guarantees zero interruption."
   - question: "What price should I expect for a quality furnished apartment in Cotonou?"
-    answer: "Expect between €60 and €140 per night for a premium furnished apartment in Cotonou, depending on size (1 to 3 bedrooms). It's more expensive than a basic hotel but the comfort and space are incomparable."
+    answer: "The rate for a premium furnished apartment in Cotonou depends on size (1 to 3 bedrooms), amenities and season. It's more expensive than a basic hotel but the comfort and space are incomparable."
   - question: "Is Fidjrossè a good neighborhood to stay in Cotonou?"
     answer: "Yes, Fidjrossè is one of the best neighborhoods for travelers. Residential, calm, close to the beach (10 min walk), with restaurants and shops nearby. Very popular with expats."
 ---
@@ -85,11 +85,11 @@ A host who prepares for your arrival (transport tips, recommendations, welcome b
 
 Furnished apartment prices in Cotonou vary considerably:
 
-| Tier | Price/night | What you get |
-|------|------------|--------------|
-| Budget | €20-40 | Basic furnishing, unreliable WiFi, no inverter |
-| Mid-range | €40-60 | Decent but often no inverter or AC in all rooms |
-| Premium | €60-140 | Inverter, reliable WiFi, AC everywhere, security, pro host |
+| Tier | Indicative price | What you get |
+|------|------------------|--------------|
+| Budget | € | Basic furnishing, unreliable WiFi, no inverter |
+| Mid-range | €€ | Decent but often no inverter or AC in all rooms |
+| Premium | €€€ | Inverter, reliable WiFi, AC everywhere, security, pro host |
 
 A premium apartment costs more, but the value is unbeatable when compared to the comfort of an international hotel (€200-300/night) with far less space.
 
@@ -102,7 +102,7 @@ At [Maison Ayaba](/en/#logements), every point on this checklist is covered:
 - **AC in every room** — including the kitchen
 - **Smart lock + Ring camera** — security without compromise
 - **Fidjrossè Jacquot** — residential neighborhood, 10 min from the beach
-- **3 configurations** — 1, 2, or 3 bedrooms, from €60 to €100/night
+- **3 configurations** — 1, 2, or 3 bedrooms, from €30/night based on dates
 - **Kwabo Protocol** — welcome basket, pre-cooled AC, available host
 
 Over €20,000 invested in infrastructure to guarantee a stay without surprises. That's the difference between an improvised Airbnb and a structured hospitality brand.
