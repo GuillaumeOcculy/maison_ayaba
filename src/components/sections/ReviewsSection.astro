@@ -7,7 +7,8 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const reviews = [1, 2, 3, 4, 5, 6].map((n) => ({
+// Ordre d'affichage : Ore (7) puis Frantz (3) en tête, puis les autres.
+const reviews = [7, 3, 1, 2, 4, 5, 6].map((n) => ({
   text: t(locale, `home.review${n}Text`),
   author: t(locale, `home.review${n}Author`),
 }));
