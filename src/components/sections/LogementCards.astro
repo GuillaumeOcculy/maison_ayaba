@@ -14,36 +14,33 @@ const cards = [
     capacity: t(locale, 'home.card1Capacity'),
     surface: t(locale, 'home.card1Surface'),
     useCase: t(locale, 'home.card1UseCase'),
-    price: '60€',
+    price: '30 €',
     airbnbUrl: apartments[0].airbnbUrl,
     popular: false,
     badge: null as string | null,
     badgeColor: '',
-    perPerson: null as string | null,
   },
   {
     name: t(locale, 'home.card2Name'),
     capacity: t(locale, 'home.card2Capacity'),
     surface: t(locale, 'home.card2Surface'),
     useCase: t(locale, 'home.card2UseCase'),
-    price: '80€',
+    price: '40 €',
     airbnbUrl: apartments[1].airbnbUrl,
     popular: true,
     badge: t(locale, 'home.card2Badge'),
     badgeColor: 'bg-ayaba-gold',
-    perPerson: t(locale, 'home.card2PerPerson'),
   },
   {
     name: t(locale, 'home.card3Name'),
     capacity: t(locale, 'home.card3Capacity'),
     surface: t(locale, 'home.card3Surface'),
     useCase: t(locale, 'home.card3UseCase'),
-    price: '100€',
+    price: '50 €',
     airbnbUrl: apartments[2].airbnbUrl,
     popular: false,
     badge: t(locale, 'home.card3Badge'),
     badgeColor: 'bg-ayaba-success',
-    perPerson: t(locale, 'home.card3PerPerson'),
   },
 ];
 
@@ -90,11 +87,10 @@ const bookCta = t(locale, 'home.cardBookCta');
           </p>
 
           <div class="mt-auto mb-5">
+            <span class="text-ayaba-muted text-sm">{t(locale, 'home.cardFrom')} </span>
             <span class="font-heading text-ayaba-terra text-[32px] font-bold">{card.price}</span>
             <span class="text-ayaba-muted text-sm"> /{t(locale, 'home.cardPerNight')}</span>
-            {card.perPerson && (
-              <p class="text-ayaba-muted text-xs mt-0.5">{card.perPerson}</p>
-            )}
+            <p class="text-ayaba-muted text-xs mt-0.5">{t(locale, 'home.cardPriceNote')}</p>
           </div>
 
           <a

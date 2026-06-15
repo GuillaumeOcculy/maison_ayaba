@@ -43,12 +43,12 @@ Let's compare real numbers for a week in Cotonou:
 - No kitchen — add restaurant meals 3 times a day
 
 **Furnished apartment at Maison Ayaba:**
-- 1 bedroom (122 m²): 60 euros/night = **420 euros/week**
-- 2 bedrooms (144 m²): 80 euros/night = **560 euros/week**
-- 3 bedrooms (167 m²): 100 euros/night = **700 euros/week**
+- 1 bedroom (122 m²): from 30 euros/night
+- 2 bedrooms (144 m²): from 40 euros/night
+- 3 bedrooms (167 m²): from 50 euros/night
 - Full kitchen — cook when you want, eat out when you want
 
-Even comparing the most expensive apartment configuration to the cheapest hotel option, you save **at least 350 euros per week** while getting 5 times more space.
+Even comparing the most expensive apartment configuration to the cheapest hotel option, you save **several hundred euros per week** while getting 5 times more space.
 
 ## Comfort and Equipment
 

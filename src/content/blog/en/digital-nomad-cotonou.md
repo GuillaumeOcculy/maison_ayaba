@@ -63,7 +63,7 @@ Here's a realistic monthly budget for a digital nomad in Cotonou:
 
 | Expense | Monthly Cost |
 |---------|-------------|
-| Accommodation (Maison Ayaba, 1BR) | ~1,800 euros (60 euros/night) |
+| Accommodation (Maison Ayaba, 1BR, long-stay rate) | ~1,800 euros |
 | Food (mix of eating out and cooking) | 200-350 euros |
 | Transport (Gozem and zems) | 50-80 euros |
 | SIM card and data | 8-15 euros |

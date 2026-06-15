@@ -22,7 +22,7 @@ Commençons par l'éléphant dans la pièce. Voici ce que coûte une nuit à Cot
 
 | | Hôtel de standing | Maison Ayaba |
 |---|---|---|
-| **Prix/nuit** | 150 à 250 € | 60 à 100 € |
+| **Prix/nuit** | 150 à 250 € | dès 30 € |
 | **Surface** | 20 à 30 m² | 122 à 167 m² |
 | **Chambres** | 1 | 1 à 3 |
 | **Cuisine** | Non | Équipée complète |
@@ -30,9 +30,9 @@ Commençons par l'éléphant dans la pièce. Voici ce que coûte une nuit à Cot
 
 Le **Novotel Cotonou** affiche environ 200 € la nuit pour une chambre standard. Le **Golden Tulip**, autour de 180 €. L'**Azalaï**, entre 150 et 180 €. Pour ce prix, vous avez une chambre d'hôtel classique — lit, salle de bain, mini-bar.
 
-À Maison Ayaba, pour **60 € la nuit** en configuration 1 chambre, vous avez un appartement entier de 122 m² : salon, cuisine équipée, terrasse, chambre avec salle de bain privée. En configuration 3 chambres (100 €/nuit), c'est **167 m²** — soit l'équivalent de 6 chambres d'hôtel en surface.
+À Maison Ayaba, dès **30 € la nuit** en configuration 1 chambre, vous avez un appartement entier de 122 m² : salon, cuisine équipée, terrasse, chambre avec salle de bain attenante. En configuration 3 chambres, c'est **167 m²** — soit l'équivalent de 6 chambres d'hôtel en surface.
 
-Pour un couple qui reste 10 nuits, on parle d'une **économie de 1 000 à 1 500 €**. Pour un groupe ou une famille, c'est encore plus flagrant.
+Pour un couple qui reste 10 nuits, on parle d'une **économie de plusieurs centaines d'euros**. Pour un groupe ou une famille, c'est encore plus flagrant.
 
 ## L'espace : vivre vs dormir
 

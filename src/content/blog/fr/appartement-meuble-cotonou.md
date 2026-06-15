@@ -9,7 +9,7 @@ faqItems:
   - question: "Comment vérifier qu'un appartement à Cotonou a un onduleur ?"
     answer: "Demandez explicitement à l'hôte si l'appartement dispose d'un onduleur automatique (pas un simple groupe électrogène). Les coupures d'électricité sont fréquentes à Cotonou — un onduleur garantit zéro interruption."
   - question: "Quel prix pour un appartement meublé de qualité à Cotonou ?"
-    answer: "Comptez entre 60€ et 140€ par nuit pour un appartement meublé haut de gamme à Cotonou, selon la taille (1 à 3 chambres). C'est plus cher qu'un hôtel basique mais le confort et l'espace sont incomparables."
+    answer: "Le tarif d'un appartement meublé haut de gamme à Cotonou dépend de la taille (1 à 3 chambres), des prestations et de la saison. C'est plus cher qu'un hôtel basique, mais le confort et l'espace sont incomparables."
   - question: "Fidjrossè est-il un bon quartier pour loger à Cotonou ?"
     answer: "Oui, Fidjrossè est l'un des meilleurs quartiers pour les voyageurs. Résidentiel, calme, proche de la plage (10 min à pied), avec restaurants et commerces à proximité. Très prisé par les expatriés."
 ---
@@ -85,11 +85,11 @@ Un hôte qui vous prépare votre arrivée (conseils transport, recommandations, 
 
 Les prix des appartements meublés à Cotonou varient considérablement :
 
-| Gamme | Prix/nuit | Ce que vous obtenez |
-|-------|-----------|---------------------|
-| Basique | 20-40€ | Meublé minimal, WiFi instable, pas d'onduleur |
-| Milieu de gamme | 40-60€ | Correct mais souvent sans onduleur ni clim partout |
-| Haut de gamme | 60-140€ | Onduleur, WiFi fiable, clim partout, sécurité, hôte pro |
+| Gamme | Prix indicatif | Ce que vous obtenez |
+|-------|----------------|---------------------|
+| Basique | € | Meublé minimal, WiFi instable, pas d'onduleur |
+| Milieu de gamme | €€ | Correct mais souvent sans onduleur ni clim partout |
+| Haut de gamme | €€€ | Onduleur, WiFi fiable, clim partout, sécurité, hôte pro |
 
 Un appartement haut de gamme coûte plus cher, mais le rapport qualité/prix est imbattable quand on compare au confort d'un hôtel international (200-300€/nuit) pour un espace bien plus réduit.
 
@@ -102,7 +102,7 @@ Un appartement haut de gamme coûte plus cher, mais le rapport qualité/prix est
 - **Clim dans chaque pièce** — même la cuisine
 - **Serrure connectée + caméra Ring** — sécurité sans compromis
 - **Fidjrossè Jacquot** — quartier résidentiel, 10 min de la plage
-- **3 configurations** — 1, 2 ou 3 chambres, de 60€ à 100€/nuit
+- **3 configurations** — 1, 2 ou 3 chambres, dès 30€/nuit selon les dates
 - **Protocole Kwabo** — panier de bienvenue, clim pré-allumée, hôte disponible
 
 Plus de 20 000€ investis en infrastructure pour garantir un séjour sans mauvaise surprise. C'est la différence entre un Airbnb improvisé et une marque hôtelière structurée.
