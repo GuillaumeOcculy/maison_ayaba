@@ -1,0 +1,11 @@
+{
+  "name": "Maison Ayaba",
+  "short_name": "Maison Ayaba",
+  "icons": [
+    { "src": "/assets/favicon/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/assets/favicon/icon-512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "theme_color": "#BE4A2F",
+  "background_color": "#F7F1E6",
+  "display": "standalone"
+}
