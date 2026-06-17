@@ -23,13 +23,13 @@ const href = `https://wa.me/${whatsappNumber}?text=${message}`;
 </a>
 
 <script>
-  document.querySelectorAll('a[href*="wa.me"]').forEach((cta) => {
+  import { track } from '../../scripts/analytics';
+
+  document.querySelectorAll<HTMLElement>('a[href*="wa.me"]').forEach((cta) => {
+    if (cta.dataset.tracked) return;
+    cta.dataset.tracked = '1';
     cta.addEventListener('click', () => {
-      if (typeof fbq !== 'undefined') {
-        fbq('trackCustom', 'GoWhatsApp', {
-          page: window.location.pathname,
-        });
-      }
+      track('GoWhatsApp', 'whatsapp_click', { page: window.location.pathname });
     });
   });
 </script>
