@@ -45,21 +45,6 @@ const classes = `${baseClasses} ${variantClasses} ${sizeClasses}`;
 </div>
 
 <script>
-  document.querySelectorAll('[data-airbnb-cta]').forEach((cta) => {
-    cta.addEventListener('click', () => {
-      const config = (cta as HTMLElement).dataset.configId;
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'airbnb_click', {
-          config,
-          page: window.location.pathname,
-        });
-      }
-      if (typeof fbq !== 'undefined') {
-        fbq('trackCustom', 'GoAirbnb', {
-          config,
-          page: window.location.pathname,
-        });
-      }
-    });
-  });
+  import { bindAirbnbCtas } from '../../scripts/analytics';
+  bindAirbnbCtas();
 </script>

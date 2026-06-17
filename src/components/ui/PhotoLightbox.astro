@@ -14,6 +14,8 @@
 </div>
 
 <script>
+  import { trackOnce } from '../../scripts/analytics';
+
   document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('photo-lightbox')!;
     const lbImg = document.getElementById('plb-img') as HTMLImageElement;
@@ -25,6 +27,7 @@
     function open(group: HTMLImageElement[], index: number) {
       photos = group;
       current = index;
+      trackOnce('view_photos', 'ViewPhotos', 'view_photos');
       update();
       lightbox.classList.remove('opacity-0', 'pointer-events-none');
       lightbox.classList.add('opacity-100');

@@ -16,6 +16,7 @@ const cards = [
     useCase: t(locale, 'home.card1UseCase'),
     price: '30 €',
     airbnbUrl: apartments[0].airbnbUrl,
+    configId: '1ch',
     popular: false,
     badge: null as string | null,
     badgeColor: '',
@@ -27,6 +28,7 @@ const cards = [
     useCase: t(locale, 'home.card2UseCase'),
     price: '40 €',
     airbnbUrl: apartments[1].airbnbUrl,
+    configId: '2ch',
     popular: true,
     badge: t(locale, 'home.card2Badge'),
     badgeColor: 'bg-ayaba-gold',
@@ -38,6 +40,7 @@ const cards = [
     useCase: t(locale, 'home.card3UseCase'),
     price: '50 €',
     airbnbUrl: apartments[2].airbnbUrl,
+    configId: '3ch',
     popular: false,
     badge: t(locale, 'home.card3Badge'),
     badgeColor: 'bg-ayaba-success',
@@ -98,6 +101,8 @@ const bookCta = t(locale, 'home.cardBookCta');
             target="_blank"
             rel="noopener"
             class="bg-ayaba-terra hover:bg-ayaba-terra/90 text-white font-semibold text-[15px] rounded-md px-6 py-3.5 w-full flex items-center justify-center gap-2 min-h-[48px] transition-colors"
+            data-airbnb-cta
+            data-config-id={card.configId}
           >
             {bookCta}
             <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
@@ -107,3 +112,24 @@ const bookCta = t(locale, 'home.cardBookCta');
     </div>
   </div>
 </section>
+
+<script>
+  import { bindAirbnbCtas, trackOnce } from '../../scripts/analytics';
+
+  // Tracker les clics sur les 3 cartes d'appartement de la home.
+  bindAirbnbCtas();
+
+  // ViewApartments : l'utilisateur a vu la section des 3 formats + prix.
+  const section = document.getElementById('logements');
+  if (section) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          trackOnce('view_apartments', 'ViewApartments', 'view_apartments');
+          obs.disconnect();
+        }
+      }
+    }, { threshold: 0.4 });
+    observer.observe(section);
+  }
+</script>
