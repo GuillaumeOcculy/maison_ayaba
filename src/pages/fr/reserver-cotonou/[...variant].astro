@@ -56,8 +56,15 @@ const { variant, image, imageAlt, enPath } = Astro.props as {
   enPath: string;
 };
 
-// CTA génériques (header, hero, CTA final) → annonce 3 chambres (plus gros panier).
-const ctaHref = apartments[2].airbnbUrl;
+// CTA génériques (header, hero, CTA final) → annonce adaptée à l'audience de la variante.
+// securite (campagne solo / sécurité) → 1 chambre ; autres variantes → 3 chambres (plus gros panier).
+const ctaApartmentByVariant: Record<'securite' | 'trust' | 'airport' | 'wifi', number> = {
+  securite: 0,
+  trust: 2,
+  airport: 2,
+  wifi: 2,
+};
+const ctaHref = apartments[ctaApartmentByVariant[variant]].airbnbUrl;
 // Section offre : un lien par format (1 / 2 / 3 chambres), dans l'ordre.
 const formatHrefs = apartments.map((a) => a.airbnbUrl);
 
