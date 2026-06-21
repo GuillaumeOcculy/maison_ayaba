@@ -3,7 +3,8 @@
  * Tout est défensif : si fbq / gtag ne sont pas chargés, on ne fait rien.
  */
 
-declare const fbq: ((...args: unknown[]) => void) | undefined;
+import { sendMeta } from './meta-capi';
+
 declare const gtag: ((...args: unknown[]) => void) | undefined;
 
 const eventByConfig: Record<string, string> = {
@@ -12,10 +13,28 @@ const eventByConfig: Record<string, string> = {
   '3ch': 'Choix3Chambres',
 };
 
-/** Envoie un événement personnalisé Meta Pixel + GA4 (no-op si non chargés). */
-export function track(metaEvent: string, gaEvent: string, params: Record<string, unknown> = {}): void {
-  if (typeof fbq !== 'undefined') fbq('trackCustom', metaEvent, params);
+/**
+ * Envoie un événement Meta (pixel + Conversions API, dédupliqués via event_id)
+ * et GA4. `command` distingue event standard ('track') et custom ('trackCustom').
+ */
+function emit(
+  command: 'track' | 'trackCustom',
+  metaEvent: string,
+  gaEvent: string,
+  params: Record<string, unknown>,
+): void {
+  sendMeta(command, metaEvent, params);
   if (typeof gtag !== 'undefined') gtag('event', gaEvent, params);
+}
+
+/** Événement Meta personnalisé (+ CAPI) + GA4. */
+export function track(metaEvent: string, gaEvent: string, params: Record<string, unknown> = {}): void {
+  emit('trackCustom', metaEvent, gaEvent, params);
+}
+
+/** Événement Meta standard — Lead, ViewContent… (+ CAPI) + GA4. */
+export function trackStandard(metaEvent: string, gaEvent: string, params: Record<string, unknown> = {}): void {
+  emit('track', metaEvent, gaEvent, params);
 }
 
 /**

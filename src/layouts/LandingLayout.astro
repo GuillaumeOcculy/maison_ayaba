@@ -117,13 +117,13 @@ const footerLocation = locale === 'fr' ? 'Fidjrossè, Cotonou, Bénin' : 'Fidjro
       </div>
     </footer>
 
-    {/* Outbound Airbnb clicks → Meta Lead + GA4 */}
-    <script is:inline>
-      document.addEventListener('click', function (e) {
-        const link = e.target.closest('[data-airbnb-cta]');
+    {/* Outbound Airbnb clicks → Meta Lead (pixel + CAPI, dédupliqués) + GA4 */}
+    <script>
+      import { trackStandard } from '../scripts/analytics';
+      document.addEventListener('click', (e) => {
+        const link = (e.target as HTMLElement | null)?.closest('[data-airbnb-cta]');
         if (!link) return;
-        if (window.fbq) fbq('track', 'Lead');
-        if (window.gtag) gtag('event', 'airbnb_click', { page: window.location.pathname });
+        trackStandard('Lead', 'airbnb_click', { page: window.location.pathname });
       });
     </script>
   </body>
