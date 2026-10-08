@@ -1,0 +1,46 @@
+---
+// Pastille de confiance : Superhôte Airbnb + note globale, liée au profil hôte (vérifiable).
+import LineIcon from './LineIcon.astro';
+import type { Locale } from '../../i18n/utils';
+import { airbnbRating, airbnbProfileUrl, ratingLabel } from '../../data/siteConfig';
+
+interface Props {
+  locale: Locale;
+  /** `onDark` : posée sur une photo/fond foncé (hero). `onLight` : fond crème/blanc. */
+  tone?: 'onDark' | 'onLight';
+  class?: string;
+}
+
+const { locale, tone = 'onDark', class: className = '' } = Astro.props;
+
+const label = {
+  fr: { title: 'Superhôte Airbnb', reviews: `${airbnbRating.count} avis`, aria: 'Voir le profil Superhôte Maison Ayaba sur Airbnb' },
+  en: { title: 'Airbnb Superhost', reviews: `${airbnbRating.count} reviews`, aria: 'See the Maison Ayaba Superhost profile on Airbnb' },
+}[locale];
+---
+<a
+  href={airbnbProfileUrl}
+  target="_blank"
+  rel="noopener"
+  aria-label={label.aria}
+  class:list={[
+    'inline-flex items-center gap-2.5 rounded-full pl-1.5 pr-4 py-1.5 w-fit transition-colors border',
+    tone === 'onDark'
+      ? 'bg-ayaba-cream/95 border-ayaba-gold/40 hover:bg-ayaba-cream'
+      : 'bg-white border-ayaba-gold/40 hover:border-ayaba-gold',
+    className,
+  ]}
+>
+  <span class="w-8 h-8 rounded-full bg-ayaba-terra flex items-center justify-center shrink-0">
+    <LineIcon name="medal" class="w-[18px] h-[18px] text-ayaba-cream" />
+  </span>
+  <span class="flex items-center gap-2 text-ayaba-dark text-sm leading-none">
+    <span class="font-semibold">{label.title}</span>
+    <span class="w-px h-3.5 bg-ayaba-dark/20" aria-hidden="true"></span>
+    <span class="inline-flex items-center gap-1">
+      <LineIcon name="star" class="w-3.5 h-3.5 text-ayaba-gold fill-ayaba-gold" />
+      <span class="font-semibold">{ratingLabel(locale).replace('/5', '')}</span>
+      <span class="text-ayaba-muted">· {label.reviews}</span>
+    </span>
+  </span>
+</a>

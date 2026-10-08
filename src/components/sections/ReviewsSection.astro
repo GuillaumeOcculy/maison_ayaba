@@ -1,5 +1,8 @@
 ---
 import { t, type Locale } from '../../i18n/utils';
+import { airbnbRating, airbnbProfileUrl } from '../../data/siteConfig';
+import { reviews, reviewMeta } from '../../data/reviews';
+import SuperhostBadge from '../ui/SuperhostBadge.astro';
 
 interface Props {
   locale: Locale;
@@ -7,30 +10,42 @@ interface Props {
 
 const { locale } = Astro.props;
 
-// Ordre d'affichage : Ore (7) puis Frantz (3) en tête, puis les autres.
-const reviews = [7, 3, 1, 2, 4, 5, 6].map((n) => ({
-  text: t(locale, `home.review${n}Text`),
-  author: t(locale, `home.review${n}Author`),
-}));
+const allReviewsCta = {
+  fr: `Lire les ${airbnbRating.count} avis sur Airbnb`,
+  en: `Read all ${airbnbRating.count} reviews on Airbnb`,
+}[locale];
 ---
 <section class="bg-white py-16 lg:py-20">
-  <div class="max-w-[960px] mx-auto px-6 lg:px-16">
-    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold text-center mb-2">
+  <div class="max-w-[1200px] mx-auto px-6 lg:px-16">
+    <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold text-center mb-4">
       {t(locale, 'home.reviewsTitle')}
     </h2>
-    <p class="text-center text-lg mb-8">
-      <span class="text-ayaba-gold">★★★★★</span>
-      <span class="text-ayaba-dark text-base font-semibold">5/5 · {t(locale, 'home.reviewsCount')} {t(locale, 'home.reviewsSource')}</span>
-    </p>
+    <div class="flex justify-center mb-10">
+      <SuperhostBadge locale={locale} tone="onLight" />
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {reviews.map((review) => (
-        <div class="bg-ayaba-cream rounded-xl p-6">
-          <p class="text-ayaba-gold text-sm mb-2">★★★★★</p>
-          <p class="text-ayaba-dark text-sm leading-relaxed italic mb-3">"{review.text}"</p>
-          <p class="text-ayaba-muted text-[13px] font-semibold">— {review.author}</p>
-        </div>
+        <figure class="bg-ayaba-cream rounded-xl p-6 flex flex-col">
+          <p class="text-ayaba-gold text-sm mb-2" aria-hidden="true">★★★★★</p>
+          <blockquote class="text-ayaba-dark text-sm leading-relaxed italic mb-3 flex-1">"{review.text[locale]}"</blockquote>
+          <figcaption class="text-ayaba-muted text-[13px] font-semibold">
+            — {review.author} <span class="font-normal">· {reviewMeta(review, locale)}</span>
+          </figcaption>
+        </figure>
       ))}
     </div>
+
+    <p class="text-center mt-10">
+      <a
+        href={airbnbProfileUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-ayaba-terra font-semibold text-[15px] underline decoration-ayaba-terra/30 underline-offset-4 hover:decoration-ayaba-terra transition-colors"
+      >
+        {allReviewsCta}
+        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/></svg>
+      </a>
+    </p>
   </div>
 </section>

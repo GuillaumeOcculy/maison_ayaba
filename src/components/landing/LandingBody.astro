@@ -1,7 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import LineIcon from '../ui/LineIcon.astro';
+import SuperhostBadge from '../ui/SuperhostBadge.astro';
 import type { Locale } from '../../i18n/utils';
+import { airbnbRating, ratingLabel } from '../../data/siteConfig';
+import { reviews, reviewMeta } from '../../data/reviews';
 import salon from '../../assets/images/apartments/salon1.png';
 import chambre from '../../assets/images/apartments/chambre1.png';
 import sdb from '../../assets/images/apartments/chambre1-sdb.png';
@@ -25,7 +28,7 @@ const photos = [
 
 const content = {
   fr: {
-    reassurance: ['5/5 sur Airbnb', 'Quartier sécurisé, gardien la nuit', 'Paiement protégé', 'Équipe sur place'],
+    reassurance: [`Superhôte Airbnb · ${ratingLabel('fr')}`, 'Quartier sécurisé, gardien la nuit', 'Paiement protégé', 'Équipe sur place'],
     painTitle: "Première fois à Cotonou ? La vraie question, c'est la sécurité.",
     painP1: "Vous réservez de loin, peut-être pour votre premier séjour au Bénin. Les photos sont belles — mais le quartier est-il sûr ? L'endroit ressemble-t-il vraiment aux photos ? Et s'il y a un souci, y aura-t-il quelqu'un pour vous ?",
     painP2: 'Votre séjour est trop précieux pour le jouer à pile ou face.',
@@ -41,26 +44,16 @@ const content = {
     secTitle: "Vous voyagez l'esprit léger, seule ou en famille",
     secText: "Maison Ayaba est dans l'un des quartiers les plus calmes et réputés de Cotonou, juste à côté du Lycée International Français Pierre Manoël Talon. Un gardien veille la nuit, l'accès se fait par serrure connectée (votre code personnel, pas de clé qui circule), et un coffre-fort sécurise vos affaires. Une équipe est sur place et joignable à tout moment.",
     transpTitle: 'Tout est dit à l’avance. Vraiment tout.',
-    transpText: "Pas de frais caché, pas de surprise à la fin du séjour. Électricité incluse jusqu'à 25 kWh/jour — largement suffisant pour un usage normal, climatisation comprise. Au-delà, la consommation est facturée au réel, et c'est indiqué clairement avant votre réservation. Au Bénin, l'électricité a un coût réel : nous préférons être transparents plutôt que de gonfler le prix de la nuit.",
+    transpText: "Pas de frais caché, pas de surprise à la fin du séjour. Électricité incluse jusqu'à 25 kWh/jour — largement suffisant pour un usage normal, climatisation comprise. Seule une consommation excessive — la climatisation laissée en marche toute la journée en votre absence, par exemple — donne lieu à un supplément correspondant au dépassement, et c'est indiqué clairement avant votre réservation. Au Bénin, l'électricité a un coût réel : nous préférons être transparents plutôt que de gonfler le prix de la nuit.",
     proofTitle: "Ils ont réservé sans nous connaître. Voilà ce qu'ils en disent.",
-    proofBadge: '7 avis vérifiés sur Airbnb',
-    reviews: [
-      { text: "Ma famille et moi avons apprécié notre séjour. Super propre, et on sent que les gestionnaires ont beaucoup réfléchi au confort des voyageurs : batteries externes dans les chambres, parapluies, tapis d'exercice, instructions des appareils… L'appartement est aussi à deux pas de la plage, la cerise sur le gâteau. Vivement recommandé.", author: 'Ore', meta: 'Lagos, Nigeria' },
-      { text: "Logement extrêmement bien situé (10 min max de l'aéroport en voiture, toutes les commodités à moins de 10 min à pied), impeccable, avec une décoration épurée et des meubles valorisant le savoir-faire béninois. On se sent comme à la maison. Cet appartement dépasse très largement le niveau global des appartements proposés à Cotonou.", author: 'Frantz', meta: 'Paris, France' },
-      { text: "Agréablement surpris de la qualité du logement et de la réactivité d'Olivia. La localisation le rend encore plus unique. La propreté, le cadre, tout était parfait.", author: 'Sefou', meta: 'Bruxelles, Belgique' },
-      { text: "Séjour parfait du début à la fin ! Le logement était impeccable, confortable et conforme à la description. L'accueil, la disponibilité et l'attention portée aux détails ont vraiment fait la différence. Je recommande ce lieu à 100 %.", author: 'Laurette', meta: 'Appartement 3 chambres' },
-      { text: 'Un espace magnifique et accueillant. Bien pensé, confortable et relaxant. Olivia a été aimable, réactive et très attentionnée. Hautement recommandé !', author: 'Olutayo', meta: 'Lagos, Nigeria' },
-      { text: "J'ai été agréablement surpris par le logement. Tout était impeccable. J'ai passé un très bon séjour.", author: 'Muriel', meta: 'Ploeren, France' },
-      { text: "Maison Ayaba, j'ai hâte de réserver à nouveau chez vous pour mon prochain voyage !", author: 'Ayigbe', meta: 'Accra, Ghana' },
-    ],
     offerTitle: "Votre appartement à Fidjrossè, jusqu'à 6 voyageurs",
     offerLead: 'Choisissez votre format : chacun sa chambre, chacun sa salle de bain. À plusieurs, le coût par personne devient imbattable.',
     perNight: 'nuit',
     offerPriceNote: 'selon les dates',
     formats: [
-      { name: '1 chambre', capacity: '1 à 2 voyageurs', price: 'dès 30 €', use: 'En solo ou en couple — tout l’espace rien que pour vous.' },
-      { name: '2 chambres', capacity: '3 à 4 voyageurs', price: 'dès 40 €', use: 'Couple avec invités ou petite famille. Chacun sa salle de bain.' },
-      { name: '3 chambres', capacity: '5 à 6 voyageurs', price: 'dès 50 €', use: 'Famille nombreuse ou groupe d’amis. Trois chambres, trois salles de bain.' },
+      { name: '1 chambre', capacity: '1 à 2 voyageurs', price: 'dès 40 €', use: 'En solo ou en couple — tout l’espace rien que pour vous.' },
+      { name: '2 chambres', capacity: '3 à 4 voyageurs', price: 'dès 50 €', use: 'Couple avec invités ou petite famille. Chacun sa salle de bain.' },
+      { name: '3 chambres', capacity: '5 à 6 voyageurs', price: 'dès 60 €', use: 'Famille nombreuse ou groupe d’amis. Trois chambres, trois salles de bain.' },
     ],
     offerCta: 'Réserver sur Airbnb',
     offerNote: "Paiement protégé · Annulation selon les conditions de l'annonce",
@@ -69,18 +62,19 @@ const content = {
     finalTitle: "Rentrez au pays l'esprit tranquille",
     finalText: 'Réservez votre appartement à Cotonou — paiement protégé, avis vérifiés, équipe sur place.',
     finalCta: 'Réserver sur Airbnb',
-    finalMicro: 'Paiement protégé par Airbnb · 5/5 sur les avis voyageurs',
+    finalMicro: `Superhôte Airbnb · ${ratingLabel('fr')} sur ${airbnbRating.count} avis · Paiement protégé`,
     faqTitle: 'Questions fréquentes',
     faq: [
-      { q: 'Comment être sûr que le logement ressemble aux photos ?', a: "Avis 5/5 de voyageurs réels et photos non retouchées. Et avec le paiement protégé Airbnb, vous n'êtes jamais seul en cas de souci." },
+      { q: 'Comment être sûr que le logement ressemble aux photos ?', a: `${ratingLabel('fr')} sur ${airbnbRating.count} avis de voyageurs réels, statut Superhôte et photos non retouchées. Et avec le paiement protégé Airbnb, vous n'êtes jamais seul en cas de souci.` },
       { q: 'Vais-je partager le logement ?', a: "Non. L'appartement est à vous seul." },
       { q: 'Êtes-vous joignables une fois sur place ?', a: 'Oui — nous sommes à Cotonou. Olivia, votre contact, répond sur WhatsApp avant et pendant votre séjour.' },
       { q: 'Et si le courant saute ?', a: "Le WiFi reste actif grâce à un onduleur dédié. La lumière et la clim s'arrêtent le temps de la coupure." },
+      { q: "Faut-il payer l'électricité en plus ?", a: "Non, pour un usage normal. 25 kWh par jour sont inclus dans le tarif : de quoi profiter du logement confortablement, climatisation comprise. Seule une consommation excessive — par exemple la climatisation laissée en marche toute la journée en votre absence — donnerait lieu à un supplément correspondant au dépassement." },
       { q: 'Comment réserver ?', a: "En un clic vers l'annonce Airbnb : paiement protégé, avis vérifiés." },
     ],
   },
   en: {
-    reassurance: ['5/5 on Airbnb', 'Safe neighborhood, night guard', 'Protected payment', 'On-site team'],
+    reassurance: [`Airbnb Superhost · ${ratingLabel('en')}`, 'Safe neighborhood, night guard', 'Protected payment', 'On-site team'],
     painTitle: 'First time in Cotonou? The real question is safety.',
     painP1: "You're booking from afar, perhaps for your first stay in Benin. The photos look great — but is the neighborhood safe? Does the place really look like the photos? And if something goes wrong, will someone be there for you?",
     painP2: 'Your stay is too precious to leave to chance.',
@@ -96,26 +90,16 @@ const content = {
     secTitle: 'You travel with peace of mind, solo or with family',
     secText: 'Maison Ayaba sits in one of the calmest, most well-regarded neighborhoods in Cotonou, right next to the Lycée International Français Pierre Manoël Talon. A guard watches over the night, access is by smart lock (your personal code, no keys passed around), and a safe secures your belongings. A team is on site and reachable at any time.',
     transpTitle: 'Everything is stated upfront. Truly everything.',
-    transpText: "No hidden fees, no surprise at the end of your stay. Electricity included up to 25 kWh/day — more than enough for normal use, air conditioning included. Beyond that, consumption is billed at actual cost, and it's stated clearly before you book. In Benin, electricity has a real cost: we'd rather be transparent than inflate the nightly price.",
+    transpText: "No hidden fees, no surprise at the end of your stay. Electricity included up to 25 kWh/day — more than enough for normal use, air conditioning included. Only excessive consumption — air conditioning left running all day while you're out, for example — incurs a supplement covering the excess, and it's stated clearly before you book. In Benin, electricity has a real cost: we'd rather be transparent than inflate the nightly price.",
     proofTitle: "They booked without knowing us. Here's what they say.",
-    proofBadge: '7 verified reviews on Airbnb',
-    reviews: [
-      { text: "My family and I really enjoyed our stay. Super clean, and you can tell the hosts put a lot of thought into guests' comfort: power banks in the bedrooms, umbrellas, exercise mats, appliance instructions… The apartment is also a stone's throw from the beach, the icing on the cake. Highly recommended.", author: 'Ore', meta: 'Lagos, Nigeria' },
-      { text: 'Exceptionally well located (10 min max from the airport by car, every amenity within a 10-minute walk), spotless, with understated decor and furniture that showcases Beninese craftsmanship. You feel right at home. This apartment is well above the general standard of apartments offered in Cotonou.', author: 'Frantz', meta: 'Paris, France' },
-      { text: "Pleasantly surprised by the quality of the accommodation and Olivia's responsiveness. The location makes it even more unique. Cleanliness, setting, everything was perfect.", author: 'Sefou', meta: 'Brussels, Belgium' },
-      { text: 'A perfect stay from start to finish! The apartment was spotless, comfortable and exactly as described. The welcome, the availability and the attention to detail really made the difference. I recommend this place 100%.', author: 'Laurette', meta: '3-bedroom apartment' },
-      { text: 'A beautiful and welcoming space. Well thought out, comfortable and relaxing. Olivia was kind, responsive and very attentive. Highly recommended!', author: 'Olutayo', meta: 'Lagos, Nigeria' },
-      { text: 'I was pleasantly surprised by the place. Everything was spotless. I had a very good stay.', author: 'Muriel', meta: 'Ploeren, France' },
-      { text: "Maison Ayaba, I can't wait to book with you again for my next trip!", author: 'Ayigbe', meta: 'Accra, Ghana' },
-    ],
     offerTitle: 'Your apartment in Fidjrossè, up to 6 guests',
     offerLead: 'Choose your format: everyone gets their own bedroom, their own bathroom. The more of you, the more unbeatable the cost per person.',
     perNight: 'night',
     offerPriceNote: 'based on dates',
     formats: [
-      { name: '1 bedroom', capacity: '1–2 guests', price: 'from €30', use: 'Solo or as a couple — all the space to yourself.' },
-      { name: '2 bedrooms', capacity: '3–4 guests', price: 'from €40', use: 'Couple with guests or a small family. Each their own bathroom.' },
-      { name: '3 bedrooms', capacity: '5–6 guests', price: 'from €50', use: 'Large family or group of friends. Three bedrooms, three bathrooms.' },
+      { name: '1 bedroom', capacity: '1–2 guests', price: 'from €40', use: 'Solo or as a couple — all the space to yourself.' },
+      { name: '2 bedrooms', capacity: '3–4 guests', price: 'from €50', use: 'Couple with guests or a small family. Each their own bathroom.' },
+      { name: '3 bedrooms', capacity: '5–6 guests', price: 'from €60', use: 'Large family or group of friends. Three bedrooms, three bathrooms.' },
     ],
     offerCta: 'Book on Airbnb',
     offerNote: "Protected payment · Cancellation per the listing's terms",
@@ -124,19 +108,24 @@ const content = {
     finalTitle: 'Go home with peace of mind',
     finalText: 'Book your apartment in Cotonou — protected payment, verified reviews, on-site team.',
     finalCta: 'Book on Airbnb',
-    finalMicro: 'Payment protected by Airbnb · 5/5 on traveler reviews',
+    finalMicro: `Airbnb Superhost · ${ratingLabel('en')} from ${airbnbRating.count} reviews · Protected payment`,
     faqTitle: 'Frequently asked questions',
     faq: [
-      { q: 'How can I be sure the place looks like the photos?', a: "5/5 reviews from real travelers and unretouched photos. And with Airbnb's protected payment, you're never on your own if something comes up." },
+      { q: 'How can I be sure the place looks like the photos?', a: `${ratingLabel('en')} from ${airbnbRating.count} real traveler reviews, Superhost status and unretouched photos. And with Airbnb's protected payment, you're never on your own if something comes up.` },
       { q: 'Will I share the apartment?', a: 'No. The apartment is yours alone.' },
       { q: "Are you reachable once I'm there?", a: 'Yes — we’re in Cotonou. Olivia, your contact, answers on WhatsApp before and during your stay.' },
       { q: 'What if the power goes out?', a: 'The WiFi stays on thanks to a dedicated inverter. The lights and AC stop for the duration of the outage.' },
+      { q: "Do I have to pay extra for electricity?", a: "Not for normal use. 25 kWh per day are included in the price: enough to enjoy the apartment comfortably, air conditioning included. Only excessive consumption \u2014 for example air conditioning left running all day while you're out \u2014 would incur a supplement covering the excess." },
       { q: 'How do I book?', a: 'One click to the Airbnb listing: protected payment, verified reviews.' },
     ],
   },
 } as const;
 
 const c = content[locale];
+const featuredReviews = reviews.filter((r) => r.featured);
+// Badge Airbnb « Coup de cœur voyageurs » : porté par l'annonce 3 chambres uniquement (index 2).
+const guestFavoriteIndex = 2;
+const guestFavoriteLabel = locale === 'fr' ? 'Coup de cœur voyageurs' : 'Guest favorite';
 const arrow = '<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd"/>';
 ---
 {/* Bandeau réassurance */}
@@ -208,18 +197,17 @@ const arrow = '<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7
 
 {/* Preuve */}
 <section class="bg-white py-16 lg:py-20">
-  <div class="max-w-4xl mx-auto px-5 lg:px-8">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
     <h2 class="font-heading text-ayaba-dark text-[24px] lg:text-[32px] font-bold mb-3 text-center leading-tight">{c.proofTitle}</h2>
-    <p class="flex items-center justify-center gap-2 mb-10 text-center">
-      <span class="text-ayaba-gold text-lg" aria-hidden="true">★★★★★</span>
-      <span class="text-ayaba-dark text-sm font-semibold">5/5 · {c.proofBadge}</span>
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-      {c.reviews.map((r) => (
+    <div class="flex justify-center mb-10">
+      <SuperhostBadge locale={locale} tone="onLight" />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {featuredReviews.map((r) => (
         <figure class="bg-ayaba-cream rounded-2xl p-6 lg:p-7 flex flex-col">
           <div class="text-ayaba-gold text-lg mb-3" aria-hidden="true">★★★★★</div>
-          <blockquote class="text-ayaba-dark text-base leading-relaxed mb-4 flex-1">« {r.text} »</blockquote>
-          <figcaption class="text-ayaba-muted text-sm font-semibold">— {r.author} <span class="font-normal text-ayaba-muted/80">· {r.meta}</span></figcaption>
+          <blockquote class="text-ayaba-dark text-base leading-relaxed mb-4 flex-1">« {r.text[locale]} »</blockquote>
+          <figcaption class="text-ayaba-muted text-sm font-semibold">— {r.author} <span class="font-normal text-ayaba-muted/80">· {reviewMeta(r, locale)}</span></figcaption>
         </figure>
       ))}
     </div>
@@ -247,6 +235,12 @@ const arrow = '<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7
         <div class="bg-ayaba-cream rounded-2xl p-6 lg:p-7 border border-ayaba-terra/15 flex flex-col items-center text-center">
           <h3 class="font-heading text-ayaba-dark text-[20px] font-bold mb-1">{f.name}</h3>
           <p class="text-ayaba-muted text-sm mb-4">{f.capacity}</p>
+          {i === guestFavoriteIndex && (
+            <span class="inline-flex items-center gap-1.5 text-ayaba-terra text-[11px] font-semibold uppercase tracking-wide bg-white border border-ayaba-gold/50 rounded-full px-3 py-1 mb-4">
+              <LineIcon name="heart" class="w-3.5 h-3.5 text-ayaba-terra" />
+              {guestFavoriteLabel}
+            </span>
+          )}
           <div class="mb-4">
             <span class="font-heading text-ayaba-terra text-[28px] font-bold">{f.price}</span>
             <span class="text-ayaba-muted text-sm"> /{c.perNight}</span>

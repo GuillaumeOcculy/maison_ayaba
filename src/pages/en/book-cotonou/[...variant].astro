@@ -3,7 +3,7 @@ import LandingLayout from '../../../layouts/LandingLayout.astro';
 import LandingHero from '../../../components/landing/LandingHero.astro';
 import LandingBody from '../../../components/landing/LandingBody.astro';
 import { apartments } from '../../../data/apartments';
-import { baseUrl } from '../../../data/siteConfig';
+import { baseUrl, airbnbRating, ratingLabel } from '../../../data/siteConfig';
 import salonHero from '../../../assets/images/hero/salon.png';
 import terrasse from '../../../assets/images/apartments/terrasse2.png';
 import salonWork from '../../../assets/images/apartments/salon3.png';
@@ -70,7 +70,7 @@ const formatHrefs = apartments.map((a) => a.airbnbUrl);
 
 const title = 'Apartment in Cotonou, Fidjrossè — safe neighborhood, no nasty surprises | Maison Ayaba';
 const description =
-  'Apartment in Fidjrossè, a safe residential area (night guard, next to the Lycée International Français). Verified 5/5 reviews, true-to-life photos, air conditioning, complimentary airport transfer. From €40/night, payment protected by Airbnb.';
+  `Apartment in Fidjrossè, a safe residential area (night guard, next to the Lycée International Français). Airbnb Superhost, ${ratingLabel('en')} from ${airbnbRating.count} reviews, true-to-life photos, air conditioning, complimentary airport transfer. From €40/night, payment protected by Airbnb.`;
 const canonical = `${baseUrl}${Astro.url.pathname}`;
 const alternates = [
   { hreflang: 'en', href: canonical },
