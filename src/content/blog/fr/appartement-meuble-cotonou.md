@@ -102,7 +102,7 @@ Un appartement haut de gamme coûte plus cher, mais le rapport qualité/prix est
 - **Clim dans chaque pièce** — même la cuisine
 - **Serrure connectée + caméra Ring** — sécurité sans compromis
 - **Fidjrossè Jacquot** — quartier résidentiel, 10 min de la plage
-- **3 configurations** — 1, 2 ou 3 chambres, dès 40€/nuit selon les dates
+- **3 configurations** — 1, 2 ou 3 chambres, dès 60€/nuit selon les dates
 - **Protocole Kwabo** — panier de bienvenue, clim pré-allumée, hôte disponible
 
 Plus de 20 000€ investis en infrastructure pour garantir un séjour sans mauvaise surprise. C'est la différence entre un Airbnb improvisé et une marque hôtelière structurée.
