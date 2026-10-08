@@ -7,7 +7,7 @@ tags: ["accommodation", "cotonou", "apartment", "hotel", "comparison"]
 alternateSlug: "appartement-vs-hotel-cotonou"
 faqItems:
   - question: "Is a furnished apartment cheaper than a hotel in Cotonou?"
-    answer: "For comparable comfort, yes. A quality furnished apartment costs 60 to 100 euros per night for up to 6 guests, while an international hotel room starts at 150 to 250 euros for much less space. The savings grow with group size."
+    answer: "For comparable comfort, yes. A quality furnished apartment like Maison Ayaba starts from 60 euros per night depending on the format and dates, for up to 6 guests, while an international hotel room starts at 150 to 250 euros for much less space. The savings grow with group size."
   - question: "What are the advantages of a furnished apartment over a hotel in Cotonou?"
     answer: "More space (up to 167 square meters vs a 25 square meter hotel room), a full kitchen, washing machine, multiple bedrooms and bathrooms, and a more authentic experience of the city. You live like a local, not like a tourist."
   - question: "Are furnished apartments in Cotonou reliable?"
@@ -43,9 +43,9 @@ Let's compare real numbers for a week in Cotonou:
 - No kitchen — add restaurant meals 3 times a day
 
 **Furnished apartment at Maison Ayaba:**
-- 1 bedroom (122 m²): from 30 euros/night
-- 2 bedrooms (144 m²): from 40 euros/night
-- 3 bedrooms (167 m²): from 50 euros/night
+- 1 bedroom (122 m²): from 60 euros/night
+- 2 bedrooms (144 m²): from 80 euros/night
+- 3 bedrooms (167 m²): from 100 euros/night
 - Full kitchen — cook when you want, eat out when you want
 
 Even comparing the most expensive apartment configuration to the cheapest hotel option, you save **several hundred euros per week** while getting 5 times more space.

@@ -7,7 +7,7 @@ tags: ["hébergement", "cotonou", "appartement", "hôtel", "comparatif"]
 alternateSlug: "apartment-vs-hotel-cotonou"
 faqItems:
   - question: "Est-ce moins cher de louer un appartement qu'un hôtel à Cotonou ?"
-    answer: "Oui, nettement. Un hôtel de standing à Cotonou (Novotel, Azalaï) coûte entre 150 et 250€ la nuit pour une chambre de 25m². Un appartement meublé comme Maison Ayaba propose 122 à 167m² pour 60 à 100€ la nuit."
+    answer: "Oui, nettement. Un hôtel de standing à Cotonou (Novotel, Azalaï) coûte entre 150 et 250€ la nuit pour une chambre de 25m². Un appartement meublé comme Maison Ayaba propose 122 à 167m² dès 60€ la nuit selon le format et les dates."
   - question: "Un appartement meublé est-il adapté aux familles à Cotonou ?"
     answer: "Absolument. Avec plusieurs chambres, un salon, une cuisine équipée et un lave-linge, un appartement offre l'espace et l'autonomie dont une famille a besoin. Les enfants ont de la place pour jouer, et vous pouvez préparer vos repas."
   - question: "Quels sont les avantages d'un appartement par rapport à un hôtel à Cotonou ?"

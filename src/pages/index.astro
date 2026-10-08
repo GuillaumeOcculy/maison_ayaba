@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import LogementCards from '../components/sections/LogementCards.astro';
 import ReviewsSection from '../components/sections/ReviewsSection.astro';
+import SuperhostBadge from '../components/ui/SuperhostBadge.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
 import FinalCta from '../components/sections/FinalCta.astro';
 import PhotoLightbox from '../components/ui/PhotoLightbox.astro';
@@ -29,7 +30,9 @@ const locale = 'fr' as const;
     title={t(locale, 'home.heroTitle')}
     subtitle={t(locale, 'home.heroSubtitle')}
     primaryCta={{ text: t(locale, 'home.heroPrimaryCta'), href: '#logements' }}
-  />
+  >
+    <SuperhostBadge slot="badge" locale={locale} class="mb-5" />
+  </HeroSection>
 
   <LogementCards locale={locale} />
 
